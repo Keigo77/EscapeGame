@@ -1122,13 +1122,13 @@ RectTransform:
   - {fileID: 3977098077468140576}
   - {fileID: 1654823179894614889}
   - {fileID: 4032536436663094817}
-  - {fileID: 7361717781341115520}
   - {fileID: 1383252062535716525}
   - {fileID: 5032600961054199723}
   - {fileID: 8010176369545557149}
-  - {fileID: 3092280975151570438}
-  - {fileID: 8752095433132542296}
+  - {fileID: 7361717781341115520}
   - {fileID: 7086255554916428937}
+  - {fileID: 8752095433132542296}
+  - {fileID: 3092280975151570438}
   m_Father: {fileID: 6665971935691371457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1343,13 +1343,90 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3778347189123371938}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8530847088196412598}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917151006714189556}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
 --- !u!4 &224519932914799224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 330766963466630547}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600798566282283202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 330766963466630547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3778347189123371938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600798566282283202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1917151006714189556}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: DownButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &8530847088196412598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600798566282283202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.431762, y: 1, z: 1.3665156}
+  m_Center: {x: 0.06308286, y: 1.6764909e-15, z: -0.28207296}
+--- !u!114 &1917151006714189556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600798566282283202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 8442191876781220325}
 --- !u!1001 &1092772225227859419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1421,8 +1498,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2587127798319250033}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8217223571354088181}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6439035054372239412}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+--- !u!1 &282362683990448266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 1092772225227859419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2587127798319250033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282362683990448266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8217223571354088181}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: UpButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &8217223571354088181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282362683990448266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 8442191876781220325}
+--- !u!65 &6439035054372239412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282362683990448266}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4579263, y: 1, z: 1.3689762}
+  m_Center: {x: 0.034112483, y: -2.053202e-15, z: -0.32561764}
 --- !u!4 &621769367056794160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -1494,7 +1648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (2)
+      value: UpButton2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1580,13 +1734,90 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5270242929243122369}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7543586751252785244}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3443904600671632290}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
 --- !u!4 &2871165937346410767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 2329160662682869476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3212120526269686709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 2329160662682869476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5270242929243122369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212120526269686709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3443904600671632290}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: UpButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &7543586751252785244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212120526269686709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4233599, y: 1, z: 1.3022377}
+  m_Center: {x: 0.017434966, y: 4.9801514e-17, z: -0.2738689}
+--- !u!114 &3443904600671632290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212120526269686709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 4753061844274256142}
 --- !u!1001 &2407199858387293265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1635,9 +1866,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       propertyPath: m_Name
-      value: DesideButton.vox-0
+      value: DesideButton
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1654,13 +1889,114 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8333811089729592948}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8867595805696338612}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9183951095964023859}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5811883190158084931}
   m_SourcePrefab: {fileID: 100100000, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
 --- !u!4 &2801994302919996346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
   m_PrefabInstance: {fileID: 2407199858387293265}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3290299908632258816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+  m_PrefabInstance: {fileID: 2407199858387293265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8333811089729592948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290299908632258816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26433472713de42a2a1d3cac7dec9244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answer: 8962
+  _boxCover: {fileID: 0}
+  _southandText: {fileID: 4458997821618930488}
+  _hundredText: {fileID: 8442191876781220325}
+  _tenText: {fileID: 4753061844274256142}
+  _oneText: {fileID: 1868662722118956129}
+--- !u!114 &8867595805696338612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290299908632258816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIPanel: {fileID: 0}
+  _textObject: {fileID: 0}
+  _textSentences:
+  - "\u7BB1\u304C\u958B\u3044\u305F\uFF01"
+--- !u!114 &9183951095964023859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290299908632258816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8333811089729592948}
+          m_TargetAssemblyTypeName: NumberPanelDecideButton, Assembly-CSharp
+          m_MethodName: ClickOnDecideButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &5811883190158084931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290299908632258816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5793159, y: 0.70554554, z: 0.37740332}
+  m_Center: {x: -1.9981104, y: 2.571327, z: -1.5176116}
 --- !u!1001 &3270532884974729709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1727,7 +2063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (7)
+      value: DownButton4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1813,8 +2149,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4206827034993485697}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7109048502411870216}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5978512745914963845}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+--- !u!1 &2512962896750889065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 3323304274844185912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4206827034993485697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512962896750889065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5978512745914963845}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: UpButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &7109048502411870216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512962896750889065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4845617, y: 1, z: 1.2655182}
+  m_Center: {x: 0.045841597, y: -2.3688411e-15, z: -0.2930509}
+--- !u!114 &5978512745914963845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512962896750889065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 1868662722118956129}
 --- !u!4 &2996027194609930963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -1886,7 +2299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton
+      value: UpButton1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1967,7 +2380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (4)
+      value: UpButton3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2053,13 +2466,90 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7613606530079612278}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4012787827083830708}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5197390977374428848}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
 --- !u!4 &4741561505657977813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 5064245469213203518}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5370183830640042351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 5064245469213203518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7613606530079612278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370183830640042351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 4458997821618930488}
+--- !u!114 &4012787827083830708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370183830640042351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7613606530079612278}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: UpButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &5197390977374428848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370183830640042351}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.425459, y: 1, z: 1.4429525}
+  m_Center: {x: 0.044021524, y: -2.1683446e-15, z: -0.31373754}
 --- !u!1001 &7034809724230890347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2126,7 +2616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (1)
+      value: DownButton1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2207,7 +2697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (3)
+      value: DownButton2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2293,13 +2783,90 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 519925273552505349}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027759430587377596}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7510270619637693291}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
 --- !u!4 &6937611882900587395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 7479881110397969512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7713691910755440953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 7479881110397969512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &519925273552505349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713691910755440953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 4753061844274256142}
+--- !u!114 &2027759430587377596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713691910755440953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 519925273552505349}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: DownButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &7510270619637693291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713691910755440953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4460478, y: 1, z: 1.318945}
+  m_Center: {x: 0.07775987, y: -2.684652e-16, z: -0.2566659}
 --- !u!1001 &7502640324201264529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2371,8 +2938,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5503994430450267157}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6810300289826365032}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7869819534800417777}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+--- !u!1 &7268759556812212416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 7502640324201264529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5503994430450267157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268759556812212416}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4168787, y: 1, z: 1.363827}
+  m_Center: {x: 0.08086674, y: 4.5618346e-16, z: -0.2652174}
+--- !u!114 &6810300289826365032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268759556812212416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7869819534800417777}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: DownButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7869819534800417777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268759556812212416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 1868662722118956129}
 --- !u!4 &8040054407522734714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -2444,7 +3088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (6)
+      value: UpButton4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2530,8 +3174,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2315887011954242825}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3308892209651789165}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1215014404101024359}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+--- !u!1 &7441050498723016099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+  m_PrefabInstance: {fileID: 7746901441459900658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2315887011954242825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441050498723016099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d66e1e9244f1aaf78634926d26a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numText: {fileID: 4458997821618930488}
+--- !u!114 &3308892209651789165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441050498723016099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2315887011954242825}
+          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
+          m_MethodName: DownButtonOnClickPointer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &1215014404101024359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441050498723016099}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.418467, y: 1, z: 1.3792937}
+  m_Center: {x: 0.07146459, y: 1.4942218e-15, z: -0.30132648}
 --- !u!4 &7784538672028759833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -2651,6 +3372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: e234a35eba65b4ff9aed0f81f2dfedb2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e234a35eba65b4ff9aed0f81f2dfedb2, type: 3}
       propertyPath: m_Name
       value: DesideButton.vox-1
@@ -2741,7 +3466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
-      value: UpDownButton (5)
+      value: DownButton3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
