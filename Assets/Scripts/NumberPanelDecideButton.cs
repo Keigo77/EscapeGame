@@ -7,7 +7,7 @@ public class NumberPanelDecideButton : MonoBehaviour
 {
     [Header("暗号の答えを4桁の数字で入力")]
     [SerializeField] private int _answer;
-    [SerializeField] private GameObject _boxCover;
+    [SerializeField] private GameObject _boxCoverPivot;
     [SerializeField] private TextMeshProUGUI _southandText;
     [SerializeField] private TextMeshProUGUI _hundredText;
     [SerializeField] private TextMeshProUGUI _tenText;
@@ -18,7 +18,9 @@ public class NumberPanelDecideButton : MonoBehaviour
     private void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
-        
+        if (!ES3.KeyExists("PriceGimmick")) return;
+        _isCorrected = ES3.Load<bool>("PriceGimmick");
+        if (_isCorrected) CorrectAnswer();
     }
 
     public void ClickOnDecideButton()
@@ -44,8 +46,8 @@ public class NumberPanelDecideButton : MonoBehaviour
     private void CorrectAnswer()
     {
         _isCorrected = true;
-        _boxCover.SetActive(false);     // 箱を開ける
+        ES3.Save<bool>("PriceGimmick", _isCorrected);
+        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -90, 0), 1.0f);
         _showTextMessage.ShowText();
-        
     }
 }
