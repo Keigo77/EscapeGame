@@ -11,8 +11,10 @@ public class ItemDatabase : ScriptableObject
 [System.Serializable]
 public class ItemData
 {
-    [SerializeField] private GameObject _itemObject;
-    [SerializeField] private string _itemID;
-    [SerializeField] private string _itemName;
-    [SerializeField] private string _itemExplain;
+    public Image _itemHalfImage;
+    public bool _isHaveObject;
+    public Image _itemImage;
+    public GameObject _itemObject;
+    public int _itemID;
+    public string _itemExplain;
 }
