@@ -18,9 +18,11 @@ public class NumberPanelDecideButton : MonoBehaviour
     private void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
+        /*　セーブ部分
         if (!ES3.KeyExists("PriceGimmick")) return;
         _isCorrected = ES3.Load<bool>("PriceGimmick");
         if (_isCorrected) CorrectAnswer();
+        */
     }
 
     public void ClickOnDecideButton()

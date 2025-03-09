@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,8 +21,8 @@ public class MoveCamera : MonoBehaviour
 
     public void OnPointerClicked()
     {
+        _cameraMoveRecorder.PositionUpdate(_cameraObject.position, _cameraObject.rotation.eulerAngles);
         _cameraObject.position = _movePosition;
         _cameraObject.rotation = Quaternion.Euler(_moveRotate);
-        _cameraMoveRecorder.PositionUpdate(_cameraObject.position, _cameraObject.rotation.eulerAngles);
     }
 }
