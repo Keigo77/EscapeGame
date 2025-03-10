@@ -32,8 +32,9 @@ public class NumberPanelDecideButton : MonoBehaviour
                           int.Parse(_hundredText.text) * 100 +
                           int.Parse(_tenText.text) * 10 +
                           int.Parse(_oneText.text);
-        
-        this.transform.DOLocalMove(new Vector3(0, -3f, 0), 0.5f);
+
+        this.transform.DOLocalMove(new Vector3(0, 0, -0.2f), 0.25f)
+            .OnComplete(() => this.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         if (playerInput == _answer)
         {
             CorrectAnswer();
@@ -42,7 +43,6 @@ public class NumberPanelDecideButton : MonoBehaviour
         {
             // 間違えていた時の処理
         }
-        this.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f);
     }
 
     private void CorrectAnswer()

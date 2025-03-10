@@ -35,6 +35,7 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - ExcelImporter
     - UniRx
     - UniRx.Examples
     - UniTask

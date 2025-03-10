@@ -313,9 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6493a4711501400aa5d1ca98f6aace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPositionDatabase: {fileID: 11400000, guid: b4169cddb7fd7400eaab60315da2bd1c, type: 2}
   _cameraObject: {fileID: 330585546}
-  _movePosition: {x: 9.13, y: 5.7, z: -7.34}
-  _moveRotate: {x: 0, y: -180, z: 0}
+  _cameraId: 1
   _cameraMoveRecorder: {fileID: 1211455139}
 --- !u!1 &78742293
 GameObject:
@@ -342,12 +342,12 @@ Transform:
   m_GameObject: {fileID: 78742293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18507814, y: -2.104309, z: 5.25125}
+  m_LocalPosition: {x: -5.955078, y: -2.104309, z: -2.46875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1272677377}
-  m_Father: {fileID: 2004458819}
+  m_Father: {fileID: 697205424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97510895
 GameObject:
@@ -1935,9 +1935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6493a4711501400aa5d1ca98f6aace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPositionDatabase: {fileID: 11400000, guid: b4169cddb7fd7400eaab60315da2bd1c, type: 2}
   _cameraObject: {fileID: 330585546}
-  _movePosition: {x: 12.87, y: 3.63, z: -13.63}
-  _moveRotate: {x: 50, y: -180, z: 0}
+  _cameraId: 3
   _cameraMoveRecorder: {fileID: 1211455139}
 --- !u!114 &402303710
 MonoBehaviour:
@@ -4040,6 +4040,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 804490976}
+  - {fileID: 78742294}
   m_Father: {fileID: 754116240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699240282 stripped
@@ -4191,9 +4192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6493a4711501400aa5d1ca98f6aace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPositionDatabase: {fileID: 11400000, guid: b4169cddb7fd7400eaab60315da2bd1c, type: 2}
   _cameraObject: {fileID: 330585546}
-  _movePosition: {x: -10.69, y: 10.8, z: 1.47}
-  _moveRotate: {x: 25, y: -180, z: 0}
+  _cameraId: 6
   _cameraMoveRecorder: {fileID: 1211455139}
 --- !u!114 &771163883
 MonoBehaviour:
@@ -4433,7 +4434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bbac135928c451182f87a8bfd32a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemDatasScriptableObject: {fileID: 11400000, guid: 5ef988fa63a1946818ab9554e906f168, type: 2}
+  _itemDatabase: {fileID: 0}
   _gotItemDatas: []
   _itemImages:
   - {fileID: 1468241598}
@@ -4473,7 +4474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50d4a8bf5f684ac7aefd031c43c2ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemDatasScriptableObject: {fileID: 11400000, guid: 5ef988fa63a1946818ab9554e906f168, type: 2}
+  _itemDatabase: {fileID: 0}
   _rawImage: {fileID: 837011361}
   _explainText: {fileID: 853287688}
 --- !u!1 &804490972
@@ -9119,9 +9120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6493a4711501400aa5d1ca98f6aace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPositionDatabase: {fileID: 11400000, guid: b4169cddb7fd7400eaab60315da2bd1c, type: 2}
   _cameraObject: {fileID: 330585546}
-  _movePosition: {x: -0.3, y: 10.58, z: -10.45}
-  _moveRotate: {x: 0, y: -180, z: 0}
+  _cameraId: 5
   _cameraMoveRecorder: {fileID: 1211455139}
 --- !u!114 &1995223881
 MonoBehaviour:
@@ -9270,6 +9271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetObjects:
   - {fileID: 78742293}
+  - {fileID: 1331182494}
 --- !u!1 &2004458818
 GameObject:
   m_ObjectHideFlags: 0
@@ -9300,8 +9302,7 @@ Transform:
   m_LocalPosition: {x: -5.77, y: 0, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 78742294}
+  m_Children: []
   m_Father: {fileID: 754116240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2004458820
@@ -9659,9 +9660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6493a4711501400aa5d1ca98f6aace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPositionDatabase: {fileID: 11400000, guid: b4169cddb7fd7400eaab60315da2bd1c, type: 2}
   _cameraObject: {fileID: 330585546}
-  _movePosition: {x: 9.79, y: 8.12, z: -11.85}
-  _moveRotate: {x: 0, y: -180, z: 0}
+  _cameraId: 2
   _cameraMoveRecorder: {fileID: 1211455139}
 --- !u!114 &2026229597
 MonoBehaviour:

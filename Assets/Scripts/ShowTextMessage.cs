@@ -17,7 +17,6 @@ public class ShowTextMessage : MonoBehaviour
     void Awake()
     {
         _textMaxNumber = _textSentences.Length;
-        Debug.Log(_textMaxNumber);
         _token = this.GetCancellationTokenOnDestroy();
     }
 

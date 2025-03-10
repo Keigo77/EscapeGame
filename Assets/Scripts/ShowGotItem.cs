@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class ShowGotItem : MonoBehaviour
 {
-    [SerializeField] private ItemDatabase _itemDatasScriptableObject;
+    [SerializeField] private ItemDatabase _itemDatabase;
+    private List<ItemData> _itemDatabaseCopy;
     
     [SerializeField] private List<ItemData> _gotItemDatas = new List<ItemData>();
     [SerializeField] private List<Image> _itemImages = new List<Image>();
@@ -15,11 +16,16 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private GameObject _showItemPanel;
     [SerializeField] private Button _showItemButton;
 
+    void Awake()
+    {
+        _itemDatabaseCopy = _itemDatabase.itemDatas;
+    }
+    
     public void GetItem(int itemID)
     {
-        _gotItemDatas.Add(_itemDatasScriptableObject.itemDatas[itemID]);
+        _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
-        SelectingItem.selectingItemID.Value = _itemDatasScriptableObject.itemDatas[itemID].itemID;
+        SelectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
     }
     

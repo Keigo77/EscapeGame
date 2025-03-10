@@ -838,10 +838,10 @@ RectTransform:
   m_GameObject: {fileID: 6217398193902826320}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -1.3979797}
-  m_LocalScale: {x: 0.04322741, y: 0.04322741, z: 0.04322741}
+  m_LocalScale: {x: 0.043227416, y: 0.043227416, z: 0.043227416}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7563947261668557630}
+  m_Father: {fileID: 2801994302919996346}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1888,7 +1888,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3038027498690721015}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       insertIndex: -1
@@ -1926,7 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _answer: 8962
-  _boxCover: {fileID: 0}
+  _boxCoverPivot: {fileID: 0}
   _southandText: {fileID: 4458997821618930488}
   _hundredText: {fileID: 8442191876781220325}
   _tenText: {fileID: 4753061844274256142}
@@ -3390,9 +3393,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e234a35eba65b4ff9aed0f81f2dfedb2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2801994302919996346}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e234a35eba65b4ff9aed0f81f2dfedb2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3038027498690721015}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e234a35eba65b4ff9aed0f81f2dfedb2, type: 3}
 --- !u!4 &7563947261668557630 stripped
