@@ -15,7 +15,7 @@ MonoBehaviour:
   cameraDataSheet:
   - id: 0
     cameraTitle: "\u8CB7\u3044\u7269\u30AB\u30B4\u65B9\u5411(4\u65B9\u5411)"
-    posX: -0.3
+    posX: -1.27
     posY: 9.73
     posZ: 3.2
     rotX: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
     rotY: -180
     rotZ: 0
   - id: 2
-    cameraTitle: "\u8CB7\u3044\u7269\u30AB\u30B4\u5165\u529B\u30D1\u30CD\u30EB"
+    cameraTitle: "\u8CB7\u3044\u7269\u30AB\u30B4\u30AE\u30DF\u30C3\u30AF\u306E\u5024\u6BB5\u5165\u529B\u3092\u3059\u308B"
     posX: 10.28
     posY: 7.88
     posZ: -12.21
@@ -46,26 +46,34 @@ MonoBehaviour:
     rotY: -180
     rotZ: 0
   - id: 4
-    cameraTitle: "\u5024\u6BB5\u5165\u529B\u30D1\u30CD\u30EB"
-    posX: 9.79
-    posY: 8.12
-    posZ: -11.85
-    rotX: 0
-    rotY: -180
-    rotZ: 0
-  - id: 5
-    cameraTitle: "\u9752\u3044\u6642\u8A08"
+    cameraTitle: "\u9752\u3044\u6642\u8A08\u3092\u62E1\u5927"
     posX: -0.3
     posY: 10.58
     posZ: -10.45
     rotX: 0
     rotY: -180
     rotZ: 0
-  - id: 6
+  - id: 5
     cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC"
     posX: -11.99
     posY: 8.16
     posZ: -5.78
     rotX: 25
+    rotY: -180
+    rotZ: 0
+  - id: 6
+    cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC\u306E\u30BF\u30C3\u30C1\u30D1\u30CD\u30EB\u3092\u64CD\u4F5C"
+    posX: -10.93
+    posY: 7.12
+    posZ: -10.84
+    rotX: 90
+    rotY: -180
+    rotZ: 0
+  - id: 7
+    cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC\u306E\u6A2A\u306B\u843D\u3061\u3066\u308B\u866B\u773C\u93E1\u306B\u63A5\u8FD1\u3059\u308B"
+    posX: -15.36
+    posY: 5.47
+    posZ: -9.97
+    rotX: 50
     rotY: -180
     rotZ: 0

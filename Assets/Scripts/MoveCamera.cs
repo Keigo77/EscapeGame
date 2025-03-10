@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class MoveCamera : MonoBehaviour
 {
     [SerializeField] private CameraPositionExcel _cameraPositionDatabase;
     private List<CameraPositionDatabase> _cameraPositionDatabaseCopy;
-    [SerializeField] private Transform _cameraObject;
-    [SerializeField] private int _cameraId;
+    [SerializeField] private Transform _mainCamera;
     [SerializeField] private CameraMoveRecorder _cameraMoveRecorder;
 
     void Awake()
@@ -19,18 +19,18 @@ public class MoveCamera : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _cameraObject.position = new Vector3(-0.3f, 9.73f, 3.2f);   // 初期位置
-        _cameraObject.rotation = Quaternion.Euler(0, -180, 0);
+        _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[0].posX, _cameraPositionDatabaseCopy[0].posY, _cameraPositionDatabaseCopy[0].posZ);  // 初期位置
+        _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[0].rotX, _cameraPositionDatabaseCopy[0].rotY, _cameraPositionDatabaseCopy[0].rotZ));
         _cameraMoveRecorder.FourInitialPosition();
     }
 
-    public void OnPointerClicked()
+    public void OnPointerClicked(int cameraId)
     {
-        _cameraMoveRecorder.PositionUpdate(_cameraObject.position, _cameraObject.rotation.eulerAngles);
+        _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
         // Excelからカメラポジションと角度を取得
-        Vector3 _movePosition = new Vector3(_cameraPositionDatabaseCopy[_cameraId].posX, _cameraPositionDatabaseCopy[_cameraId].posY, _cameraPositionDatabaseCopy[_cameraId].posZ);
-        Vector3 _moveRotate = new Vector3(_cameraPositionDatabaseCopy[_cameraId].rotX, _cameraPositionDatabaseCopy[_cameraId].rotY, _cameraPositionDatabaseCopy[_cameraId].rotZ);
-        _cameraObject.position = _movePosition;
-        _cameraObject.rotation = Quaternion.Euler(_moveRotate);
+        Vector3 _movePosition = new Vector3(_cameraPositionDatabaseCopy[cameraId].posX, _cameraPositionDatabaseCopy[cameraId].posY, _cameraPositionDatabaseCopy[cameraId].posZ);
+        Vector3 _moveRotate = new Vector3(_cameraPositionDatabaseCopy[cameraId].rotX, _cameraPositionDatabaseCopy[cameraId].rotY, _cameraPositionDatabaseCopy[cameraId].rotZ);
+        _mainCamera.position = _movePosition;
+        _mainCamera.rotation = Quaternion.Euler(_moveRotate);
     }
 }

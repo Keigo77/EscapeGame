@@ -15,66 +15,53 @@ MonoBehaviour:
   itemDatas:
   - itemHalfImage: {fileID: 21300000, guid: 3418123a3e9c546e5a3f7b6c0d900287, type: 3}
     renderTexture: {fileID: 8400000, guid: 95f86cbc7c8ee4342ad4753a111dd25a, type: 2}
-    rotateObject: {fileID: 0}
     itemID: 0
     itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u7D2B\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
   - itemHalfImage: {fileID: 21300000, guid: e1dfa76bcd57544dbbc1b4d85a1fd448, type: 3}
     renderTexture: {fileID: 8400000, guid: b2f13f9eb7ccf49b79ae997936cae763, type: 2}
-    rotateObject: {fileID: 0}
     itemID: 1
     itemExplain: "\u9EC4\u8272\u3044\u9375\u3060\uFF0E"
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
+  - itemHalfImage: {fileID: 21300000, guid: 3ba4ac756ebef45d59c38f021b84416c, type: 3}
+    renderTexture: {fileID: 8400000, guid: 00cc340906c304a3899af04bda6efaf1, type: 2}
     itemID: 2
-    itemExplain: 
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
+    itemExplain: "\u77E2\u5370\u304C\u4E26\u3093\u3067\u3044\u308B\uFF0E\u4F55\u304B\u306E\u6697\u53F7\u3060\u308D\u3046\u304B\uFF0E"
+  - itemHalfImage: {fileID: 21300000, guid: cdb678e1ea6c2416783960eb4bcbda95, type: 3}
+    renderTexture: {fileID: 8400000, guid: b3434da1d44784052a69466616409d41, type: 2}
     itemID: 3
-    itemExplain: 
+    itemExplain: "\u866B\u773C\u93E1\u3060\uFF0E"
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 4
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 5
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 6
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 7
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 8
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 9
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 10
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 11
     itemExplain: 
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
-    rotateObject: {fileID: 0}
     itemID: 12
     itemExplain: 

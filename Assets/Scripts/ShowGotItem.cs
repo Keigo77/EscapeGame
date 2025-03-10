@@ -10,6 +10,7 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private ItemDatabase _itemDatabase;
     private List<ItemData> _itemDatabaseCopy;
     
+    [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private List<ItemData> _gotItemDatas = new List<ItemData>();
     [SerializeField] private List<Image> _itemImages = new List<Image>();
 
@@ -25,7 +26,7 @@ public class ShowGotItem : MonoBehaviour
     {
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
-        SelectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
+        _selectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
     }
     
@@ -56,7 +57,7 @@ public class ShowGotItem : MonoBehaviour
     {
         // アイテムの写真，説明文を変更
         if (_gotItemDatas.Count <= index) return;    // アイテムがないところをクリックしたら処理しない
-        SelectingItem.selectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
+        _selectingItem.selectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
     }
 
     public void ShowItemPanel()     // アイテム　ボタンで実行．アイテム欄の表示，非表示

@@ -10,7 +10,7 @@ public class SelectingItem : MonoBehaviour
     private List<ItemData> _itemDatabaseCopy;
     [SerializeField] private RawImage _rawImage;
     [SerializeField] private TextMeshProUGUI _explainText;
-    public static ReactiveProperty<int> selectingItemID = new ReactiveProperty<int>(-1);
+    public ReactiveProperty<int> selectingItemID = new ReactiveProperty<int>(-1);
     
     
     void Awake()
