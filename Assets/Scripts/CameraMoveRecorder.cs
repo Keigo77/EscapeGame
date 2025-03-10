@@ -8,8 +8,8 @@ public class CameraMoveRecorder : MonoBehaviour
 {
     [SerializeField] private Transform _cameraPosition;
     [SerializeField] private Button _undoButton;
-    Stack<Vector3> _movePosisionsHistory = new Stack<Vector3>();
-    Stack<Vector3> _moveRotatesHistroy = new Stack<Vector3>();
+    public Stack<Vector3> _movePosisionsHistory { get; set; } = new Stack<Vector3>();
+    public Stack<Vector3> _moveRotatesHistroy { get; set; } = new Stack<Vector3>();
 
     public void PositionUpdate(Vector3 cameraPosition, Vector3 cameraRotate)  // カメラが動くときに，動く前の位置を保存する
     {

@@ -7,6 +7,6 @@ public class DestroyObject : MonoBehaviour
     /// </summary>
     public void DestroyGameObject(GameObject targetGameObject)
     {
-        Destroy(targetGameObject);
+        targetGameObject.SetActive(false);
     }
 }

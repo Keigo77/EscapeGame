@@ -77,3 +77,27 @@ MonoBehaviour:
     rotX: 50
     rotY: -180
     rotZ: 0
+  - id: 8
+    cameraTitle: "\u8131\u51FA\u30C9\u30A2\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
+    posX: -1.24
+    posY: 7.9
+    posZ: 1.06
+    rotX: 0
+    rotY: -90
+    rotZ: 0
+  - id: 9
+    cameraTitle: "\u30AC\u30C1\u30E3\u30DE\u30B7\u30F3\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
+    posX: -3.97
+    posY: 6.99
+    posZ: 2.26
+    rotX: 0
+    rotY: 0
+    rotZ: 0
+  - id: 10
+    cameraTitle: "\u30B9\u30E9\u30A4\u30C0\u30FC\u30AE\u30DF\u30C3\u30AF\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
+    posX: -1.07
+    posY: 8.88
+    posZ: 2.75
+    rotX: 0
+    rotY: 90
+    rotZ: 0
