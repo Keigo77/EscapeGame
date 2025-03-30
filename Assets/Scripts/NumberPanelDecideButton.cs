@@ -19,8 +19,8 @@ public class NumberPanelDecideButton : MonoBehaviour
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
         /*　セーブ部分
-        if (!ES3.KeyExists("PriceGimmick")) return;
-        _isCorrected = ES3.Load<bool>("PriceGimmick");
+        if (!ES3.KeyExists("PriceGimick")) return;
+        _isCorrected = ES3.Load<bool>("PriceGimick");
         if (_isCorrected) CorrectAnswer();
         */
     }
@@ -48,7 +48,7 @@ public class NumberPanelDecideButton : MonoBehaviour
     private void CorrectAnswer()
     {
         _isCorrected = true;
-        ES3.Save<bool>("PriceGimmick", _isCorrected);
+        ES3.Save<bool>("PriceGimick", _isCorrected);
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -90, 0), 1.0f);
         _showTextMessage.ShowText();
     }

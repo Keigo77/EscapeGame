@@ -29,10 +29,10 @@ MonoBehaviour:
     renderTexture: {fileID: 8400000, guid: b3434da1d44784052a69466616409d41, type: 2}
     itemID: 3
     itemExplain: "\u866B\u773C\u93E1\u3060\uFF0E"
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+  - itemHalfImage: {fileID: 21300000, guid: aa5ecf588a5cf43799da288e6ec5f724, type: 3}
+    renderTexture: {fileID: 8400000, guid: c5bcc2b9c898b4fa6906fde6760dba25, type: 2}
     itemID: 4
-    itemExplain: 
+    itemExplain: "\u9854\u304C\u305F\u304F\u3055\u3093\u4E26\u3093\u3067\u3044\u308B\uFF0E"
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 5

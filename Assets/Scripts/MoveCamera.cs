@@ -11,6 +11,7 @@ public class MoveCamera : MonoBehaviour
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private CameraMoveRecorder _cameraMoveRecorder;
     [SerializeField] private int[] _fourCameraDirection;
+    [SerializeField] private GameObject[] _colliderObject;
     private int _diretionIndex = 0;
 
     void Awake()
@@ -22,12 +23,14 @@ public class MoveCamera : MonoBehaviour
     void Start()
     {
         _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[0].posX, _cameraPositionDatabaseCopy[0].posY, _cameraPositionDatabaseCopy[0].posZ);  // 初期位置
+        _colliderObject[0].SetActive(true);
         _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[0].rotX, _cameraPositionDatabaseCopy[0].rotY, _cameraPositionDatabaseCopy[0].rotZ));
         _cameraMoveRecorder.FourInitialPosition();
     }
 
     public void MoveRight()
     {
+        _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex++;
         if (_diretionIndex >= 4) _diretionIndex = 0;
         CameraLRMove();
@@ -35,6 +38,7 @@ public class MoveCamera : MonoBehaviour
     
     public void MoveLeft()
     {
+        _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex--;
         if (_diretionIndex <= -1) _diretionIndex = 3;
         CameraLRMove();
@@ -46,6 +50,7 @@ public class MoveCamera : MonoBehaviour
         _cameraMoveRecorder._moveRotatesHistroy.Clear();
         _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posX, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posY, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posZ);  // 初期位置
         _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotX, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotY, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotZ));
+        _colliderObject[_diretionIndex].SetActive(true);
         _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
     }
 
