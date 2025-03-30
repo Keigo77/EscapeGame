@@ -33,14 +33,14 @@ MonoBehaviour:
     renderTexture: {fileID: 8400000, guid: c5bcc2b9c898b4fa6906fde6760dba25, type: 2}
     itemID: 4
     itemExplain: "\u9854\u304C\u305F\u304F\u3055\u3093\u4E26\u3093\u3067\u3044\u308B\uFF0E"
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+  - itemHalfImage: {fileID: 21300000, guid: ee7b1d0e7ba69435cb392981f16e7d84, type: 3}
+    renderTexture: {fileID: 8400000, guid: 67a6a91e1d33a467f89af00b85d0fd38, type: 2}
     itemID: 5
-    itemExplain: 
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+    itemExplain: "\u306A\u3093\u306E\u77E2\u5370\u3060\u308D\u3046\u304B\uFF0E"
+  - itemHalfImage: {fileID: 21300000, guid: dd3ebe26e588b4b91bd0da0269f69b4b, type: 3}
+    renderTexture: {fileID: 8400000, guid: b3206175148c747b7972c7b26bcf2657, type: 2}
     itemID: 6
-    itemExplain: 
+    itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 7
