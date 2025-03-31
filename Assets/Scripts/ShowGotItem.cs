@@ -17,6 +17,8 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private GameObject _showItemPanel;
     [SerializeField] private Button _showItemButton;
 
+    [SerializeField] private ObjectRotate _objectRotate;
+
     void Awake()
     {
         _itemDatabaseCopy = _itemDatabase.itemDatas;
@@ -63,5 +65,6 @@ public class ShowGotItem : MonoBehaviour
     public void ShowItemPanel()     // アイテム　ボタンで実行．アイテム欄の表示，非表示
     {
         _showItemPanel.SetActive(!_showItemPanel.activeSelf);
+        _objectRotate.ResetRotate();
     }
 }

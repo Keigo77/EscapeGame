@@ -109,3 +109,19 @@ MonoBehaviour:
     rotX: 0
     rotY: -90
     rotZ: 0
+  - id: 12
+    cameraTitle: "\u6642\u8A08\u306E\u30D2\u30F3\u30C8\u7D19"
+    posX: -11.15
+    posY: 11.48
+    posZ: 10.02
+    rotX: 0
+    rotY: -90
+    rotZ: 0
+  - id: 13
+    cameraTitle: "\u6642\u8A08\u306E\u8B0E\u30BF\u30C3\u30C1\u30D1\u30CD\u30EB\u64CD\u4F5C"
+    posX: -11.15
+    posY: 5.75
+    posZ: 9.43
+    rotX: 0
+    rotY: -90
+    rotZ: 0
