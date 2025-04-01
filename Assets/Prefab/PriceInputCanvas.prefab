@@ -1377,13 +1377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1917151006714189556}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonOnClickPointer
+          m_MethodName: DownButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1527,13 +1527,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 8217223571354088181}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonOnClickPointer
+          m_MethodName: UpButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1768,13 +1768,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 3443904600671632290}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonOnClickPointer
+          m_MethodName: UpButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1895,12 +1895,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8333811089729592948}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8867595805696338612}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 9183951095964023859}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       insertIndex: -1
@@ -1916,40 +1910,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
   m_PrefabInstance: {fileID: 2407199858387293265}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8333811089729592948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3290299908632258816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26433472713de42a2a1d3cac7dec9244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _answer: 8962
-  _boxCoverPivot: {fileID: 0}
-  _southandText: {fileID: 4458997821618930488}
-  _hundredText: {fileID: 8442191876781220325}
-  _tenText: {fileID: 4753061844274256142}
-  _oneText: {fileID: 1868662722118956129}
---- !u!114 &8867595805696338612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3290299908632258816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _UIPanel: {fileID: 0}
-  _textObject: {fileID: 0}
-  _textSentences:
-  - "\u7BB1\u304C\u958B\u3044\u305F\uFF01"
 --- !u!114 &9183951095964023859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1967,7 +1927,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8333811089729592948}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: NumberPanelDecideButton, Assembly-CSharp
           m_MethodName: ClickOnDecideButton
           m_Mode: 1
@@ -2181,13 +2141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5978512745914963845}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonOnClickPointer
+          m_MethodName: UpButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2516,13 +2476,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7613606530079612278}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonOnClickPointer
+          m_MethodName: UpButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2833,13 +2793,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 519925273552505349}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonOnClickPointer
+          m_MethodName: DownButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2991,13 +2951,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7869819534800417777}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonOnClickPointer
+          m_MethodName: DownButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3219,13 +3179,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2315887011954242825}
           m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonOnClickPointer
+          m_MethodName: DownButtonPointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

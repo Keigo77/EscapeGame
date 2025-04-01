@@ -13,55 +13,68 @@ MonoBehaviour:
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
   itemDatas:
-  - itemHalfImage: {fileID: 21300000, guid: 3418123a3e9c546e5a3f7b6c0d900287, type: 3}
+  - itemName: "\u7D2B\u306E\u30D6\u30ED\u30C3\u30AF"
+    itemHalfImage: {fileID: 21300000, guid: 3418123a3e9c546e5a3f7b6c0d900287, type: 3}
     renderTexture: {fileID: 8400000, guid: 95f86cbc7c8ee4342ad4753a111dd25a, type: 2}
     itemID: 0
     itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u7D2B\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: e1dfa76bcd57544dbbc1b4d85a1fd448, type: 3}
+  - itemName: "\u9EC4\u8272\u3044\u9375"
+    itemHalfImage: {fileID: 21300000, guid: e1dfa76bcd57544dbbc1b4d85a1fd448, type: 3}
     renderTexture: {fileID: 8400000, guid: b2f13f9eb7ccf49b79ae997936cae763, type: 2}
     itemID: 1
     itemExplain: "\u9EC4\u8272\u3044\u9375\u3060\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: 3ba4ac756ebef45d59c38f021b84416c, type: 3}
+  - itemName: "\u77E2\u5370\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 3ba4ac756ebef45d59c38f021b84416c, type: 3}
     renderTexture: {fileID: 8400000, guid: 00cc340906c304a3899af04bda6efaf1, type: 2}
     itemID: 2
     itemExplain: "\u77E2\u5370\u304C\u4E26\u3093\u3067\u3044\u308B\uFF0E\u4F55\u304B\u306E\u6697\u53F7\u3060\u308D\u3046\u304B\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: cdb678e1ea6c2416783960eb4bcbda95, type: 3}
+  - itemName: "\u866B\u773C\u93E1"
+    itemHalfImage: {fileID: 21300000, guid: cdb678e1ea6c2416783960eb4bcbda95, type: 3}
     renderTexture: {fileID: 8400000, guid: b3434da1d44784052a69466616409d41, type: 2}
     itemID: 3
     itemExplain: "\u866B\u773C\u93E1\u3060\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: aa5ecf588a5cf43799da288e6ec5f724, type: 3}
+  - itemName: "\u9854\u304C\u4E26\u3093\u3060\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: aa5ecf588a5cf43799da288e6ec5f724, type: 3}
     renderTexture: {fileID: 8400000, guid: c5bcc2b9c898b4fa6906fde6760dba25, type: 2}
     itemID: 4
     itemExplain: "\u9854\u304C\u305F\u304F\u3055\u3093\u4E26\u3093\u3067\u3044\u308B\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: ee7b1d0e7ba69435cb392981f16e7d84, type: 3}
-    renderTexture: {fileID: 8400000, guid: 67a6a91e1d33a467f89af00b85d0fd38, type: 2}
-    itemID: 5
-    itemExplain: "\u306A\u3093\u306E\u77E2\u5370\u3060\u308D\u3046\u304B\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: dd3ebe26e588b4b91bd0da0269f69b4b, type: 3}
-    renderTexture: {fileID: 8400000, guid: b3206175148c747b7972c7b26bcf2657, type: 2}
-    itemID: 6
-    itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
-  - itemHalfImage: {fileID: 21300000, guid: 43a869fe664a445b7b22d86bbceb2e73, type: 3}
-    renderTexture: {fileID: 8400000, guid: 43a7c2715a7844fe1a371dcafd64a78c, type: 2}
-    itemID: 7
-    itemExplain: "\u30D4\u30F3\u30AF\u8272\u306E\u9375\u3060\uFF0E"
-  - itemHalfImage: {fileID: 0}
+  - itemName: "\u5358\u8A9E\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 1452ba66e7c1d4f75861042ca16791c0, type: 3}
     renderTexture: {fileID: 0}
+    itemID: 5
+    itemExplain: "\u5358\u8A9E\u304C\u4E26\u3093\u3067\u308B\u306A\uFF0E"
+  - itemName: "\u30D4\u30F3\u30AF\u306E\u77E2\u5370\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: ee7b1d0e7ba69435cb392981f16e7d84, type: 3}
+    renderTexture: {fileID: 8400000, guid: 67a6a91e1d33a467f89af00b85d0fd38, type: 2}
+    itemID: 6
+    itemExplain: "\u306A\u3093\u306E\u77E2\u5370\u3060\u308D\u3046\u304B\uFF0E"
+  - itemName: "\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF"
+    itemHalfImage: {fileID: 21300000, guid: dd3ebe26e588b4b91bd0da0269f69b4b, type: 3}
+    renderTexture: {fileID: 8400000, guid: b3206175148c747b7972c7b26bcf2657, type: 2}
+    itemID: 7
+    itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
+  - itemName: "\u7D2B\u8272\u306E\u9375"
+    itemHalfImage: {fileID: 21300000, guid: 43a869fe664a445b7b22d86bbceb2e73, type: 3}
+    renderTexture: {fileID: 8400000, guid: 43a7c2715a7844fe1a371dcafd64a78c, type: 2}
     itemID: 8
-    itemExplain: 
-  - itemHalfImage: {fileID: 0}
+    itemExplain: "\u7D2B\u8272\u306E\u9375\u3060\uFF0E"
+  - itemName: 
+    itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 9
     itemExplain: 
-  - itemHalfImage: {fileID: 0}
+  - itemName: 
+    itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 10
     itemExplain: 
-  - itemHalfImage: {fileID: 0}
+  - itemName: 
+    itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 11
     itemExplain: 
-  - itemHalfImage: {fileID: 0}
+  - itemName: 
+    itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 12
     itemExplain: 

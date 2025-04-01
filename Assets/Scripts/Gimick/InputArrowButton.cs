@@ -7,7 +7,7 @@ public class InputArrowButton : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _numText;
 
-    public void UpButtonOnClickPointer()
+    public void UpButtonPointerDown()
     {
         int nextNum = int.Parse(_numText.text) + 1;     // 0〜9で繰り返し表示する
 
@@ -17,7 +17,7 @@ public class InputArrowButton : MonoBehaviour
         else _numText.text = nextNum.ToString();
     }
     
-    public void DownButtonOnClickPointer()
+    public void DownButtonPointerDown()
     {
         int nextNum = int.Parse(_numText.text) - 1;     // 0〜9で繰り返し表示する
         

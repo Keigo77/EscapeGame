@@ -12,6 +12,7 @@ public class ItemDatabase : ScriptableObject
 [System.Serializable]
 public class ItemData
 {
+    public string itemName;
     public Sprite itemHalfImage;
     public RenderTexture renderTexture;
     public int itemID;

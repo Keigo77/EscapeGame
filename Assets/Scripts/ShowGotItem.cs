@@ -28,7 +28,6 @@ public class ShowGotItem : MonoBehaviour
     
     public void GetItem(int itemID)
     {
-        if (_gotItemDatas.Count >= 7) return;
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
         _selectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;

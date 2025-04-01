@@ -8,6 +8,7 @@ public class NumberPanelDecideButton : MonoBehaviour
     [Header("暗号の答えを4桁の数字で入力")]
     [SerializeField] private int _answer;
     [SerializeField] private GameObject _boxCoverPivot;
+    [SerializeField] private GameObject _decideButton;
     [SerializeField] private TextMeshProUGUI _southandText;
     [SerializeField] private TextMeshProUGUI _hundredText;
     [SerializeField] private TextMeshProUGUI _tenText;
@@ -25,7 +26,7 @@ public class NumberPanelDecideButton : MonoBehaviour
         */
     }
 
-    public void ClickOnDecideButton()
+    public void DecideButtonPointerDown()
     {
         if (_isCorrected) return;       // 解いた後なら，処理しない
         int playerInput = int.Parse(_southandText.text) * 1000 +
@@ -33,8 +34,8 @@ public class NumberPanelDecideButton : MonoBehaviour
                           int.Parse(_tenText.text) * 10 +
                           int.Parse(_oneText.text);
 
-        this.transform.DOLocalMove(new Vector3(0, 0, -0.2f), 0.25f)
-            .OnComplete(() => this.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
+        _decideButton.transform.DOLocalMove(new Vector3(0, 0, -0.2f), 0.25f)
+            .OnComplete(() => _decideButton.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         if (playerInput == _answer)
         {
             CorrectAnswer();

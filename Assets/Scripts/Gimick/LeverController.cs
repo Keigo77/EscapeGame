@@ -49,37 +49,31 @@ public class LeverController : MonoBehaviour
         }
         Vector3 afterMousePos = Input.mousePosition;
         float distance = Mathf.Sqrt(Mathf.Pow((afterMousePos.x - beforeMousePos.x), 2) + Mathf.Pow((afterMousePos.y - beforeMousePos.y), 2));
-        Debug.Log(distance);
         if (distance < 50f) return;     // スライド量が小さければ処理しない
         
         float angle = Mathf.Atan2(afterMousePos.y - beforeMousePos.y, afterMousePos.x - beforeMousePos.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
 
         switch (angle)
         {
             case >= -45f and <= 45f:
                 _choose = State.Right;
-                _leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f);
-                await Wait();
-                _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+                _leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 46f and <= 135f:
                 _choose = State.Up;
-                _leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f);
-                await Wait();
-                _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+                _leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 136f or <= -135f:
                 _choose = State.Left;
-                _leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f);
-                await Wait();
-                _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+                _leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= -136f and <= -46f:
                 _choose = State.Down;
-                _leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f);
-                await Wait();
-                _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+                _leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             default:
                 break;
@@ -103,12 +97,6 @@ public class LeverController : MonoBehaviour
         {
             _index = 0;
         }
-        Debug.Log(_index);
-    }
-
-    private async UniTask Wait()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
     }
 
     private void Correct()

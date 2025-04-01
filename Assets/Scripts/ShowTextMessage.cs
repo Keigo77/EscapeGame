@@ -6,8 +6,8 @@ using Cysharp.Threading.Tasks;
 
 public class ShowTextMessage : MonoBehaviour
 {
-    [SerializeField] private GameObject _UIPanel;
-    [SerializeField] private TextMeshProUGUI _textObject;
+    [SerializeField] private GameObject _textPanel;
+    [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private string[] _textSentences;
     private bool _isShowing;
     private int _textMaxNumber;
@@ -25,14 +25,14 @@ public class ShowTextMessage : MonoBehaviour
         if (_isShowing) return;     // すでに文章を表示しているならリターン
         _isShowing = true;
         _textIndex = 0;
-        _UIPanel.SetActive(true);
+        _textPanel.SetActive(true);
         while (_textIndex < _textMaxNumber)
         {
-            _textObject.text = _textSentences[_textIndex];
+            _text.text = _textSentences[_textIndex];
             await Wait();
             _textIndex++;
         }
-        _UIPanel.SetActive(false);
+        _textPanel.SetActive(false);
         await Wait();
         _isShowing = false;
     }
