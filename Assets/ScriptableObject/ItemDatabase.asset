@@ -41,10 +41,10 @@ MonoBehaviour:
     renderTexture: {fileID: 8400000, guid: b3206175148c747b7972c7b26bcf2657, type: 2}
     itemID: 6
     itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
-  - itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+  - itemHalfImage: {fileID: 21300000, guid: 43a869fe664a445b7b22d86bbceb2e73, type: 3}
+    renderTexture: {fileID: 8400000, guid: 43a7c2715a7844fe1a371dcafd64a78c, type: 2}
     itemID: 7
-    itemExplain: 
+    itemExplain: "\u30D4\u30F3\u30AF\u8272\u306E\u9375\u3060\uFF0E"
   - itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
     itemID: 8

@@ -18,18 +18,22 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private Button _showItemButton;
 
     [SerializeField] private ObjectRotate _objectRotate;
+    private ObjSetActiveManager _objSetActiveManager;
 
     void Awake()
     {
         _itemDatabaseCopy = _itemDatabase.itemDatas;
+        _objSetActiveManager = this.GetComponent<ObjSetActiveManager>();
     }
     
     public void GetItem(int itemID)
     {
+        if (_gotItemDatas.Count >= 7) return;
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
         _selectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
+        _objSetActiveManager.ObjSetActiveOff(itemID);
     }
     
     public void RemoveItem(int RemoveItemID)
