@@ -58,16 +58,16 @@ MonoBehaviour:
     renderTexture: {fileID: 8400000, guid: 43a7c2715a7844fe1a371dcafd64a78c, type: 2}
     itemID: 8
     itemExplain: "\u7D2B\u8272\u306E\u9375\u3060\uFF0E"
-  - itemName: 
-    itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+  - itemName: "100\u5186\u7389"
+    itemHalfImage: {fileID: 21300000, guid: 60d0e78e53c4a4f4a824e723bdf8625d, type: 3}
+    renderTexture: {fileID: 8400000, guid: c4cd4b884cd54428e9463113d47d16a0, type: 2}
     itemID: 9
-    itemExplain: 
-  - itemName: 
-    itemHalfImage: {fileID: 0}
-    renderTexture: {fileID: 0}
+    itemExplain: "100\u5186\u7389\u3060\uFF0E"
+  - itemName: "\u7D2B\u8272\u306E\u30CF\u30FC\u30C8"
+    itemHalfImage: {fileID: 21300000, guid: cbe9d50ed488243d6b9bcae20c1f1f21, type: 3}
+    renderTexture: {fileID: 8400000, guid: 16ff56220653a475da91ae21e4415a8f, type: 2}
     itemID: 10
-    itemExplain: 
+    itemExplain: "\u30CF\u30FC\u30C8\u306E\u6A21\u578B\u3060\uFF0E"
   - itemName: 
     itemHalfImage: {fileID: 0}
     renderTexture: {fileID: 0}
