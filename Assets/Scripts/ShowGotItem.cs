@@ -26,6 +26,10 @@ public class ShowGotItem : MonoBehaviour
         _objSetActiveManager = this.GetComponent<ObjSetActiveManager>();
     }
     
+    /// <summary>
+    /// 取得可能なアイテムをクリック時に実行．アイテムをゲットし，すぐアイテム欄を表示．シーン中のアイテムは削除する．
+    /// </summary>
+    /// <param name="itemID">取得したいアイテムのアイテムID</param>
     public void GetItem(int itemID)
     {
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
@@ -35,13 +39,14 @@ public class ShowGotItem : MonoBehaviour
         _objSetActiveManager.ObjSetActiveOff(itemID);
     }
     
-    public void RemoveItem(int RemoveItemID)
+    public void RemoveItem(int removeItemID)
     {
         foreach (var gotItem in _gotItemDatas)
         {
-            if (gotItem.itemID == RemoveItemID)
+            if (gotItem.itemID == removeItemID)
             {
                 _gotItemDatas.Remove(gotItem);
+                _selectingItem.selectingItemID.Value = -1;
                 break;
             }
         }
@@ -54,18 +59,30 @@ public class ShowGotItem : MonoBehaviour
         foreach (var gotItem in _gotItemDatas)
         {
             _itemImages[index].sprite = gotItem.itemHalfImage;
+            _itemImages[index + 1].sprite = null;
             index++;
         }
     }
 
-    public void ChangeSelectItem(int index)     // アイテムのボックスをクリックするときに実行
+    /// <summary>
+    /// アイテムのボックスをクリックするときに実行．アイテムの写真，説明文を変更
+    /// アイテムがないところをクリックしたら処理しない．
+    /// </summary>
+    /// <param name="index">どこのアイテム枠をクリックしたか</param>
+    public void ChangeSelectItem(int index)     
     {
-        // アイテムの写真，説明文を変更
-        if (_gotItemDatas.Count <= index) return;    // アイテムがないところをクリックしたら処理しない
+        if (_gotItemDatas.Count <= index)
+        {
+            _selectingItem.selectingItemID.Value = -1;
+            return;
+        }
         _selectingItem.selectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
     }
-
-    public void ShowItemPanel()     // アイテム　ボタンで実行．アイテム欄の表示，非表示
+    
+    /// <summary>
+    /// 「アイテム」　ボタンで実行．アイテム欄の表示，非表示．非表示時に全アイテムの角度をリセット
+    /// </summary>
+    public void ShowItemPanel()
     {
         _showItemPanel.SetActive(!_showItemPanel.activeSelf);
         _objectRotate.ResetRotate();

@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+//ToDo:ギミックを解いたかをbool値で保存
 
 public class NumberPanelDecideButton : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class NumberPanelDecideButton : MonoBehaviour
     {
         _isCorrected = true;
         ES3.Save<bool>("PriceGimick", _isCorrected);
-        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -90, 0), 1.0f);
+        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 0.5f);
         _showTextMessage.ShowText();
     }
 }

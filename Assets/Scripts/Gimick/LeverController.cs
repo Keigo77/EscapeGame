@@ -3,24 +3,25 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
+//ToDo:　レバーを動かす音．レバーギミックを解いたかのbool値の保存
 
 public class LeverController : MonoBehaviour
 {
     [SerializeField] private GameObject _leverObj;
-    [SerializeField] private GameObject _boxRotateObj;
-    private enum State
+    [SerializeField] private GameObject _boxCoverPivot;
+    private enum MoveDirection
     {
         Up,
         Down,
         Right,
         Left
     }
-    [SerializeField] private State[] _answers;
-    private State _choose;
+    [SerializeField] private MoveDirection[] _answers;
+    private MoveDirection _choose;
     private int _index;
     private ShowTextMessage _showTextMessage;
-    private CancellationToken _downToken;
     private CancellationToken _token;
     private bool _isCorrected = false;
 
@@ -35,6 +36,9 @@ public class LeverController : MonoBehaviour
         */
     }
     
+    /// <summary>
+    /// レバーをスライドした時に実行．(レバーをPointerDownで実行)
+    /// </summary>
     public async void LeverMove()
     {
         if (_isCorrected) return;
@@ -56,22 +60,22 @@ public class LeverController : MonoBehaviour
         switch (angle)
         {
             case >= -45f and <= 45f:
-                _choose = State.Right;
+                _choose = MoveDirection.Right;
                 _leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
                     .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 46f and <= 135f:
-                _choose = State.Up;
+                _choose = MoveDirection.Up;
                 _leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
                     .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 136f or <= -135f:
-                _choose = State.Left;
+                _choose = MoveDirection.Left;
                 _leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
                     .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= -136f and <= -46f:
-                _choose = State.Down;
+                _choose = MoveDirection.Down;
                 _leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
                     .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
@@ -93,15 +97,12 @@ public class LeverController : MonoBehaviour
                 Debug.Log("正解");
             }
         }
-        else
-        {
-            _index = 0;
-        }
+        else _index = 0;
     }
 
     private void Correct()
     {
-        _boxRotateObj.transform.DORotate(new Vector3(0, -90, 0), 0.2f);
+        _boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
         _showTextMessage.ShowText();
     }
 }

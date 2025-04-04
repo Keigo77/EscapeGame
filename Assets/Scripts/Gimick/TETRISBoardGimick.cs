@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+// Todo:テトリスをはめるときの音．コインが落ちる音．
 public class TETRISBoardGimick : MonoBehaviour
 {
     [SerializeField] private SelectingItem _selectingItem;
@@ -14,10 +14,21 @@ public class TETRISBoardGimick : MonoBehaviour
         _showTextMessage = this.GetComponent<ShowTextMessage>();
     }
 
+    /// <summary>
+    /// テトリス
+    /// </summary>
     public void SetTETRIS()
     {
-        if (_selectingItem.selectingItemID.Value == 0) _purpleTETRIS.SetActive(true);
-        else if (_selectingItem.selectingItemID.Value == 7) _blueTETRIS.SetActive(true);
+        if (_selectingItem.selectingItemID.Value == 0)
+        {
+            _purpleTETRIS.SetActive(true);
+            _selectingItem.UseItem(_selectingItem.selectingItemID.Value);
+        }
+        else if (_selectingItem.selectingItemID.Value == 7)
+        {
+            _blueTETRIS.SetActive(true);
+            _selectingItem.UseItem(_selectingItem.selectingItemID.Value);
+        }
 
         if (_purpleTETRIS.activeSelf && _blueTETRIS.activeSelf)
         {

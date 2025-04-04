@@ -10,13 +10,10 @@ public class ShowTextMessage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private string[] _textSentences;
     private bool _isShowing;
-    private int _textMaxNumber;
-    private int _textIndex = 0;
     private CancellationToken _token;
 
     void Awake()
     {
-        _textMaxNumber = _textSentences.Length;
         _token = this.GetCancellationTokenOnDestroy();
     }
 
@@ -24,13 +21,12 @@ public class ShowTextMessage : MonoBehaviour
     {
         if (_isShowing) return;     // すでに文章を表示しているならリターン
         _isShowing = true;
-        _textIndex = 0;
         _textPanel.SetActive(true);
-        while (_textIndex < _textMaxNumber)
+
+        foreach (var listText in _textSentences)
         {
-            _text.text = _textSentences[_textIndex];
+            _text.text = listText;
             await Wait();
-            _textIndex++;
         }
         _textPanel.SetActive(false);
         await Wait();
