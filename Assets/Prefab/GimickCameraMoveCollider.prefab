@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 531199780186785363}
   - component: {fileID: 8013635637267577182}
   m_Layer: 0
-  m_Name: GimickCameraMove
+  m_Name: GimickCameraMoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.8160744, z: 2.459629}
+  m_Size: {x: 0, y: 2.8160744, z: 2.459629}
   m_Center: {x: 0, y: 0.6019659, z: 0.07085562}
 --- !u!114 &8013635637267577182
 MonoBehaviour:
