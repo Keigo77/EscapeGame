@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Cysharp.Threading.Tasks;
 
-public class ShowTextMessage : MonoBehaviour
+public class ShowTextMessage : MonoBehaviour, IShowText
 {
     [SerializeField] private GameObject _textPanel;
     [SerializeField] private TextMeshProUGUI _text;
@@ -15,6 +15,11 @@ public class ShowTextMessage : MonoBehaviour
     void Awake()
     {
         _token = this.GetCancellationTokenOnDestroy();
+    }
+
+    public void ShowExplainText()
+    {
+        ShowText();
     }
 
     public async void ShowText()

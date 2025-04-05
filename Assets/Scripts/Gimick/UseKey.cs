@@ -1,8 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
-//ToDo:鍵を使う音
-//ToDo:ドアの
-public class UseKey : MonoBehaviour
+//ToDo:鍵を使う音．開けたかどうかをbool値で保存
+public class UseKey : MonoBehaviour, IMoveGimick
 {
     [SerializeField] private int _needItemId;
     [SerializeField] private Vector3 _rotate;
@@ -19,7 +18,7 @@ public class UseKey : MonoBehaviour
     /// <summary>
     /// 鍵を使われるオブジェクト自体にアタッチ．指定のアイテムを使うと，指定した分回転する．
     /// </summary>
-    public void Usekey()
+    public void MoveGimick()
     {
         if (_selectingItem.selectingItemID.Value != _needItemId)
         {

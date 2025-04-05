@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 //ToDo:　レバーを動かす音．レバーギミックを解いたかのbool値の保存
 
-public class LeverController : MonoBehaviour
+public class LeverController : MonoBehaviour, IMoveGimick, ICorrect
 {
     [SerializeField] private GameObject _leverObj;
     [SerializeField] private GameObject _boxCoverPivot;
@@ -39,7 +39,7 @@ public class LeverController : MonoBehaviour
     /// <summary>
     /// レバーをスライドした時に実行．(レバーをPointerDownで実行)
     /// </summary>
-    public async void LeverMove()
+    public async void MoveGimick()
     {
         if (_isCorrected) return;
         Vector3 beforeMousePos = Input.mousePosition;      // レバーの左右は縦：Y方向　横：Z方向
@@ -100,7 +100,7 @@ public class LeverController : MonoBehaviour
         else _index = 0;
     }
 
-    private void Correct()
+    public void Correct()
     {
         _boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
         _showTextMessage.ShowText();

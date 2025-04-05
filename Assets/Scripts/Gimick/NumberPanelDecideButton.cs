@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 //ToDo:ギミックを解いたかをbool値で保存
 
-public class NumberPanelDecideButton : MonoBehaviour
+public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick, ICorrect
 {
     [Header("暗号の答えを4桁の数字で入力")]
     [SerializeField] private int _answer;
@@ -27,7 +27,7 @@ public class NumberPanelDecideButton : MonoBehaviour
         */
     }
 
-    public void DecideButtonPointerDown()
+    public void MoveGimick()
     {
         if (_isCorrected) return;       // 解いた後なら，処理しない
         int playerInput = int.Parse(_southandText.text) * 1000 +
@@ -39,7 +39,7 @@ public class NumberPanelDecideButton : MonoBehaviour
             .OnComplete(() => _decideButton.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         if (playerInput == _answer)
         {
-            CorrectAnswer();
+            Correct();
         }
         else
         {
@@ -47,7 +47,7 @@ public class NumberPanelDecideButton : MonoBehaviour
         }
     }
 
-    private void CorrectAnswer()
+    public void Correct()
     {
         _isCorrected = true;
         ES3.Save<bool>("PriceGimick", _isCorrected);

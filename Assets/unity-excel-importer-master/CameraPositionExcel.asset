@@ -150,10 +150,18 @@ MonoBehaviour:
     rotY: 0
     rotZ: 0
   - id: 17
-    cameraTitle: "\u68DA"
+    cameraTitle: "\u68DA\u5168\u4F53"
     posX: 3.5
     posY: 4.93
     posZ: 12.66
+    rotX: 0
+    rotY: 90
+    rotZ: 0
+  - id: 18
+    cameraTitle: "\u672C\u68DA\u62E1\u5927"
+    posX: 10.17
+    posY: 6.12
+    posZ: 13.1
     rotX: 0
     rotY: 90
     rotZ: 0

@@ -1338,15 +1338,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: DownButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3778347189123371938}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8530847088196412598}
@@ -1364,35 +1365,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 330766963466630547}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3778347189123371938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600798566282283202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1917151006714189556}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!65 &8530847088196412598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1427,6 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 8442191876781220325}
+  _direction: 1
 --- !u!1001 &1092772225227859419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,15 +1466,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: UpButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2587127798319250033}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8217223571354088181}
@@ -1514,35 +1488,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 1092772225227859419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2587127798319250033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282362683990448266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8217223571354088181}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &8217223571354088181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,6 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 8442191876781220325}
+  _direction: 0
 --- !u!65 &6439035054372239412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1729,15 +1675,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: UpButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5270242929243122369}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7543586751252785244}
@@ -1755,35 +1702,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 2329160662682869476}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5270242929243122369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3212120526269686709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3443904600671632290}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!65 &7543586751252785244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1818,6 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 4753061844274256142}
+  _direction: 0
 --- !u!1001 &2407199858387293265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1895,9 +1814,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9183951095964023859}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5811883190158084931}
   m_SourcePrefab: {fileID: 100100000, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
 --- !u!4 &2801994302919996346 stripped
@@ -1910,35 +1826,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 965720ed80be84e3a9e5886664476ba8, type: 3}
   m_PrefabInstance: {fileID: 2407199858387293265}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9183951095964023859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3290299908632258816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NumberPanelDecideButton, Assembly-CSharp
-          m_MethodName: ClickOnDecideButton
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!65 &5811883190158084931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2107,15 +1994,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: UpButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4206827034993485697}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7109048502411870216}
@@ -2128,35 +2016,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
   m_PrefabInstance: {fileID: 3323304274844185912}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4206827034993485697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2512962896750889065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5978512745914963845}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!65 &7109048502411870216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2191,6 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 1868662722118956129}
+  _direction: 0
 --- !u!4 &2996027194609930963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -2263,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
       propertyPath: m_Name
       value: UpButton1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f2d0298d331d488b843af62a623bdfd, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2424,7 +2288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: UpButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2435,10 +2303,7 @@ PrefabInstance:
       addedObject: {fileID: 7613606530079612278}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4012787827083830708}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5197390977374428848}
+      addedObject: {fileID: 2324087653265155633}
   m_SourcePrefab: {fileID: 100100000, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
 --- !u!4 &4741561505657977813 stripped
 Transform:
@@ -2463,36 +2328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 4458997821618930488}
---- !u!114 &4012787827083830708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5370183830640042351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7613606530079612278}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: UpButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!65 &5197390977374428848
+  _direction: 0
+--- !u!65 &2324087653265155633
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2511,8 +2348,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.425459, y: 1, z: 1.4429525}
-  m_Center: {x: 0.044021524, y: -2.1683446e-15, z: -0.31373754}
+  m_Size: {x: 2.5374346, y: 0.5384535, z: 1.1331259}
+  m_Center: {x: 0.044592734, y: 0.23077327, z: -0.18024069}
 --- !u!1001 &7034809724230890347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2741,7 +2578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: DownButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2750,9 +2591,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 519925273552505349}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2027759430587377596}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7510270619637693291}
@@ -2780,35 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 4753061844274256142}
---- !u!114 &2027759430587377596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7713691910755440953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 519925273552505349}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  _direction: 1
 --- !u!65 &7510270619637693291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2896,7 +2706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: DownButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2905,9 +2719,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5503994430450267157}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6810300289826365032}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7869819534800417777}
@@ -2938,35 +2749,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.4168787, y: 1, z: 1.363827}
   m_Center: {x: 0.08086674, y: 4.5618346e-16, z: -0.2652174}
---- !u!114 &6810300289826365032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7268759556812212416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7869819534800417777}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &7869819534800417777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2980,6 +2762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 1868662722118956129}
+  _direction: 1
 --- !u!4 &8040054407522734714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
@@ -3132,7 +2915,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       propertyPath: m_Name
-      value: UpDownButtonImside
+      value: DownButtonInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
+      propertyPath: m_TagString
+      value: Gimick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3141,9 +2928,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2315887011954242825}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3308892209651789165}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5057fdb26d0a84ce0ae28ed476cf0825, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1215014404101024359}
@@ -3166,35 +2950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numText: {fileID: 4458997821618930488}
---- !u!114 &3308892209651789165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441050498723016099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2315887011954242825}
-          m_TargetAssemblyTypeName: InputArrowButton, Assembly-CSharp
-          m_MethodName: DownButtonPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  _direction: 1
 --- !u!65 &1215014404101024359
 BoxCollider:
   m_ObjectHideFlags: 0
