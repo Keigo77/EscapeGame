@@ -135,7 +135,7 @@ MonoBehaviour:
     rotZ: 0
   - id: 15
     cameraTitle: "\u30C6\u30C8\u30EA\u30B9\u30DC\u30FC\u30C9"
-    posX: -10.75
+    posX: -11.7
     posY: 5.5
     posZ: 11.37
     rotX: 0
@@ -162,6 +162,22 @@ MonoBehaviour:
     posX: 10.17
     posY: 6.12
     posZ: 13.1
+    rotX: 0
+    rotY: 90
+    rotZ: 0
+  - id: 19
+    cameraTitle: "\u5024\u6BB5\u8868\u62E1\u5927"
+    posX: 12.05
+    posY: 8.99
+    posZ: 1.71
+    rotX: 0
+    rotY: 90
+    rotZ: 0
+  - id: 20
+    cameraTitle: "\u30B9\u30E9\u30A4\u30C0\u30FC"
+    posX: 10.29
+    posY: 8.78
+    posZ: -8.11
     rotX: 0
     rotY: 90
     rotZ: 0

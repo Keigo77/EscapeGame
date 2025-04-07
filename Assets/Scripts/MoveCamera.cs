@@ -54,7 +54,7 @@ public class MoveCamera : MonoBehaviour
         _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
     }
 
-    public void OnPointerClicked(int cameraId)
+    public void MoveIDPosCamera(int cameraId)
     {
         _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
         // Excelからカメラポジションと角度を取得

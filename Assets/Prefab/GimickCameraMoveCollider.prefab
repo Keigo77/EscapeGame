@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6946443109464613397}
   - component: {fileID: 531199780186785363}
-  - component: {fileID: 8013635637267577182}
+  - component: {fileID: 3095895153216509064}
   m_Layer: 0
   m_Name: GimickCameraMoveCollider
-  m_TagString: Untagged
+  m_TagString: Gimick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0, y: 2.8160744, z: 2.459629}
   m_Center: {x: 0, y: 0.6019659, z: 0.07085562}
---- !u!114 &8013635637267577182
+--- !u!114 &3095895153216509064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,23 +63,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6828083091432837953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: f90946ebcf77a44e4819c93b2a693e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MoveCamera, Assembly-CSharp
-          m_MethodName: OnPointerClicked
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  _moveCamera: {fileID: 0}
+  _cameraPosID: 0
