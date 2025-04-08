@@ -32,7 +32,7 @@ public class MoveCamera : MonoBehaviour
     {
         _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex++;
-        if (_diretionIndex >= 4) _diretionIndex = 0;
+        if (_diretionIndex >= 4) { _diretionIndex = 0; }
         CameraLRMove();
     }
     
@@ -40,7 +40,7 @@ public class MoveCamera : MonoBehaviour
     {
         _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex--;
-        if (_diretionIndex <= -1) _diretionIndex = 3;
+        if (_diretionIndex <= -1) { _diretionIndex = 3; }
         CameraLRMove();
     }
 

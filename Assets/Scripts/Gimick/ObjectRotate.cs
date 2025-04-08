@@ -9,7 +9,7 @@ public class ObjectRotate : MonoBehaviour
     
     private void Update()
     {
-        if (_selectingItem.selectingItemID.Value < 0) return;
+        if (_selectingItem.SelectingItemID.Value < 0) { return; }
         if (Input.GetMouseButtonDown(0))
         {
             _objRotate.y = 0f;
@@ -21,7 +21,7 @@ public class ObjectRotate : MonoBehaviour
             // マウスの移動量分カメラを回転させる.
             _objRotate.y += (Input.mousePosition.x - lastMousePosition.x) * 0.08f;
             _objRotate.x += (Input.mousePosition.y - lastMousePosition.y) * 0.08f;
-            _targetObjects[_selectingItem.selectingItemID.Value].transform.localRotation = Quaternion.Euler(_objRotate);
+            _targetObjects[_selectingItem.SelectingItemID.Value].transform.localRotation = Quaternion.Euler(_objRotate);
             lastMousePosition = Input.mousePosition;
         }
 

@@ -19,7 +19,7 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimick
     // クリックしたらライトを消去
     public async void MoveGimick()
     {
-        if (_selectingItem.selectingItemID.Value != 12) {
+        if (_selectingItem.SelectingItemID.Value != 12) {
             _showTextMessage.ShowText();
             return;     // ItemID 12はライト
         }

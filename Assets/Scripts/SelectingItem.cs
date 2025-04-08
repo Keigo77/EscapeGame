@@ -2,6 +2,7 @@ using TMPro;
 using UniRx;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // Todo: 装備中のアイテムのハーフ画像を画面に表示したい
@@ -11,7 +12,7 @@ public class SelectingItem : MonoBehaviour
     private List<ItemData> _itemDatabaseCopy;
     [SerializeField] private RawImage _rawImage;
     [SerializeField] private TextMeshProUGUI _explainText;
-    public ReactiveProperty<int> selectingItemID = new ReactiveProperty<int>(-1);
+    public ReactiveProperty<int> SelectingItemID = new (-1);
     
     [SerializeField] private ShowGotItem _showGotItem;
     
@@ -23,7 +24,7 @@ public class SelectingItem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        selectingItemID.Subscribe(_ => UpdateShowItemDetail());
+        SelectingItemID.Subscribe(_ => UpdateShowItemDetail());
         _rawImage.enabled = false;
     }
 
@@ -32,15 +33,15 @@ public class SelectingItem : MonoBehaviour
     /// </summary>
     private void UpdateShowItemDetail()
     {
-        if (selectingItemID.Value < 0)      
+        if (SelectingItemID.Value < 0)      
         {
             _rawImage.enabled = false;
             _explainText.text = "";
             return;
         }
         _rawImage.enabled = true;
-        _rawImage.texture = _itemDatabaseCopy[selectingItemID.Value].renderTexture;
-        _explainText.text = _itemDatabaseCopy[selectingItemID.Value].itemExplain;
+        _rawImage.texture = _itemDatabaseCopy[SelectingItemID.Value].renderTexture;
+        _explainText.text = _itemDatabaseCopy[SelectingItemID.Value].itemExplain;
     }
 
     public void UseItem(int usedItemID)

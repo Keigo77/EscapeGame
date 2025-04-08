@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 //ToDo:　レバーを動かす音．レバーギミックを解いたかのbool値の保存
 
-public class LeverController : MonoBehaviour, IMoveGimick, ICorrect
+public class LeverController : MonoBehaviour, IMoveGimick
 {
     [SerializeField] private GameObject _leverObj;
     [SerializeField] private GameObject _boxCoverPivot;
@@ -41,7 +41,7 @@ public class LeverController : MonoBehaviour, IMoveGimick, ICorrect
     /// </summary>
     public async void MoveGimick()
     {
-        if (_isCorrected) return;
+        if (_isCorrected) { return; }
         Vector3 beforeMousePos = Input.mousePosition;      // レバーの左右は縦：Y方向　横：Z方向
         try
         {
@@ -53,8 +53,9 @@ public class LeverController : MonoBehaviour, IMoveGimick, ICorrect
         }
         Vector3 afterMousePos = Input.mousePosition;
         float distance = Mathf.Sqrt(Mathf.Pow((afterMousePos.x - beforeMousePos.x), 2) + Mathf.Pow((afterMousePos.y - beforeMousePos.y), 2));
-        if (distance < 50f) return;     // スライド量が小さければ処理しない
-        
+        if (distance < 50f) { return; } // スライド量が小さければ処理しない
+
+
         float angle = Mathf.Atan2(afterMousePos.y - beforeMousePos.y, afterMousePos.x - beforeMousePos.x) * Mathf.Rad2Deg;
 
         switch (angle)
@@ -97,7 +98,7 @@ public class LeverController : MonoBehaviour, IMoveGimick, ICorrect
                 Debug.Log("正解");
             }
         }
-        else _index = 0;
+        else { _index = 0; }
     }
 
     public void Correct()

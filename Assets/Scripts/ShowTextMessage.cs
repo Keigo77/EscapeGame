@@ -24,7 +24,7 @@ public class ShowTextMessage : MonoBehaviour, IShowText
 
     public async void ShowText()
     {
-        if (_isShowing) return;     // すでに文章を表示しているならリターン
+        if (_isShowing) { return; } // すでに文章を表示しているならリターン
         _isShowing = true;
         _textPanel.SetActive(true);
 

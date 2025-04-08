@@ -34,7 +34,7 @@ public class ShowGotItem : MonoBehaviour
     {
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
-        _selectingItem.selectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
+        _selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
         _objSetActiveManager.ObjSetActiveOff(itemID);
     }
@@ -46,7 +46,7 @@ public class ShowGotItem : MonoBehaviour
             if (gotItem.itemID == removeItemID)
             {
                 _gotItemDatas.Remove(gotItem);
-                _selectingItem.selectingItemID.Value = -1;
+                _selectingItem.SelectingItemID.Value = -1;
                 break;
             }
         }
@@ -73,10 +73,10 @@ public class ShowGotItem : MonoBehaviour
     {
         if (_gotItemDatas.Count <= index)
         {
-            _selectingItem.selectingItemID.Value = -1;
+            _selectingItem.SelectingItemID.Value = -1;
             return;
         }
-        _selectingItem.selectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
+        _selectingItem.SelectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
     }
     
     /// <summary>
@@ -84,7 +84,7 @@ public class ShowGotItem : MonoBehaviour
     /// </summary>
     public void ShowItemPanel()
     {
-        _showItemPanel.SetActive(!_showItemPanel.activeSelf);
         _objectRotate.ResetRotate();
+        _showItemPanel.SetActive(!_showItemPanel.activeSelf);
     }
 }

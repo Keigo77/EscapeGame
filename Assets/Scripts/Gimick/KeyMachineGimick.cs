@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 // ToDo:コイン投入の音．コインの枚数の保存 
-public class KeyMachineGimick : MonoBehaviour, IMoveGimick, ICorrect
+public class KeyMachineGimick : MonoBehaviour, IMoveGimick
 {
     [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private GameObject _boxCoverPivot;
@@ -15,7 +15,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick, ICorrect
     /// </summary>
     public void MoveGimick()
     {
-        if (_selectingItem.selectingItemID.Value != 9) return;  // ID9のアイテムはコイン
+        if (_selectingItem.SelectingItemID.Value != 9) { return; }  // ID9のアイテムはコイン
         _coinCounter++;
         MoveMachine();
     }
@@ -33,7 +33,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick, ICorrect
             default:
                 break;
         }
-        _selectingItem.UseItem(_selectingItem.selectingItemID.Value);
+        _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
     }
 
     public void Correct()

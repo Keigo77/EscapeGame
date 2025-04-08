@@ -19,15 +19,15 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
     /// </summary>
     public void MoveGimick()
     {
-        if (_selectingItem.selectingItemID.Value == 0)
+        if (_selectingItem.SelectingItemID.Value == 0)
         {
             _purpleTETRIS.SetActive(true);
-            _selectingItem.UseItem(_selectingItem.selectingItemID.Value);
+            _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         }
-        else if (_selectingItem.selectingItemID.Value == 7)
+        else if (_selectingItem.SelectingItemID.Value == 7)
         {
             _blueTETRIS.SetActive(true);
-            _selectingItem.UseItem(_selectingItem.selectingItemID.Value);
+            _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         }
 
         if (_purpleTETRIS.activeSelf && _blueTETRIS.activeSelf)

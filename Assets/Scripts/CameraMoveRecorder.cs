@@ -22,7 +22,7 @@ public class CameraMoveRecorder : MonoBehaviour
     {
         _cameraPosition.position = _movePosisionsHistory.Pop();
         _cameraPosition.rotation = Quaternion.Euler(_moveRotatesHistroy.Pop());
-        if (_movePosisionsHistory.Count <= 0) FourInitialPosition();
+        if (_movePosisionsHistory.Count <= 0) { FourInitialPosition(); }
     }
 
     public void FourInitialPosition()
@@ -33,7 +33,7 @@ public class CameraMoveRecorder : MonoBehaviour
 
     private void isShowUndoButton()
     {
-        if (_movePosisionsHistory.Count >= 1) _undoButton.gameObject.SetActive(true);
+        if (_movePosisionsHistory.Count >= 1) { _undoButton.gameObject.SetActive(true); }
         else _undoButton.gameObject.SetActive(false);
     }
 }

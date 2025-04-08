@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class HeartGimick : MonoBehaviour, ICorrect
+public class HeartGimick : MonoBehaviour
 {
     public enum Face
     {
@@ -69,10 +69,10 @@ public class HeartGimick : MonoBehaviour, ICorrect
     {
         if (_input[index] == _answer[index])
         {
-            if (index == _answer.Length - 1) Correct();
+            if (index == _answer.Length - 1) {Correct();}
             index++;
         }
-        else index = 0;
+        else {index = 0;}
         
     }
 

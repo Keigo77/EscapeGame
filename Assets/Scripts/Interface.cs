@@ -10,14 +10,6 @@ public interface IMoveGimick
     public void MoveGimick();
 }
 
-public interface ICorrect
-{
-    /// <summary>
-    /// 謎を解いたときに実行．
-    /// </summary>
-    public void Correct();
-}
-
 public interface IShowText
 {
     public void ShowExplainText();

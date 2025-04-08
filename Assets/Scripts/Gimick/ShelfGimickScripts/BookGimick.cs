@@ -2,14 +2,14 @@ using DG.Tweening;
 using UnityEngine;
 // ToDo:本の位置を保存．謎を解いたかbool値で保存
 
-public class BookGimick : MonoBehaviour, ICorrect
+public class BookGimick : MonoBehaviour
 {
     [SerializeField] private GameObject[] _particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
     [SerializeField] private GameObject[] _books = new GameObject[6];
     [SerializeField] private GameObject _boxCoverPivot;
     private SelectBook[] _selectBooks = new SelectBook[6];
     private Transform[] _transforms = new Transform[6];
-    public enum BookColor
+    public enum BookColors
     {
         Pink = 0,
         Purple = 1,
@@ -18,11 +18,12 @@ public class BookGimick : MonoBehaviour, ICorrect
         Red = 4,
         Blue = 5
     }
-    [SerializeField] private BookColor[] _correctColor = new BookColor[6];
+    [Header("正しい色の並び順を入力")] 
+    [SerializeField] private BookColors[] _correctColor = new BookColors[6];
     private ShowTextMessage _showTextMessage;
     private bool _isSelectingBook = false;
-    private BookColor _firstBookColor;
-    private BookColor _secondBookColor;
+    private BookColors _firstBookColors;
+    private BookColors _secondBookColors;
     private int _firstIndex, _secondIndex;
     private bool _isSolved = false; // 謎を解いたか
     
@@ -38,30 +39,30 @@ public class BookGimick : MonoBehaviour, ICorrect
     
     public void MoveBook(int color, Vector3 position)
     {
-        if (_isSolved) return;
+        if (_isSolved) {return;}
         if(!_isSelectingBook)
         {
             _isSelectingBook = true;
-            _firstBookColor = (BookColor)color;
-            _firstIndex = SearchBookIndex((BookColor)color);
+            _firstBookColors = (BookColors)color;
+            _firstIndex = SearchBookIndex((BookColors)color);
             _particles[_firstIndex].SetActive(true);
         }
         else
         {
             _isSelectingBook = false;
             _particles[_firstIndex].SetActive(false);
-            _secondBookColor = (BookColor)color;
-            _secondIndex = SearchBookIndex((BookColor)color);
+            _secondBookColors = (BookColors)color;
+            _secondIndex = SearchBookIndex((BookColors)color);
             ExChangeArray(_firstIndex, _secondIndex);
         }
     }
     
-    private int SearchBookIndex(BookColor bookColor)
+    private int SearchBookIndex(BookColors bookColors)
     {
         int nowIndex = 0;
         foreach (var selectBook in _selectBooks)
         {
-            if (bookColor == (BookColor)selectBook.bookColor) return nowIndex;
+            if (bookColors == (BookColors)selectBook.BookColor) {return nowIndex;}
             nowIndex++;
         }
         return -1;  // エラーを返したい
@@ -83,7 +84,7 @@ public class BookGimick : MonoBehaviour, ICorrect
         int nowIndex = 0;
         foreach (var selectBook in _selectBooks)
         {
-            if((BookColor)selectBook.bookColor != _correctColor[nowIndex]) correct = false;
+            if((BookColors)selectBook.BookColor != _correctColor[nowIndex]) {correct = false;}
             nowIndex++;
         }
 
