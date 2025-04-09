@@ -1,13 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 // ToDo:コイン投入の音．コインの枚数の保存 
 public class KeyMachineGimick : MonoBehaviour, IMoveGimick
 {
-    [SerializeField] private SelectingItem _selectingItem;
-    [SerializeField] private GameObject _boxCoverPivot;
-    [SerializeField] private GameObject _glassCover;
+    [SerializeField] private SelectingItem selectingItem;
+    [SerializeField] private GameObject boxCoverPivot;
+    [SerializeField] private GameObject glassCover;
     private int _coinCounter = 0;
 
     /// <summary>
@@ -15,7 +16,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick
     /// </summary>
     public void MoveGimick()
     {
-        if (_selectingItem.SelectingItemID.Value != 9) { return; }  // ID9のアイテムはコイン
+        if (selectingItem.SelectingItemID.Value != 9) { return; }  // ID9のアイテムはコイン
         _coinCounter++;
         MoveMachine();
     }
@@ -25,15 +26,15 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick
         switch (_coinCounter)
         {
             case 1:
-                _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f);
+                boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f);
                 break;
             case 3:
-                _glassCover.transform.DOMoveY(-3.0f, 1.0f);
+                glassCover.transform.DOMoveY(-3.0f, 1.0f);
                 break;
             default:
                 break;
         }
-        _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
+        selectingItem.UseItem(selectingItem.SelectingItemID.Value);
     }
 
     public void Correct()

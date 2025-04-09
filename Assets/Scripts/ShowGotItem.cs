@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using UniRx;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ShowGotItem : MonoBehaviour
 {
-    [SerializeField] private ItemDatabase _itemDatabase;
+    [SerializeField] private ItemDatabase itemDatabase;
     private List<ItemData> _itemDatabaseCopy;
     
-    [SerializeField] private SelectingItem _selectingItem;
-    [SerializeField] private List<ItemData> _gotItemDatas = new List<ItemData>();
-    [SerializeField] private List<Image> _itemImages = new List<Image>();
+    [SerializeField] private SelectingItem selectingItem;
+    [SerializeField] private List<ItemData> gotItemDatas = new List<ItemData>();
+    [SerializeField] private List<Image> itemImages = new List<Image>();
 
-    [SerializeField] private GameObject _showItemPanel;
-    [SerializeField] private Button _showItemButton;
+    [SerializeField] private GameObject showItemPanel;
+    [SerializeField] private Button showItemButton;
 
-    [SerializeField] private ObjectRotate _objectRotate;
+    [SerializeField] private ObjectRotate objectRotate;
     private ObjSetActiveManager _objSetActiveManager;
 
     void Awake()
     {
-        _itemDatabaseCopy = _itemDatabase.itemDatas;
+        _itemDatabaseCopy = itemDatabase.itemDatas;
         _objSetActiveManager = this.GetComponent<ObjSetActiveManager>();
     }
     
@@ -32,21 +33,21 @@ public class ShowGotItem : MonoBehaviour
     /// <param name="itemID">取得したいアイテムのアイテムID</param>
     public void GetItem(int itemID)
     {
-        _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
+        gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
-        _selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
+        selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
         _objSetActiveManager.ObjSetActiveOff(itemID);
     }
     
     public void RemoveItem(int removeItemID)
     {
-        foreach (var gotItem in _gotItemDatas)
+        foreach (var gotItem in gotItemDatas)
         {
             if (gotItem.itemID == removeItemID)
             {
-                _gotItemDatas.Remove(gotItem);
-                _selectingItem.SelectingItemID.Value = -1;
+                gotItemDatas.Remove(gotItem);
+                selectingItem.SelectingItemID.Value = -1;
                 break;
             }
         }
@@ -56,10 +57,10 @@ public class ShowGotItem : MonoBehaviour
     private void UpdateItemList()
     {
         int index = 0;
-        foreach (var gotItem in _gotItemDatas)
+        foreach (var gotItem in gotItemDatas)
         {
-            _itemImages[index].sprite = gotItem.itemHalfImage;
-            _itemImages[index + 1].sprite = null;
+            itemImages[index].sprite = gotItem.itemHalfImage;
+            itemImages[index + 1].sprite = null;
             index++;
         }
     }
@@ -71,12 +72,12 @@ public class ShowGotItem : MonoBehaviour
     /// <param name="index">どこのアイテム枠をクリックしたか</param>
     public void ChangeSelectItem(int index)     
     {
-        if (_gotItemDatas.Count <= index)
+        if (gotItemDatas.Count <= index)
         {
-            _selectingItem.SelectingItemID.Value = -1;
+            selectingItem.SelectingItemID.Value = -1;
             return;
         }
-        _selectingItem.SelectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
+        selectingItem.SelectingItemID.Value = gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
     }
     
     /// <summary>
@@ -84,7 +85,6 @@ public class ShowGotItem : MonoBehaviour
     /// </summary>
     public void ShowItemPanel()
     {
-        _objectRotate.ResetRotate();
-        _showItemPanel.SetActive(!_showItemPanel.activeSelf);
+        showItemPanel.SetActive(!showItemPanel.activeSelf);
     }
 }

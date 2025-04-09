@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 // ToDo:本の位置を保存．謎を解いたかbool値で保存
@@ -78,7 +80,7 @@ public class BookGimick : MonoBehaviour
         Check();
     }
 
-    private void Check()
+    private async UniTask Check()
     {
         bool correct = true;
         int nowIndex = 0;
@@ -90,12 +92,13 @@ public class BookGimick : MonoBehaviour
 
         if (correct)
         {
-            _showTextMessage.ShowText();
             Correct();
+            await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+            _showTextMessage.ShowText();
         }
     }
 
-    public void Correct()
+    private void Correct()
     {
         _isSolved = true;
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 1.0f);

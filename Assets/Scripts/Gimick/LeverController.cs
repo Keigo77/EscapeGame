@@ -9,16 +9,10 @@ using UnityEngine.Serialization;
 
 public class LeverController : MonoBehaviour, IMoveGimick
 {
-    [SerializeField] private GameObject _leverObj;
-    [SerializeField] private GameObject _boxCoverPivot;
-    private enum MoveDirection
-    {
-        Up,
-        Down,
-        Right,
-        Left
-    }
-    [SerializeField] private MoveDirection[] _answers;
+    [SerializeField] private GameObject leverObj;
+    [SerializeField] private GameObject boxCoverPivot;
+
+    [SerializeField] private MoveDirection[] answers;
     private MoveDirection _choose;
     private int _index;
     private ShowTextMessage _showTextMessage;
@@ -35,11 +29,16 @@ public class LeverController : MonoBehaviour, IMoveGimick
         if (_isCorrected) CorrectAnswer();
         */
     }
+
+    public void MoveGimick()
+    {
+        MoveGimickAsync().Forget();
+    }
     
     /// <summary>
     /// レバーをスライドした時に実行．(レバーをPointerDownで実行)
     /// </summary>
-    public async void MoveGimick()
+    private async UniTask MoveGimickAsync()
     {
         if (_isCorrected) { return; }
         Vector3 beforeMousePos = Input.mousePosition;      // レバーの左右は縦：Y方向　横：Z方向
@@ -62,32 +61,32 @@ public class LeverController : MonoBehaviour, IMoveGimick
         {
             case >= -45f and <= 45f:
                 _choose = MoveDirection.Right;
-                _leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
-                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
+                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 46f and <= 135f:
                 _choose = MoveDirection.Up;
-                _leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
-                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
+                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 136f or <= -135f:
                 _choose = MoveDirection.Left;
-                _leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
-                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
+                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= -136f and <= -46f:
                 _choose = MoveDirection.Down;
-                _leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
-                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
+                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             default:
                 break;
         }
 
-        if (_answers[_index] == _choose)
+        if (answers[_index] == _choose)
         {
             _index++;
-            if (_index == _answers.Length)
+            if (_index == answers.Length)
             {
                 // 箱を動かす関数
                 Correct();
@@ -103,7 +102,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
 
     public void Correct()
     {
-        _boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
+        boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
         _showTextMessage.ShowText();
     }
 }

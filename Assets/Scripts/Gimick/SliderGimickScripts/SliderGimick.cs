@@ -36,12 +36,19 @@ public class SliderGimick : MonoBehaviour, IMoveGimick
         if (correct) Correct();
     }
 
-    public async void Correct()
+    private async UniTask Correct()
     {
         _isCorrected = true;
         _heartBox.SetActive(true);
         _heartBox.transform.DOLocalMoveX(-6.0f, 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
+        try
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.Log("UniTaskのキャンセル");
+        }
         _showTextMessage.ShowText();
     }
 }

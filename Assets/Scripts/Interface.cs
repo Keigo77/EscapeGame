@@ -12,6 +12,9 @@ public interface IMoveGimick
 
 public interface IShowText
 {
+    /// <summary>
+    /// オブジェクトをクリックした時，そのオブジェクトの説明を表示
+    /// </summary>
     public void ShowExplainText();
 }
 

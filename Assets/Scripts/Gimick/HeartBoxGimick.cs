@@ -21,9 +21,6 @@ public class HeartBoxGimick : MonoBehaviour, IMoveGimick
         MoveGimickAsync();
     }
     
-    /// <summary>
-    /// 鍵を使われるオブジェクト自体にアタッチ．指定のアイテムを使うと，指定した分回転する．
-    /// </summary>
     private void MoveGimickAsync()
     {
         if (_selectingItem.SelectingItemID.Value != _needItemId){
