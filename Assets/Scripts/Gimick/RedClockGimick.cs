@@ -8,6 +8,7 @@ public class RedClockGimick : MonoBehaviour, IMoveGimick
     [SerializeField] private int _needItemId;
     [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private GameObject _redClockSprite;
+    [SerializeField] private GameObject _undoButton;
     private ShowTextMessage[] _showTextMessages;
     private CancellationToken _token;
 
@@ -27,7 +28,8 @@ public class RedClockGimick : MonoBehaviour, IMoveGimick
             return;
         }
         _showTextMessages[1].ShowText();
-        MoveGimickAsync();
+        _undoButton.SetActive(false);
+        MoveGimickAsync().Forget();
     }
     
 
@@ -37,15 +39,9 @@ public class RedClockGimick : MonoBehaviour, IMoveGimick
     private async UniTask MoveGimickAsync()
     {
         _redClockSprite.SetActive(true);
-        try
-        {
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0));
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0));
-        }
-        catch (OperationCanceledException)
-        {
-            Debug.Log("UniTaskのキャンセル");
-        }
+        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0));
+        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0));
         _redClockSprite.SetActive(false);
+        _undoButton.SetActive(true);
     }
 }

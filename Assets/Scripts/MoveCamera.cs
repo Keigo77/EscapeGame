@@ -46,8 +46,8 @@ public class MoveCamera : MonoBehaviour
 
     private void CameraLRMove()
     {
-        _cameraMoveRecorder._movePosisionsHistory.Clear();
-        _cameraMoveRecorder._moveRotatesHistroy.Clear();
+        _cameraMoveRecorder.MovePosisionsHistory.Clear();
+        _cameraMoveRecorder.MoveRotatesHistroy.Clear();
         _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posX, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posY, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posZ);  // 初期位置
         _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotX, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotY, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].rotZ));
         _colliderObject[_diretionIndex].SetActive(true);
@@ -58,9 +58,9 @@ public class MoveCamera : MonoBehaviour
     {
         _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
         // Excelからカメラポジションと角度を取得
-        Vector3 _movePosition = new Vector3(_cameraPositionDatabaseCopy[cameraId].posX, _cameraPositionDatabaseCopy[cameraId].posY, _cameraPositionDatabaseCopy[cameraId].posZ);
-        Vector3 _moveRotate = new Vector3(_cameraPositionDatabaseCopy[cameraId].rotX, _cameraPositionDatabaseCopy[cameraId].rotY, _cameraPositionDatabaseCopy[cameraId].rotZ);
-        _mainCamera.position = _movePosition;
-        _mainCamera.rotation = Quaternion.Euler(_moveRotate);
+        Vector3 movePosition = new Vector3(_cameraPositionDatabaseCopy[cameraId].posX, _cameraPositionDatabaseCopy[cameraId].posY, _cameraPositionDatabaseCopy[cameraId].posZ);
+        Vector3 moveRotate = new Vector3(_cameraPositionDatabaseCopy[cameraId].rotX, _cameraPositionDatabaseCopy[cameraId].rotY, _cameraPositionDatabaseCopy[cameraId].rotZ);
+        _mainCamera.position = movePosition;
+        _mainCamera.rotation = Quaternion.Euler(moveRotate);
     }
 }

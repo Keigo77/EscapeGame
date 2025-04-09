@@ -11,7 +11,7 @@ public class MakeRay : MonoBehaviour
         {
             if (EventSystem.current.IsPointerOverGameObject()) // UIをタッチした時は，rayを飛ばさない
             {
-                Debug.Log("UIに触った");
+                //Debug.Log("UIに触った");
                 return;
             }
 

@@ -2,26 +2,18 @@ using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 // ToDo:本の位置を保存．謎を解いたかbool値で保存
 
 public class BookGimick : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
-    [SerializeField] private GameObject[] _books = new GameObject[6];
-    [SerializeField] private GameObject _boxCoverPivot;
+    [SerializeField] private GameObject[] particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
+    [SerializeField] private GameObject[] books = new GameObject[6];
+    [SerializeField] private GameObject boxCoverPivot;
     private SelectBook[] _selectBooks = new SelectBook[6];
-    private Transform[] _transforms = new Transform[6];
-    public enum BookColors
-    {
-        Pink = 0,
-        Purple = 1,
-        Green = 2,
-        Yellow = 3,
-        Red = 4,
-        Blue = 5
-    }
     [Header("正しい色の並び順を入力")] 
-    [SerializeField] private BookColors[] _correctColor = new BookColors[6];
+    [SerializeField] private BookColors[] correctColor = new BookColors[6];
     private ShowTextMessage _showTextMessage;
     private bool _isSelectingBook = false;
     private BookColors _firstBookColors;
@@ -32,29 +24,28 @@ public class BookGimick : MonoBehaviour
     void Awake()
     {
         _showTextMessage = GetComponent<ShowTextMessage>();
-        for (int i = 0; i < _books.Length; i++)
+        for (int i = 0; i < books.Length; i++)
         {
-            _selectBooks[i] = _books[i].GetComponent<SelectBook>();
-            _transforms[i] = _books[i].GetComponent<Transform>();
+            _selectBooks[i] = books[i].GetComponent<SelectBook>();
         }
     }
     
-    public void MoveBook(int color, Vector3 position)
+    public void MoveBook(BookColors color)
     {
-        if (_isSolved) {return;}
+        if (_isSolved) { return; }
         if(!_isSelectingBook)
         {
             _isSelectingBook = true;
-            _firstBookColors = (BookColors)color;
-            _firstIndex = SearchBookIndex((BookColors)color);
-            _particles[_firstIndex].SetActive(true);
+            _firstBookColors = color;
+            _firstIndex = SearchBookIndex(color);
+            particles[_firstIndex].SetActive(true);
         }
         else
         {
             _isSelectingBook = false;
-            _particles[_firstIndex].SetActive(false);
-            _secondBookColors = (BookColors)color;
-            _secondIndex = SearchBookIndex((BookColors)color);
+            particles[_firstIndex].SetActive(false);
+            _secondBookColors = color;
+            _secondIndex = SearchBookIndex(color);
             ExChangeArray(_firstIndex, _secondIndex);
         }
     }
@@ -64,7 +55,7 @@ public class BookGimick : MonoBehaviour
         int nowIndex = 0;
         foreach (var selectBook in _selectBooks)
         {
-            if (bookColors == (BookColors)selectBook.BookColor) {return nowIndex;}
+            if (bookColors == selectBook.BookColor) {return nowIndex;}
             nowIndex++;
         }
         return -1;  // エラーを返したい
@@ -72,36 +63,28 @@ public class BookGimick : MonoBehaviour
 
     private void ExChangeArray(int firstIndex, int secondIndex)
     {
-        (_books[firstIndex], _books[secondIndex]) = (_books[secondIndex], _books[firstIndex]);
-        (_particles[firstIndex], _particles[secondIndex])  = (_particles[secondIndex], _particles[firstIndex]);
+        (books[firstIndex], books[secondIndex]) = (books[secondIndex], books[firstIndex]);
+        (particles[firstIndex], particles[secondIndex])  = (particles[secondIndex], particles[firstIndex]);
         (_selectBooks[firstIndex], _selectBooks[secondIndex])  = (_selectBooks[secondIndex], _selectBooks[firstIndex]);
-        (_transforms[_firstIndex].position, _transforms[_secondIndex].position)  = (_transforms[secondIndex].position, _transforms[firstIndex].position);
-        (_transforms[_firstIndex], _transforms[_secondIndex])  = (_transforms[secondIndex], _transforms[firstIndex]);
-        Check();
+        (books[_firstIndex].transform.position, books[_secondIndex].transform.position)  = (books[secondIndex].transform.position, books[firstIndex].transform.position);
+        Check().Forget();
     }
 
     private async UniTask Check()
     {
-        bool correct = true;
-        int nowIndex = 0;
-        foreach (var selectBook in _selectBooks)
+        for (int i = 0; i < _selectBooks.Length; i++)
         {
-            if((BookColors)selectBook.BookColor != _correctColor[nowIndex]) {correct = false;}
-            nowIndex++;
+            if (_selectBooks[i].BookColor != correctColor[i]) { return; }
         }
-
-        if (correct)
-        {
-            Correct();
-            await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-            _showTextMessage.ShowText();
-        }
+        Correct();
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        _showTextMessage.ShowText();
     }
 
     private void Correct()
     {
         _isSolved = true;
-        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 1.0f);
+        boxCoverPivot.transform.DOLocalRotate(Vector3.zero, 1.0f);
     }
 
     /// <summary>
@@ -109,9 +92,9 @@ public class BookGimick : MonoBehaviour
     /// </summary>
     private void BookExchangeCorrect()
     {
-        (_transforms[0].position, _transforms[5].position)  = (_transforms[5].position, _transforms[0].position);
-        (_transforms[1].position, _transforms[4].position)  = (_transforms[4].position, _transforms[1].position);
-        (_transforms[2].position, _transforms[5].position)  = (_transforms[5].position, _transforms[2].position);
-        (_transforms[3].position, _transforms[5].position)  = (_transforms[5].position, _transforms[3].position);
+        (books[0].transform.position, books[5].transform.position)  = (books[5].transform.position, books[0].transform.position);
+        (books[1].transform.position, books[4].transform.position)  = (books[4].transform.position, books[1].transform.position);
+        (books[2].transform.position, books[5].transform.position)  = (books[5].transform.position, books[2].transform.position);
+        (books[3].transform.position, books[5].transform.position)  = (books[5].transform.position, books[3].transform.position);
     }
 }

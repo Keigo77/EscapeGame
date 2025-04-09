@@ -15,9 +15,14 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimick
         _token = this.GetCancellationTokenOnDestroy();
         _showTextMessage = this.GetComponent<ShowTextMessage>();
     }
+
+    public void MoveGimick()
+    {
+        MoveGimickAsync().Forget();
+    }
     
     // クリックしたらライトを消去
-    public async void MoveGimick()
+    private async UniTask MoveGimickAsync()
     {
         if (_selectingItem.SelectingItemID.Value != 12) {
             _showTextMessage.ShowText();
@@ -26,7 +31,7 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimick
         _ItemPriceUsedRight.SetActive(true);
         try
         {
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: _token);
+            await UniTask.WaitUntil(() => Input.GetMouseButtonUp(0), cancellationToken: _token);
         }
         catch (OperationCanceledException)
         {

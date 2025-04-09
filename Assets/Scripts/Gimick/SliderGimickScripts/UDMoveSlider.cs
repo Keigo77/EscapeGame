@@ -23,10 +23,10 @@ public class UDMoveSlider : MonoBehaviour, IMoveGimick
     
     public void MoveGimick()
     {
-        MoveSlider();
+        MoveSlider().Forget();
     }
 
-    private async void MoveSlider()
+    private async UniTask MoveSlider()
     {
         _beforeMousePos = Input.mousePosition;
         while (true)

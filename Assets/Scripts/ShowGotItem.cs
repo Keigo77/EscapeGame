@@ -8,23 +8,32 @@ using UnityEngine.UI;
 
 public class ShowGotItem : MonoBehaviour
 {
-    [SerializeField] private ItemDatabase itemDatabase;
+    [SerializeField] private ItemDatabase _itemDatabase;
     private List<ItemData> _itemDatabaseCopy;
     
-    [SerializeField] private SelectingItem selectingItem;
-    [SerializeField] private List<ItemData> gotItemDatas = new List<ItemData>();
-    [SerializeField] private List<Image> itemImages = new List<Image>();
+    [SerializeField] private SelectingItem _selectingItem;
+    private List<ItemData> _gotItemDatas = new();
+    [SerializeField] private List<Image> _itemImages = new();
 
-    [SerializeField] private GameObject showItemPanel;
-    [SerializeField] private Button showItemButton;
+    // UI系統
+    [SerializeField] private GameObject _showItemPanel;
+    public GameObject ItemPanel => _showItemPanel;
+    [SerializeField] private GameObject _showItemPanelButtonObj;
+    private Button _showItemButton;
+    [SerializeField] private GameObject _rightButton;
+    [SerializeField] private GameObject _leftButton;
+    [SerializeField] private GameObject _gearItemRawImageObj;
+    [SerializeField] private GameObject _dontShowUIText;
+    [SerializeField] private UIManager _uiManager;
 
-    [SerializeField] private ObjectRotate objectRotate;
+    [SerializeField] private ObjectRotate _objectRotate;
     private ObjSetActiveManager _objSetActiveManager;
 
     void Awake()
     {
-        _itemDatabaseCopy = itemDatabase.itemDatas;
+        _itemDatabaseCopy = _itemDatabase.itemDatas;
         _objSetActiveManager = this.GetComponent<ObjSetActiveManager>();
+        _showItemButton = _showItemPanelButtonObj.GetComponent<Button>();
     }
     
     /// <summary>
@@ -33,21 +42,21 @@ public class ShowGotItem : MonoBehaviour
     /// <param name="itemID">取得したいアイテムのアイテムID</param>
     public void GetItem(int itemID)
     {
-        gotItemDatas.Add(_itemDatabaseCopy[itemID]);
+        _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
-        selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
+        _selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
         ShowItemPanel();
         _objSetActiveManager.ObjSetActiveOff(itemID);
     }
     
     public void RemoveItem(int removeItemID)
     {
-        foreach (var gotItem in gotItemDatas)
+        foreach (var gotItem in _gotItemDatas)
         {
             if (gotItem.itemID == removeItemID)
             {
-                gotItemDatas.Remove(gotItem);
-                selectingItem.SelectingItemID.Value = -1;
+                _gotItemDatas.Remove(gotItem);
+                _selectingItem.SelectingItemID.Value = -1;
                 break;
             }
         }
@@ -57,10 +66,10 @@ public class ShowGotItem : MonoBehaviour
     private void UpdateItemList()
     {
         int index = 0;
-        foreach (var gotItem in gotItemDatas)
+        foreach (var gotItem in _gotItemDatas)
         {
-            itemImages[index].sprite = gotItem.itemHalfImage;
-            itemImages[index + 1].sprite = null;
+            _itemImages[index].sprite = gotItem.itemHalfImage;
+            _itemImages[index + 1].sprite = null;
             index++;
         }
     }
@@ -72,12 +81,12 @@ public class ShowGotItem : MonoBehaviour
     /// <param name="index">どこのアイテム枠をクリックしたか</param>
     public void ChangeSelectItem(int index)     
     {
-        if (gotItemDatas.Count <= index)
+        if (_gotItemDatas.Count <= index)
         {
-            selectingItem.SelectingItemID.Value = -1;
+            _selectingItem.SelectingItemID.Value = -1;
             return;
         }
-        selectingItem.SelectingItemID.Value = gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
+        _selectingItem.SelectingItemID.Value = _gotItemDatas[index].itemID;   // 装備中アイテムのアイテムIDを更新
     }
     
     /// <summary>
@@ -85,6 +94,18 @@ public class ShowGotItem : MonoBehaviour
     /// </summary>
     public void ShowItemPanel()
     {
-        showItemPanel.SetActive(!showItemPanel.activeSelf);
+        _objectRotate.ResetRotate();
+        _showItemPanel.SetActive(!_showItemPanel.activeSelf);
+        if (_showItemPanel.activeSelf)
+        {
+            _uiManager.DontShowUI();
+            _showItemPanelButtonObj.SetActive(true);
+            _showItemButton.image.color = new Color(0.25f, 0.28f, 0.64f, 1);
+        }
+        else
+        {
+            _uiManager.ShowUI();
+            _showItemButton.image.color = new Color(0.41f, 0.45f, 1, 1);
+        }
     }
 }

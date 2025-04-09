@@ -22,7 +22,7 @@ public class UseKey : MonoBehaviour, IMoveGimick
 
     public void MoveGimick()
     {
-        MoveGimickAsync();
+        MoveGimickAsync().Forget();
     }
     
     /// <summary>
@@ -37,14 +37,7 @@ public class UseKey : MonoBehaviour, IMoveGimick
         }
         MoveObj();
         _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
-        try
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-        }
-        catch (OperationCanceledException)
-        {
-            Debug.Log("UniTaskがキャンセルされました");
-        }
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         _showTextMessages[1].ShowText();
     }
 

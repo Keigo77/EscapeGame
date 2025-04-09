@@ -23,6 +23,7 @@ public class HeartBoxGimick : MonoBehaviour, IMoveGimick
     
     private void MoveGimickAsync()
     {
+        if (_isSolved) { return; }
         if (_selectingItem.SelectingItemID.Value != _needItemId){
             _showTextMessages[0].ShowText();
             return;

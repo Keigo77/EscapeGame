@@ -1,22 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HeartGimick : MonoBehaviour
 {
-    public enum Face
-    {
-        Smile = 0,
-        Normal = 1,
-        Angly = 2
-    }
-
-    [SerializeField] private GameObject _smileButton;
-    [SerializeField] private GameObject _normalButton;
-    [SerializeField] private GameObject _anglyButton;
-    [SerializeField] private GameObject _boxPivotObj;
-    [SerializeField] private Face[] _answer = new Face[9];
-    private Face[] _input = new Face[9];
-    private int index = 0;
+    [SerializeField] private GameObject smileButton;
+    [SerializeField] private GameObject normalButton;
+    [SerializeField] private GameObject anglyButton;
+    [SerializeField] private GameObject boxPivotObj;
+    [SerializeField] private Faces[] answers = new Faces[9];
+    private readonly Faces[] _inputs = new Faces[9];
+    private int _index = 0;
     private float _beforePushPosZ;        // ボタンを押す前の座標
     private float _pushedPosZ;    // ボタンを押した時の座標
     private ShowTextMessage _showTextMessage;
@@ -25,7 +19,7 @@ public class HeartGimick : MonoBehaviour
     void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
-        _beforePushPosZ = _smileButton.GetComponent<Transform>().localPosition.z;
+        _beforePushPosZ = smileButton.GetComponent<Transform>().localPosition.z;
     }
 
     void Start()
@@ -37,23 +31,19 @@ public class HeartGimick : MonoBehaviour
     /// ハートのボタンを押すと実行．
     /// </summary>
     /// <param name="face">押されたボタンの役割</param>
-    public void PointerDownHeartButton(int face)
+    public void PointerDownHeartButton(Faces face)
     {
-        switch ((Face)face)
+        _inputs[_index] = face;
+        switch (face)
         {
-            case Face.Smile:
-                _input[index] = Face.Smile;
-                MoveButton(_smileButton);
+            case Faces.Smile:
+                MoveButton(smileButton);
                 break;
-            case Face.Normal:
-                _input[index] = Face.Normal;
-                MoveButton(_normalButton);
+            case Faces.Normal:
+                MoveButton(normalButton);
                 break;
-            case Face.Angly:
-                _input[index] = Face.Angly;
-                MoveButton(_anglyButton);
-                break;
-            default:
+            case Faces.Angly:
+                MoveButton(anglyButton);
                 break;
         }
         InputCheck();
@@ -67,18 +57,18 @@ public class HeartGimick : MonoBehaviour
     
     private void InputCheck()
     {
-        if (_input[index] == _answer[index])
+        if (_inputs[_index] == answers[_index])
         {
-            if (index == _answer.Length - 1) {Correct();}
-            index++;
+            if (_index == answers.Length - 1) { Correct(); }
+            _index++;
         }
-        else {index = 0;}
+        else { _index = 0; }
         
     }
 
     public void Correct()
     {
-        _boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 0.2f);
+        boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 0.2f);
         _showTextMessage.ShowText();
     }
 }

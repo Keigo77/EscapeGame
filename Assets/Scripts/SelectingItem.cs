@@ -5,12 +5,15 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-// Todo: 装備中のアイテムのハーフ画像を画面に表示したい
 public class SelectingItem : MonoBehaviour
 {
     [SerializeField] private ItemDatabase _itemDatabase;
     private List<ItemData> _itemDatabaseCopy;
-    [SerializeField] private RawImage _rawImage;
+    [SerializeField] private GameObject _itemRawImageObj;
+    private RawImage _itemRawImage;
+    [SerializeField] private GameObject _gearItemRawImageObj;
+    private RawImage _gearRawImage;
+    [SerializeField] private RawImage _gearItemRawImage;
     [SerializeField] private TextMeshProUGUI _explainText;
     public ReactiveProperty<int> SelectingItemID = new (-1);
     
@@ -19,13 +22,15 @@ public class SelectingItem : MonoBehaviour
     void Awake()
     {
         _itemDatabaseCopy = _itemDatabase.itemDatas;
+        _itemRawImage = _itemRawImageObj.GetComponent<RawImage>();
+        _gearRawImage = _gearItemRawImageObj.GetComponent<RawImage>();
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SelectingItemID.Subscribe(_ => UpdateShowItemDetail());
-        _rawImage.enabled = false;
+        _gearItemRawImageObj.SetActive(false);
     }
 
     /// <summary>
@@ -35,12 +40,15 @@ public class SelectingItem : MonoBehaviour
     {
         if (SelectingItemID.Value < 0)      
         {
-            _rawImage.enabled = false;
+            _itemRawImageObj.SetActive(false);
+            _gearItemRawImageObj.SetActive(false);
             _explainText.text = "";
             return;
         }
-        _rawImage.enabled = true;
-        _rawImage.texture = _itemDatabaseCopy[SelectingItemID.Value].renderTexture;
+        _itemRawImageObj.SetActive(true);
+        if (!_showGotItem.ItemPanel.activeSelf) { _gearItemRawImageObj.SetActive(true); }
+        _itemRawImage.texture = _itemDatabaseCopy[SelectingItemID.Value].renderTexture;
+        _gearItemRawImage.texture = _itemDatabaseCopy[SelectingItemID.Value].renderTexture;
         _explainText.text = _itemDatabaseCopy[SelectingItemID.Value].itemExplain;
     }
 
