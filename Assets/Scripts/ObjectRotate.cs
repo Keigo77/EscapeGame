@@ -35,6 +35,7 @@ public class ObjectRotate : MonoBehaviour
         {
             obj.transform.localRotation = Quaternion.Euler(Vector3.zero);
             _objRotate = Vector3.zero;
+            _isMouseDowned = false;
         }
     }
 }
