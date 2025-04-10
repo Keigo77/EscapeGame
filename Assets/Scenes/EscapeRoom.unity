@@ -787,6 +787,8 @@ GameObject:
   - component: {fileID: 130313693}
   - component: {fileID: 130313694}
   - component: {fileID: 130313695}
+  - component: {fileID: 130313697}
+  - component: {fileID: 130313696}
   m_Layer: 0
   m_Name: KeyMachineGimickManager
   m_TagString: Gimick
@@ -857,9 +859,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textPanel: {fileID: 0}
-  _text: {fileID: 0}
-  _textSentences: []
+  _textPanel: {fileID: 1895688903}
+  _text: {fileID: 1146563852}
+  _textSentences:
+  - "\u30B3\u30A4\u30F3\u3092\u6295\u5165\u3057\u305F\u3089\u7BB1\u304C\u958B\u3044\u305F\uFF01"
+--- !u!114 &130313696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPanel: {fileID: 1895688903}
+  _text: {fileID: 1146563852}
+  _textSentences:
+  - "\u30AC\u30E9\u30B9\u5F35\u308A\u304C\u7121\u304F\u306A\u3063\u305F\uFF01"
+--- !u!114 &130313697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPanel: {fileID: 1895688903}
+  _text: {fileID: 1146563852}
+  _textSentences:
+  - "\u30B3\u30A4\u30F3\u3092\u6295\u5165\u3057\u305F\u304C\uFF0C\u4F55\u3082\u8D77\u3053\u3089\u306A\u304B\u3063\u305F\uFF0E"
 --- !u!1 &138604518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2545,8 @@ MonoBehaviour:
   _lifeManager: {fileID: 475586522}
   _showTextMessage: {fileID: 252975893}
   _hintPaper: {fileID: 888512241}
+  _cameraMoveRecorder: {fileID: 1211455139}
+  _moveCamera: {fileID: 1211455141}
 --- !u!224 &252975892
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,10 +17,12 @@ public class HeartGimick : MonoBehaviour
     private float _beforePushPosZ;        // ボタンを押す前の座標
     private float _pushedPosZ;    // ボタンを押した時の座標
     private ShowTextMessage _showTextMessage;
+    private CancellationToken _token; 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        _token = this.GetCancellationTokenOnDestroy();
         _showTextMessage = this.GetComponent<ShowTextMessage>();
         _beforePushPosZ = smileButton.GetComponent<Transform>().localPosition.z;
     }
@@ -59,16 +64,18 @@ public class HeartGimick : MonoBehaviour
     {
         if (_inputs[_index] == answers[_index])
         {
-            if (_index == answers.Length - 1) { Correct(); }
+            if (_index == answers.Length - 1) { Correct().Forget(); }
             _index++;
         }
         else { _index = 0; }
         
     }
 
-    public void Correct()
+    private async UniTask Correct()
     {
-        boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 0.2f);
+        boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 1.0f);
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
         _showTextMessage.ShowText();
     }
 }

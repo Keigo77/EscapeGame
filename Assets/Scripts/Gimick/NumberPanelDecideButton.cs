@@ -1,8 +1,9 @@
 using System;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
-//ToDo:ギミックを解いたかをbool値で保存
+//ToDo:ギミックを解いたかをbool値で保存．箱が開く音を実装する
 
 public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
 {
@@ -40,7 +41,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
             .OnComplete(() => _decideButton.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         if (playerInput == _answer)
         {
-            Correct();
+            Correct().Forget();
         }
         else
         {
@@ -48,11 +49,12 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
         }
     }
 
-    public void Correct()
+    private async UniTask Correct()
     {
         _isCorrected = true;
         //ES3.Save<bool>("PriceGimick", _isCorrected);
-        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 0.5f);
+        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         _showTextMessage.ShowText();
     }
 }

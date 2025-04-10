@@ -7,11 +7,20 @@ public class PrinterTouchPanel : MonoBehaviour
     [SerializeField] private LifeManager _lifeManager;
     [SerializeField] private ShowTextMessage _showTextMessage;
     [SerializeField] private GameObject _hintPaper;
+    
+    [SerializeField] private CameraMoveRecorder _cameraMoveRecorder;
+    [SerializeField] private MoveCamera _moveCamera;
     private bool _isClear = true;
     private int _panelCount = 0;
 
     public void MissButtonTouch()
     {
+        // UIをクリックするとrayが飛ばず，タッチパネルを拡大していなくても(遠くからでも)ボタンが反応するため，しっかりタッチパネルが見えている状態でないとギミックが動作しないようにする．
+        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
+        {
+            _moveCamera.MoveIDPosCamera(6);
+            return;
+        }  
         _isClear = false;
         ShowNextPanel();
         Debug.Log("ミス");
@@ -19,6 +28,11 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void ClearButtonTouch()
     {
+        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
+        {
+            _moveCamera.MoveIDPosCamera(6);
+            return;
+        }  
         ShowNextPanel();
         Debug.Log("正解");
     }
