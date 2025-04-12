@@ -16,6 +16,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
     private MoveDirection _choose;
     private int _index;
     private ShowTextMessage _showTextMessage;
+    [SerializeField] private BoxCollider _boxCollider;
     private CancellationToken _token;
     private bool _isCorrected = false;
 
@@ -42,14 +43,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
     {
         if (_isCorrected) { return; }
         Vector3 beforeMousePos = Input.mousePosition;      // レバーの左右は縦：Y方向　横：Z方向
-        try
-        {
-            await UniTask.WaitUntil(() => Input.GetMouseButtonUp(0), cancellationToken: _token);
-        }
-        catch (OperationCanceledException)
-        {
-            Debug.Log("UniTaskキャンセル");
-        }
+        await UniTask.WaitUntil(() => Input.GetMouseButtonUp(0), cancellationToken: _token);
         Vector3 afterMousePos = Input.mousePosition;
         float distance = Mathf.Sqrt(Mathf.Pow((afterMousePos.x - beforeMousePos.x), 2) + Mathf.Pow((afterMousePos.y - beforeMousePos.y), 2));
         if (distance < 50f) { return; } // スライド量が小さければ処理しない
@@ -79,8 +73,6 @@ public class LeverController : MonoBehaviour, IMoveGimick
                 leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
                     .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
-            default:
-                break;
         }
 
         if (answers[_index] == _choose)
@@ -92,9 +84,6 @@ public class LeverController : MonoBehaviour, IMoveGimick
                 // 箱を動かす関数
                 Correct();
                 _isCorrected = true;
-                /*
-                 ES3.Save<bool>("LeverGimick", _isCorrected);
-                 */
                 Debug.Log("正解");
             }
         }
@@ -103,7 +92,8 @@ public class LeverController : MonoBehaviour, IMoveGimick
 
     private void Correct()
     {
-        boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
-        _showTextMessage.ShowText();
+        boxCoverPivot.transform.DORotate(new Vector3(0, 315, 0), 0.5f);
+        _boxCollider.enabled = false;
+        _showTextMessage.ShowText().Forget();
     }
 }

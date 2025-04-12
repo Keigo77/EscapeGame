@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class HeartBoxGimick : MonoBehaviour, IMoveGimick
@@ -25,14 +26,14 @@ public class HeartBoxGimick : MonoBehaviour, IMoveGimick
     {
         if (_isSolved) { return; }
         if (_selectingItem.SelectingItemID.Value != _needItemId){
-            _showTextMessages[0].ShowText();
+            _showTextMessages[0].ShowText().Forget();
             return;
         }
         _isSolved = true;
         _coin.SetActive(true);
         Correct();
         _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
-        _showTextMessages[1].ShowText();
+        _showTextMessages[1].ShowText().Forget();
     }
 
     private void Correct()

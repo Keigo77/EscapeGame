@@ -24,10 +24,10 @@ public class RedClockGimick : MonoBehaviour, IMoveGimick
     public void MoveGimick()
     {
         if (_selectingItem.SelectingItemID.Value != _needItemId){
-            _showTextMessages[0].ShowText();
+            _showTextMessages[0].ShowText().Forget();
             return;
         }
-        _showTextMessages[1].ShowText();
+        _showTextMessages[1].ShowText().Forget();
         _undoButton.SetActive(false);
         MoveGimickAsync().Forget();
     }

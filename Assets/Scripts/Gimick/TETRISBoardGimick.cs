@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 // Todo:テトリスをはめるときの音．コインが落ちる音．各オブジェクトのSetativeの保存
 public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
@@ -7,17 +8,14 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
     [SerializeField] private GameObject _purpleTETRIS;
     [SerializeField] private GameObject _blueTETRIS;
     [SerializeField] private GameObject _coinObj;
-    private ShowTextMessage _showTextMessage;
+    private ShowTextMessage[] _showTextMessages;
     private bool _isSolved = false;
 
     private void Awake()
     {
-        _showTextMessage = this.GetComponent<ShowTextMessage>();
+        _showTextMessages = this.GetComponents<ShowTextMessage>();
     }
-
-    /// <summary>
-    /// テトリス
-    /// </summary>
+    
     public void MoveGimick()
     {
         if (_isSolved) { return; }
@@ -31,11 +29,12 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
             _blueTETRIS.SetActive(true);
             _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         }
+        else { _showTextMessages[0].ShowText().Forget(); }
 
         if (_purpleTETRIS.activeSelf && _blueTETRIS.activeSelf)
         {
             _coinObj.SetActive(true);
-            _showTextMessage.ShowText();
+            _showTextMessages[1].ShowText().Forget();
             _isSolved = true;
         }
     }

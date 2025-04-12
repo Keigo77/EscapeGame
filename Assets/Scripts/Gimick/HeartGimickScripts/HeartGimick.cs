@@ -7,11 +7,11 @@ using UnityEngine.Serialization;
 
 public class HeartGimick : MonoBehaviour
 {
-    [SerializeField] private GameObject smileButton;
-    [SerializeField] private GameObject normalButton;
-    [SerializeField] private GameObject anglyButton;
-    [SerializeField] private GameObject boxPivotObj;
-    [SerializeField] private Faces[] answers = new Faces[9];
+    [SerializeField] private GameObject _smileButton;
+    [SerializeField] private GameObject _normalButton;
+    [SerializeField] private GameObject _angryButton;
+    [SerializeField] private GameObject _boxPivotObj;
+    [SerializeField] private Faces[] _answers = new Faces[9];
     private readonly Faces[] _inputs = new Faces[9];
     private bool _isSolved = false;
     private int _index = 0;
@@ -25,7 +25,7 @@ public class HeartGimick : MonoBehaviour
     {
         _token = this.GetCancellationTokenOnDestroy();
         _showTextMessage = this.GetComponent<ShowTextMessage>();
-        _beforePushPosZ = smileButton.GetComponent<Transform>().localPosition.z;
+        _beforePushPosZ = _smileButton.GetComponent<Transform>().localPosition.z;
     }
 
     void Start()
@@ -44,13 +44,13 @@ public class HeartGimick : MonoBehaviour
         switch (face)
         {
             case Faces.Smile:
-                MoveButton(smileButton);
+                MoveButton(_smileButton);
                 break;
             case Faces.Normal:
-                MoveButton(normalButton);
+                MoveButton(_normalButton);
                 break;
             case Faces.Angly:
-                MoveButton(anglyButton);
+                MoveButton(_angryButton);
                 break;
         }
         InputCheck();
@@ -64,9 +64,9 @@ public class HeartGimick : MonoBehaviour
     
     private void InputCheck()
     {
-        if (_inputs[_index] == answers[_index])
+        if (_inputs[_index] == _answers[_index])
         {
-            if (_index == answers.Length - 1) { Correct().Forget(); }
+            if (_index == _answers.Length - 1) { Correct().Forget(); }
             _index++;
         }
         else { _index = 0; }
@@ -75,9 +75,9 @@ public class HeartGimick : MonoBehaviour
 
     private async UniTask Correct()
     {
-        boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 1.0f);
+        _boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 1.0f);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
-        _showTextMessage.ShowText();
+        _showTextMessage.ShowText().Forget();
         _isSolved = true;
     }
 }

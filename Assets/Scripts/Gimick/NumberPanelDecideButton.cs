@@ -3,6 +3,8 @@ using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
+
 //ToDo:ギミックを解いたかをbool値で保存．箱が開く音を実装する
 
 public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
@@ -11,7 +13,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
     [SerializeField] private int _answer;
     [SerializeField] private GameObject _boxCoverPivot;
     [SerializeField] private GameObject _decideButton;
-    [SerializeField] private TextMeshProUGUI _southandText;
+    [SerializeField] private TextMeshProUGUI _thousandText;
     [SerializeField] private TextMeshProUGUI _hundredText;
     [SerializeField] private TextMeshProUGUI _tenText;
     [SerializeField] private TextMeshProUGUI _oneText;
@@ -21,18 +23,13 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
     private void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
-        /*　セーブ部分
-        if (!ES3.KeyExists("PriceGimick")) return;
-        _isCorrected = ES3.Load<bool>("PriceGimick");
-        if (_isCorrected) CorrectAnswer();
-        */
     }
 
     public void MoveGimick()
     {
         if (_isCorrected) { return; } // 解いた後なら，処理しない
 
-        int playerInput = int.Parse(_southandText.text) * 1000 +
+        int playerInput = int.Parse(_thousandText.text) * 1000 +
                           int.Parse(_hundredText.text) * 100 +
                           int.Parse(_tenText.text) * 10 +
                           int.Parse(_oneText.text);
@@ -43,18 +40,13 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
         {
             Correct().Forget();
         }
-        else
-        {
-            // 間違えていた時の処理
-        }
     }
 
     private async UniTask Correct()
     {
         _isCorrected = true;
-        //ES3.Save<bool>("PriceGimick", _isCorrected);
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
-        _showTextMessage.ShowText();
+        _showTextMessage.ShowText().Forget();
     }
 }

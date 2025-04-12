@@ -32,13 +32,13 @@ public class UseKey : MonoBehaviour, IMoveGimick
     {
         if (_selectingItem.SelectingItemID.Value != _needItemId)
         {
-            _showTextMessages[0].ShowText();
+            _showTextMessages[0].ShowText().Forget();
             return;
         }
         MoveObj();
         _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-        _showTextMessages[1].ShowText();
+        _showTextMessages[1].ShowText().Forget();
     }
 
     private void MoveObj()

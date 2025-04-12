@@ -68,7 +68,7 @@ public class PrinterTouchPanel : MonoBehaviour
     private async UniTask GimmickClear()
     {
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
-        _showTextMessage.ShowText();
+        _showTextMessage.ShowText().Forget();
         _hintPaper.SetActive(true);
         
         // 少し待ってから(印刷音を出してから)テキスト表示する？
