@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PrinterTouchPanel : MonoBehaviour
@@ -12,6 +15,12 @@ public class PrinterTouchPanel : MonoBehaviour
     [SerializeField] private MoveCamera _moveCamera;
     private bool _isClear = true;
     private int _panelCount = 0;
+    private CancellationToken _token;
+    
+    void Awake()
+    {
+        _token = this.GetCancellationTokenOnDestroy();
+    }
 
     public void MissButtonTouch()
     {
@@ -37,7 +46,7 @@ public class PrinterTouchPanel : MonoBehaviour
         Debug.Log("正解");
     }
 
-    public void BadPanelButtonTouch()
+    public void BadPanelButtonTouch()   // 笑ボタン
     {
         _lifeManager.TakeDamage();
         _isClear = true;
@@ -51,14 +60,14 @@ public class PrinterTouchPanel : MonoBehaviour
     {
         _panels[_panelCount].SetActive(false);
         _panelCount++;
-        if (!_isClear && _panelCount >= _panels.Length) _missPanel.SetActive(true);
-        else if(_isClear && _panelCount >= _panels.Length) GimmickClear();
-        else _panels[_panelCount].SetActive(true);
+        if (!_isClear && _panelCount >= _panels.Length) { _missPanel.SetActive(true); }
+        else if(_isClear && _panelCount >= _panels.Length) { GimmickClear().Forget(); }
+        else { _panels[_panelCount].SetActive(true); }
     }
 
-    private void GimmickClear()
+    private async UniTask GimmickClear()
     {
-        Debug.Log("クリア");
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessage.ShowText();
         _hintPaper.SetActive(true);
         

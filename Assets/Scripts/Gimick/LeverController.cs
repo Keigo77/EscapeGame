@@ -86,6 +86,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
         if (answers[_index] == _choose)
         {
             _index++;
+            Debug.Log(_index);
             if (_index == answers.Length)
             {
                 // 箱を動かす関数
@@ -100,7 +101,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
         else { _index = 0; }
     }
 
-    public void Correct()
+    private void Correct()
     {
         boxCoverPivot.transform.DORotate(new Vector3(0, -135, 0), 0.5f);
         _showTextMessage.ShowText();

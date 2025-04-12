@@ -29,6 +29,9 @@ public class ObjectRotate : MonoBehaviour
         else if(_isMouseDowned && !Input.GetMouseButton(0)) { _isMouseDowned = false; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void ResetRotate()
     {
         foreach (var obj in targetObjects)

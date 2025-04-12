@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class LifeManager : MonoBehaviour
 {
-    [SerializeField] private int _maxHP = 10;
+    [SerializeField] private int _maxHp = 10;
 
     public void TakeDamage()
     {
-        _maxHP--;
+        _maxHp--;
         Debug.Log("ダメージ！");
     }
 }

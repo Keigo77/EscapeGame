@@ -27,7 +27,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick
     /// </summary>
     public void MoveGimick()
     {
-        if (selectingItem.SelectingItemID.Value != 9) { return; }  // ID9のアイテムはコイン
+        if (selectingItem.SelectingItemID.Value != 9 && selectingItem.SelectingItemID.Value != 13 && selectingItem.SelectingItemID.Value != 14) { return; }  // ID9のアイテムはコイン
         _coinCounter++;
         MoveMachine().Forget();
     }
@@ -46,7 +46,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick
                 break;
         }
         selectingItem.UseItem(selectingItem.SelectingItemID.Value);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
-        _showTextMessages[_coinCounter].ShowText();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
+        _showTextMessages[_coinCounter - 1].ShowText();
     }
 }

@@ -13,6 +13,7 @@ public class HeartGimick : MonoBehaviour
     [SerializeField] private GameObject boxPivotObj;
     [SerializeField] private Faces[] answers = new Faces[9];
     private readonly Faces[] _inputs = new Faces[9];
+    private bool _isSolved = false;
     private int _index = 0;
     private float _beforePushPosZ;        // ボタンを押す前の座標
     private float _pushedPosZ;    // ボタンを押した時の座標
@@ -38,6 +39,7 @@ public class HeartGimick : MonoBehaviour
     /// <param name="face">押されたボタンの役割</param>
     public void PointerDownHeartButton(Faces face)
     {
+        if (_isSolved) { return; }
         _inputs[_index] = face;
         switch (face)
         {
@@ -74,8 +76,8 @@ public class HeartGimick : MonoBehaviour
     private async UniTask Correct()
     {
         boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessage.ShowText();
+        _isSolved = true;
     }
 }

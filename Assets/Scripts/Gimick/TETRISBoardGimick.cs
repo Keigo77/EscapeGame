@@ -8,6 +8,7 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
     [SerializeField] private GameObject _blueTETRIS;
     [SerializeField] private GameObject _coinObj;
     private ShowTextMessage _showTextMessage;
+    private bool _isSolved = false;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
     /// </summary>
     public void MoveGimick()
     {
+        if (_isSolved) { return; }
         if (_selectingItem.SelectingItemID.Value == 0)
         {
             _purpleTETRIS.SetActive(true);
@@ -34,6 +36,7 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
         {
             _coinObj.SetActive(true);
             _showTextMessage.ShowText();
+            _isSolved = true;
         }
     }
 }

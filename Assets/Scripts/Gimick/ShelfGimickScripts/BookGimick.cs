@@ -11,6 +11,8 @@ public class BookGimick : MonoBehaviour
     [SerializeField] private GameObject[] particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
     [SerializeField] private GameObject[] books = new GameObject[6];
     [SerializeField] private GameObject boxCoverPivot;
+
+    [SerializeField] private BoxCollider _boxCoverCollider;
     private SelectBook[] _selectBooks = new SelectBook[6];
     [Header("正しい色の並び順を入力")] 
     [SerializeField] private BookColors[] correctColor = new BookColors[6];
@@ -77,7 +79,7 @@ public class BookGimick : MonoBehaviour
             if (_selectBooks[i].BookColor != correctColor[i]) { return; }
         }
         Correct();
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
         _showTextMessage.ShowText();
     }
 
@@ -85,6 +87,7 @@ public class BookGimick : MonoBehaviour
     {
         _isSolved = true;
         boxCoverPivot.transform.DOLocalRotate(Vector3.zero, 1.0f);
+        _boxCoverCollider.enabled = false;  // 箱の当たり判定を消去
     }
 
     /// <summary>

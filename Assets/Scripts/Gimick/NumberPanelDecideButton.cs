@@ -54,7 +54,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
         _isCorrected = true;
         //ES3.Save<bool>("PriceGimick", _isCorrected);
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
         _showTextMessage.ShowText();
     }
 }
