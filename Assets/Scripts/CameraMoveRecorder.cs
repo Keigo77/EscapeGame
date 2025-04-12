@@ -11,6 +11,7 @@ public class CameraMoveRecorder : MonoBehaviour
     [SerializeField] private GameObject _undoButton;
     [SerializeField] private GameObject _leftButton;
     [SerializeField] private GameObject _rightButton;
+    [SerializeField] private UIManager _uiManager;
     public Stack<Vector3> MovePosisionsHistory { get; } = new();
     public Stack<Vector3> MoveRotatesHistroy { get; } = new();
 
@@ -36,7 +37,8 @@ public class CameraMoveRecorder : MonoBehaviour
     }
 
     public void IsShowUIButton()
-    {
+    {   
+        if (!_uiManager.IsShowUI) { return; }
         if (MovePosisionsHistory.Count >= 2)
         {
             _undoButton.SetActive(true);

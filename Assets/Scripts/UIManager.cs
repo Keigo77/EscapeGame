@@ -9,8 +9,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _undoButton;
     [SerializeField] private GameObject _gearItemRawImageObj;
     [SerializeField] private GameObject _text;
-    private bool _isShowUI = true;
-    
+    [SerializeField] private Canvas _canvas;
+    public bool IsShowUI { get; private set; } = true;
+
     // UI表示を決定するためのスクリプト
     [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private ShowGotItem _showGotItem;
@@ -19,14 +20,14 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U) && _isShowUI && !_showGotItem.ItemPanel.activeSelf)
+        if (Input.GetKeyDown(KeyCode.U) && IsShowUI && !_showGotItem.ItemPanel.activeSelf)
         {
-            _isShowUI = false;
+            IsShowUI = false;
             DontShowUI();
         } 
-        else if (Input.GetKeyDown(KeyCode.U) && !_isShowUI && !_showGotItem.ItemPanel.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.U) && !IsShowUI && !_showGotItem.ItemPanel.activeSelf)
         {
-            _isShowUI = true;
+            IsShowUI = true;
             ShowUI();
         }
     }

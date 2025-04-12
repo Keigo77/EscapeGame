@@ -9,7 +9,8 @@ public class ShowTextMessage : MonoBehaviour, IShowText
     [SerializeField] private GameObject _textPanel;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private string[] _textSentences;
-    private bool _isShowing;
+    // staticでないと，あるオブジェクトのテキストが出ているときに他のオブジェクトを触ると，テキストが連続で表示されてしまう．
+    public static bool IsShowText;
     private CancellationToken _token;
 
     void Awake()
@@ -19,35 +20,23 @@ public class ShowTextMessage : MonoBehaviour, IShowText
 
     public void ShowExplainText()
     {
-        ShowText();
+        ShowText().Forget();
     }
 
-    public async void ShowText()
+    public async UniTask ShowText()
     {
-        if (_isShowing) { return; } // すでに文章を表示しているならリターン
-        _isShowing = true;
+        if (IsShowText) { return; } // すでに文章を表示しているならリターン
+        IsShowText = true;
         _textPanel.SetActive(true);
 
         foreach (var listText in _textSentences)
         {
             _text.text = listText;
-            await Wait();
-        }
-        _textPanel.SetActive(false);
-        await Wait();
-        _isShowing = false;
-    }
-
-    private async UniTask Wait()
-    {
-        try
-        {
             await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: _token);
         }
-        catch (OperationCanceledException)
-        {
-            Debug.Log("cancelled");
-        }
+        _textPanel.SetActive(false);
+        await UniTask.WaitUntil(() => Input.GetMouseButtonUp(0), cancellationToken: _token);
+        IsShowText = false;
     }
     
 }
