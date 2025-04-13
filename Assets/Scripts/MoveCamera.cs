@@ -30,6 +30,7 @@ public class MoveCamera : MonoBehaviour
 
     public void MoveRight()
     {
+        if (ShowTextMessage.IsShowText) { return; }
         _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex++;
         if (_diretionIndex >= 4) { _diretionIndex = 0; }
@@ -38,6 +39,7 @@ public class MoveCamera : MonoBehaviour
     
     public void MoveLeft()
     {
+        if (ShowTextMessage.IsShowText) { return; }
         _colliderObject[_diretionIndex].SetActive(false);
         _diretionIndex--;
         if (_diretionIndex <= -1) { _diretionIndex = 3; }
@@ -46,6 +48,7 @@ public class MoveCamera : MonoBehaviour
 
     private void CameraLRMove()
     {
+        if (ShowTextMessage.IsShowText) { return; }
         _cameraMoveRecorder.MovePosisionsHistory.Clear();
         _cameraMoveRecorder.MoveRotatesHistroy.Clear();
         _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posX, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posY, _cameraPositionDatabaseCopy[_fourCameraDirection[_diretionIndex]].posZ);  // 初期位置
@@ -56,6 +59,7 @@ public class MoveCamera : MonoBehaviour
 
     public void MoveIDPosCamera(int cameraId)
     {
+        if (ShowTextMessage.IsShowText) { return; }
         _cameraMoveRecorder.PositionUpdate(_mainCamera.position, _mainCamera.rotation.eulerAngles);
         // Excelからカメラポジションと角度を取得
         Vector3 movePosition = new Vector3(_cameraPositionDatabaseCopy[cameraId].posX, _cameraPositionDatabaseCopy[cameraId].posY, _cameraPositionDatabaseCopy[cameraId].posZ);

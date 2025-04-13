@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using System;
 using Cysharp.Threading.Tasks;
+using NUnit.Framework;
 
 public class ShowTextMessage : MonoBehaviour, IShowText
 {
@@ -36,7 +37,10 @@ public class ShowTextMessage : MonoBehaviour, IShowText
         }
         _textPanel.SetActive(false);
         await UniTask.WaitUntil(() => Input.GetMouseButtonUp(0), cancellationToken: _token);
+        // IsShowTextがfalseとなると同時にボタンが押されると，テキスト表示後すぐにカメラ移動してしまうため，0.2秒待ってからカメラが動くようにする
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         IsShowText = false;
+        Debug.Log(IsShowText);
     }
     
 }

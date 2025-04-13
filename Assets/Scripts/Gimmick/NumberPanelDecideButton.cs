@@ -18,6 +18,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
     [SerializeField] private TextMeshProUGUI _hundredText;
     [SerializeField] private TextMeshProUGUI _tenText;
     [SerializeField] private TextMeshProUGUI _oneText;
+    [SerializeField] BoxCollider _boxCollider;
     private ShowTextMessage _showTextMessage;
     private CancellationToken _token;
     private bool _isCorrected = false;  // すでにこの謎を解いたか
@@ -48,6 +49,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
     private async UniTask Correct()
     {
         _isCorrected = true;
+        _boxCollider.enabled = false;
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessage.ShowText().Forget();

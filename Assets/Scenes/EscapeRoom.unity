@@ -445,7 +445,7 @@ MonoBehaviour:
   _text: {fileID: 1146563852}
   _textSentences:
   - "\u30CF\u30FC\u30C8\u304C\u3046\u307E\u304F\u7AAA\u307F\u306B\u306F\u307E\u3063\u305F\uFF01"
-  - "\u4F55\u304B\u5C3E\u304C\u843D\u3061\u3066\u304D\u305F\u3088\u3046\u3060\uFF0E"
+  - "\u4F55\u304B\u304C\u843D\u3061\u3066\u304D\u305F\u3088\u3046\u3060\uFF0E"
 --- !u!114 &84471345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectingItem: {fileID: 793003438}
   _boxCoverPivot: {fileID: 1945912896}
+  _boxBoxCollider: {fileID: 616238276}
   _glassCover: {fileID: 209900464}
 --- !u!114 &130313695
 MonoBehaviour:
@@ -3944,6 +3945,7 @@ MonoBehaviour:
   _hundredText: {fileID: 21754454}
   _tenText: {fileID: 1882470447}
   _oneText: {fileID: 498656851}
+  _boxCollider: {fileID: 661181348}
 --- !u!65 &328511979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14858,7 +14860,7 @@ GameObject:
   - component: {fileID: 1028270738}
   m_Layer: 0
   m_Name: BoxCoverPivot
-  m_TagString: Untagged
+  m_TagString: Explain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21953,6 +21955,7 @@ MonoBehaviour:
   _normalButton: {fileID: 1419716831}
   _angryButton: {fileID: 1399170288}
   _boxPivotObj: {fileID: 1028270737}
+  _boxCollider: {fileID: 888394266}
   _answers: 020000000100000002000000000000000100000000000000000000000200000001000000
 --- !u!114 &1528095007 stripped
 MonoBehaviour:
@@ -22273,6 +22276,7 @@ MonoBehaviour:
   _hundredText: {fileID: 1444526448}
   _tenText: {fileID: 7901914}
   _oneText: {fileID: 691292539}
+  _boxCollider: {fileID: 1310306832}
 --- !u!65 &1534955924
 BoxCollider:
   m_ObjectHideFlags: 0

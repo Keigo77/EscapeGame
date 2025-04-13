@@ -24,6 +24,7 @@ public class CameraMoveRecorder : MonoBehaviour
 
     public void UndoCameraPosition()
     {
+        if (ShowTextMessage.IsShowText) { return; }
         _cameraPosition.position = MovePosisionsHistory.Pop();
         _cameraPosition.rotation = Quaternion.Euler(MoveRotatesHistroy.Pop());
         if (MovePosisionsHistory.Count <= 0) { FourInitialPosition(); }
