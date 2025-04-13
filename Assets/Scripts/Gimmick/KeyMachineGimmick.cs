@@ -27,7 +27,14 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
     /// </summary>
     public void MoveGimmick()
     {
-        if (_selectingItem.SelectingItemID.Value != 9 && _selectingItem.SelectingItemID.Value != 13 && _selectingItem.SelectingItemID.Value != 14) { return; }  // ID9のアイテムはコイン
+        // コインのアイテムIDは9, 13, 14
+        if (_selectingItem.SelectingItemID.Value != 9 && _selectingItem.SelectingItemID.Value != 13 &&
+            _selectingItem.SelectingItemID.Value != 14)
+        {
+            if (_coinCounter == 0) { _showTextMessages[3].ShowText().Forget(); }
+            else { _showTextMessages[4].ShowText().Forget(); }
+            return;
+        }
         _coinCounter++;
         MoveMachine().Forget();
     }

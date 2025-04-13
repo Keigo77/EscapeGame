@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356e00f76a8a42d4a608a7d73ffaeafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartGimick: {fileID: 1518364467}
-  faceType: 1
+  _heartGimmick: {fileID: 1518364467}
+  _faceType: 1
 --- !u!114 &7901914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4753061844274256142, guid: 622d11edb7d67499c84f8c44467b6662, type: 3}
@@ -1088,6 +1088,8 @@ GameObject:
   - component: {fileID: 130313695}
   - component: {fileID: 130313697}
   - component: {fileID: 130313696}
+  - component: {fileID: 130313699}
+  - component: {fileID: 130313698}
   m_Layer: 0
   m_Name: KeyMachineGimickManager
   m_TagString: Gimick
@@ -1194,6 +1196,39 @@ MonoBehaviour:
   _text: {fileID: 1146563852}
   _textSentences:
   - "\u30B3\u30A4\u30F3\u3092\u6295\u5165\u3057\u305F\u304C\uFF0C\u4F55\u3082\u8D77\u3053\u3089\u306A\u304B\u3063\u305F\uFF0E"
+--- !u!114 &130313698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPanel: {fileID: 1895688903}
+  _text: {fileID: 1146563852}
+  _textSentences:
+  - "\u3053\u306E\u6A5F\u68B0\u306F\u30B3\u30A4\u30F3\u3092\u5165\u308C\u308B\u3068\u52D5\u3044\u305F\u3088\u306A\uFF0E"
+  - "\u3082\u3057\u304B\u3057\u305F\u3089\u4ED6\u306B\u3082\u30B3\u30A4\u30F3\u3092\u624B\u306B\u5165\u308C\u308B\u65B9\u6CD5\u304C\u3042\u308B\u306E\u304B\u3082\u3057\u308C\u306A\u3044\uFF0E"
+--- !u!114 &130313699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPanel: {fileID: 1895688903}
+  _text: {fileID: 1146563852}
+  _textSentences:
+  - "\u4F55\u304B\u3092\u5165\u308C\u308B\u7A74\u304C\u3042\u308B\uFF0E\u5E45\u7684\u306B\u304A\u91D1...\u3068\u304B\u304B\uFF1F"
 --- !u!1 &138604518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,8 +1276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 5
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 5
 --- !u!65 &138604521
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6693,8 +6728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356e00f76a8a42d4a608a7d73ffaeafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartGimick: {fileID: 1518364467}
-  faceType: 2
+  _heartGimmick: {fileID: 1518364467}
+  _faceType: 2
 --- !u!1 &535173611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ac16fc637834d3d840d04975ccc1eb, type: 3}
@@ -12497,6 +12532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851722228}
   - component: {fileID: 851722229}
+  - component: {fileID: 851722230}
   m_Layer: 0
   m_Name: BigRedClock
   m_TagString: Untagged
@@ -12574,6 +12610,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &851722230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851722227}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.20001, y: 10.800005, z: 0.2}
+  m_Center: {x: -0.000004172325, y: 0, z: 0}
 --- !u!1 &853287686
 GameObject:
   m_ObjectHideFlags: 0
@@ -18798,8 +18855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 0
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 0
 --- !u!65 &1326209916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19434,8 +19491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 4
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 4
 --- !u!65 &1338996383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23538,8 +23595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356e00f76a8a42d4a608a7d73ffaeafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartGimick: {fileID: 1518364467}
-  faceType: 0
+  _heartGimmick: {fileID: 1518364467}
+  _faceType: 0
 --- !u!1 &1601201348
 GameObject:
   m_ObjectHideFlags: 0
@@ -24203,9 +24260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f404c86114b3d42a5a530ef4e0ce7f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverObj: {fileID: 1251218429}
-  boxCoverPivot: {fileID: 723562556}
-  answers: 010000000000000001000000030000000300000000000000020000000300000001000000
+  _leverObj: {fileID: 1251218429}
+  _boxCoverPivot: {fileID: 723562556}
+  _answers: 010000000000000001000000030000000300000000000000020000000300000001000000
   _boxCollider: {fileID: 2072093650}
 --- !u!65 &1668934561
 BoxCollider:
@@ -24280,8 +24337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 2
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 2
 --- !u!65 &1684096961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25215,8 +25272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 3
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 3
 --- !u!65 &1759519571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29986,8 +30043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9eec03a85ae4e20947e79301c37ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookGimick: {fileID: 1771790160}
-  bookColor: 1
+  _bookGimmick: {fileID: 1771790160}
+  _bookColor: 1
 --- !u!65 &2076420366
 BoxCollider:
   m_ObjectHideFlags: 0
