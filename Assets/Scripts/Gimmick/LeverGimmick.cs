@@ -7,12 +7,12 @@ using UnityEngine.Serialization;
 
 //ToDo:　レバーを動かす音．レバーギミックを解いたかのbool値の保存
 
-public class LeverController : MonoBehaviour, IMoveGimick
+public class LeverGimmick : MonoBehaviour, IMoveGimmick
 {
-    [SerializeField] private GameObject leverObj;
-    [SerializeField] private GameObject boxCoverPivot;
+    [SerializeField] private GameObject _leverObj;
+    [SerializeField] private GameObject _boxCoverPivot;
 
-    [SerializeField] private MoveDirection[] answers;
+    [SerializeField] private MoveDirection[] _answers;
     private MoveDirection _choose;
     private int _index;
     private ShowTextMessage _showTextMessage;
@@ -24,22 +24,17 @@ public class LeverController : MonoBehaviour, IMoveGimick
     {
         _token = this.GetCancellationTokenOnDestroy();
         _showTextMessage = this.GetComponent<ShowTextMessage>();
-        /*　セーブ部分
-        if (!ES3.KeyExists("LeverGimick")) return;
-        _isCorrected = ES3.Load<bool>("LeverGimick");
-        if (_isCorrected) CorrectAnswer();
-        */
     }
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
-        MoveGimickAsync().Forget();
+        MoveGimmickAsync().Forget();
     }
     
     /// <summary>
     /// レバーをスライドした時に実行．(レバーをPointerDownで実行)
     /// </summary>
-    private async UniTask MoveGimickAsync()
+    private async UniTask MoveGimmickAsync()
     {
         if (_isCorrected) { return; }
         Vector3 beforeMousePos = Input.mousePosition;      // レバーの左右は縦：Y方向　横：Z方向
@@ -55,31 +50,31 @@ public class LeverController : MonoBehaviour, IMoveGimick
         {
             case >= -45f and <= 45f:
                 _choose = MoveDirection.Right;
-                leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
-                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                _leverObj.transform.DORotate(new Vector3(0, -45f, 0), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 46f and <= 135f:
                 _choose = MoveDirection.Up;
-                leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
-                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                _leverObj.transform.DORotate(new Vector3(0, 0, 45f), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= 136f or <= -135f:
                 _choose = MoveDirection.Left;
-                leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
-                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                _leverObj.transform.DORotate(new Vector3(0, 45f, 0), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
             case >= -136f and <= -46f:
                 _choose = MoveDirection.Down;
-                leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
-                    .OnComplete(() => leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
+                _leverObj.transform.DORotate(new Vector3(0, 0, -45f), 0.2f)
+                    .OnComplete(() => _leverObj.transform.DORotate(new Vector3(0, 0, 0), 0.2f));
                 break;
         }
 
-        if (answers[_index] == _choose)
+        if (_answers[_index] == _choose)
         {
             _index++;
             Debug.Log(_index);
-            if (_index == answers.Length)
+            if (_index == _answers.Length)
             {
                 // 箱を動かす関数
                 Correct();
@@ -92,7 +87,7 @@ public class LeverController : MonoBehaviour, IMoveGimick
 
     private void Correct()
     {
-        boxCoverPivot.transform.DORotate(new Vector3(0, 315, 0), 0.5f);
+        _boxCoverPivot.transform.DORotate(new Vector3(0, 315, 0), 0.5f);
         _boxCollider.enabled = false;
         _showTextMessage.ShowText().Forget();
     }

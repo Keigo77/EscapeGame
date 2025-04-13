@@ -3,18 +3,18 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class InputArrowButton : MonoBehaviour, IMoveGimick
+public class InputArrowButton : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private TextMeshProUGUI _numText;
 
-    private enum direction
+    private enum Direction
     {
         Up,
         Down
     }
-    [SerializeField] private direction _direction;
+    [SerializeField] private Direction _direction;
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         int nextNum;
         this.transform.DOLocalMove(new Vector3(0, -0.2f, 0), 0.25f)
@@ -22,18 +22,13 @@ public class InputArrowButton : MonoBehaviour, IMoveGimick
         
         switch (_direction)
         {
-            case direction.Up:
+            case Direction.Up:
                 nextNum = int.Parse(_numText.text) + 1;     // 0〜9で繰り返し表示する
-                if (nextNum > 9) _numText.text = "0";
-                else _numText.text = nextNum.ToString();
+                _numText.text =  (nextNum > 9) ? "0" : nextNum.ToString();
                 break;
-            case direction.Down:
+            case Direction.Down:
                 nextNum = int.Parse(_numText.text) - 1;     // 0〜9で繰り返し表示する
-                if (nextNum < 0) _numText.text = "9";
-                else _numText.text = nextNum.ToString();
-                break;
-            default:
-                Debug.LogError("ボタンの向きが設定されていません．");
+                _numText.text = (nextNum < 0) ? "9" : nextNum.ToString();
                 break;
         }
     }

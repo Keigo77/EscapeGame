@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 //ToDo:鍵を使う音．開けたかどうかをbool値で保存
-public class UseKey : MonoBehaviour, IMoveGimick
+public class UseKey : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int _needItemId;
     [SerializeField] private Vector3 _rotate;
@@ -20,15 +20,15 @@ public class UseKey : MonoBehaviour, IMoveGimick
         _showTextMessages = this.GetComponents<ShowTextMessage>();  // [0]に鍵ないとき用メッセ．[1]に鍵あるとき用メッセ．
     }
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
-        MoveGimickAsync().Forget();
+        MoveGimmickAsync().Forget();
     }
     
     /// <summary>
     /// 鍵を使われるオブジェクト自体にアタッチ．指定のアイテムを使うと，指定した分回転する．
     /// </summary>
-    private async UniTask MoveGimickAsync()
+    private async UniTask MoveGimmickAsync()
     {
         if (_selectingItem.SelectingItemID.Value != _needItemId)
         {
@@ -37,7 +37,7 @@ public class UseKey : MonoBehaviour, IMoveGimick
         }
         MoveObj();
         _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
         _showTextMessages[1].ShowText().Forget();
     }
 

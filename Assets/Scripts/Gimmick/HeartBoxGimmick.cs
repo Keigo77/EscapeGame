@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class HeartBoxGimick : MonoBehaviour, IMoveGimick
+public class HeartBoxGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int _needItemId;
     [SerializeField] private SelectingItem _selectingItem;
@@ -17,12 +17,12 @@ public class HeartBoxGimick : MonoBehaviour, IMoveGimick
         _boxCollider = this.GetComponent<BoxCollider>();
     }
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
-        MoveGimickAsync();
+        MoveGimmickAsync();
     }
     
-    private void MoveGimickAsync()
+    private void MoveGimmickAsync()
     {
         if (_isSolved) { return; }
         if (_selectingItem.SelectingItemID.Value != _needItemId){

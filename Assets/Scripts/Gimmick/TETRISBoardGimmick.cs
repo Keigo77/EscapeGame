@@ -2,7 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 // Todo:テトリスをはめるときの音．コインが落ちる音．各オブジェクトのSetativeの保存
-public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
+public class TETRISBoardGimick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private GameObject _purpleTETRIS;
@@ -16,7 +16,7 @@ public class TETRISBoardGimick : MonoBehaviour, IMoveGimick
         _showTextMessages = this.GetComponents<ShowTextMessage>();
     }
     
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         if (_isSolved) { return; }
         if (_selectingItem.SelectingItemID.Value == 0)

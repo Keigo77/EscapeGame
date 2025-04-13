@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 //ToDO:謎が解けたかbool値で保存．もし解けてたら各スライダーの位置と，ハートボックスの出現．あとスライダー動かす時の音，箱が出る時の音．
-public class SliderGimick : MonoBehaviour, IMoveGimick
+public class SliderGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int[] _answers = new int[6];
     [SerializeField] private UDMoveSlider[] _sliders = new UDMoveSlider[6];
@@ -22,7 +22,7 @@ public class SliderGimick : MonoBehaviour, IMoveGimick
         _showTextMessage = this.GetComponent<ShowTextMessage>();
     }
     
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         if (_isCorrected) { return; }
         _decideButton.transform.DOLocalMove(new Vector3(0, 0, -0.2f), 0.25f)

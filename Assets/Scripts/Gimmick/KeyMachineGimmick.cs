@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 
 // ToDo:コイン投入の音．コインの枚数の保存．ロード時にコインの枚数をロードし，枚数分MoveGimickを作動させる
-public class KeyMachineGimick : MonoBehaviour, IMoveGimick
+public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private SelectingItem _selectingItem;
     [SerializeField] private GameObject _boxCoverPivot;
@@ -25,7 +25,7 @@ public class KeyMachineGimick : MonoBehaviour, IMoveGimick
     /// <summary>
     /// コインを装備中にマシンをクリックしたら実行
     /// </summary>
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         if (_selectingItem.SelectingItemID.Value != 9 && _selectingItem.SelectingItemID.Value != 13 && _selectingItem.SelectingItemID.Value != 14) { return; }  // ID9のアイテムはコイン
         _coinCounter++;

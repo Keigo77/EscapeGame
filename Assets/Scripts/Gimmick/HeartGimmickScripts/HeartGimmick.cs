@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class HeartGimick : MonoBehaviour
+public class HeartGimmick : MonoBehaviour
 {
     [SerializeField] private GameObject _smileButton;
     [SerializeField] private GameObject _normalButton;

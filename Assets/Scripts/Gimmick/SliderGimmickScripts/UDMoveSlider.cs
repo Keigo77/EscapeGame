@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 //ToDo:　スライダー動かすごとに音を出す
 
-public class UDMoveSlider : MonoBehaviour, IMoveGimick
+public class UDMoveSlider : MonoBehaviour, IMoveGimmick
 {
     //下：-2　上：0
     public int Height { get; private set; } = 0;
@@ -21,7 +21,7 @@ public class UDMoveSlider : MonoBehaviour, IMoveGimick
         _token = this.GetCancellationTokenOnDestroy();
     }
     
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         MoveSlider().Forget();
     }

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class GetItem : MonoBehaviour, IMoveGimick
+public class GetItem : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] ShowGotItem _showGotItem;
     [SerializeField] private int _itemID;
     
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         _showGotItem.GetItem(_itemID);
     }

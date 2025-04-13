@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 
 
-public interface IMoveGimick
+public interface IMoveGimmick
 {
     /// <summary>
     /// オブジェクトがクリックされたときの処理．
     /// </summary>
-    public void MoveGimick();
+    public void MoveGimmick();
 }
 
 public interface IShowText

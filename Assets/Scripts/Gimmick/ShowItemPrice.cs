@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 // ToDo:ライトをつけるカチッっていう音
-public class ShowItemPrice : MonoBehaviour, IMoveGimick
+public class ShowItemPrice : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private GameObject _itemPriceUsedRight;
     [SerializeField] private SelectingItem _selectingItem;
@@ -18,13 +18,13 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimick
         _showTextMessages = this.GetComponents<ShowTextMessage>();
     }
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
-        MoveGimickAsync().Forget();
+        MoveGimmickAsync().Forget();
     }
     
     // クリックしたらライトを消去
-    private async UniTask MoveGimickAsync()
+    private async UniTask MoveGimmickAsync()
     {
         if (_itemPriceUsedRight.activeSelf) return;     // 値段が表示中なら処理しない．値段表示中にテキストが出てしまうため．
         if (_selectingItem.SelectingItemID.Value != 12) {

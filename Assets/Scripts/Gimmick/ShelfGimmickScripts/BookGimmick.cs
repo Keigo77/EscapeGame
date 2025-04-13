@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 // ToDo:本の位置を保存．謎を解いたかbool値で保存
 
-public class BookGimick : MonoBehaviour
+public class BookGimmick : MonoBehaviour
 {
     [SerializeField] private GameObject[] _particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
     [SerializeField] private GameObject[] _books = new GameObject[6];

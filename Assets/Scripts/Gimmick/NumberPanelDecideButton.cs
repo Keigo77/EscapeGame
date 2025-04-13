@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine.Serialization;
 
 //ToDo:ギミックを解いたかをbool値で保存．箱が開く音を実装する
 
-public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
+public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
 {
     [Header("暗号の答えを4桁の数字で入力")]
     [SerializeField] private int _answer;
@@ -18,14 +19,16 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
     [SerializeField] private TextMeshProUGUI _tenText;
     [SerializeField] private TextMeshProUGUI _oneText;
     private ShowTextMessage _showTextMessage;
+    private CancellationToken _token;
     private bool _isCorrected = false;  // すでにこの謎を解いたか
 
     private void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
+        _token = this.GetCancellationTokenOnDestroy();
     }
 
-    public void MoveGimick()
+    public void MoveGimmick()
     {
         if (_isCorrected) { return; } // 解いた後なら，処理しない
 
@@ -46,7 +49,7 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimick
     {
         _isCorrected = true;
         _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessage.ShowText().Forget();
     }
 }
