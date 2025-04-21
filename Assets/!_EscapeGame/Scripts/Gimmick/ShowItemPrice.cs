@@ -11,6 +11,7 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimmick
     [SerializeField] private SelectingItem _selectingItem;
     private ShowTextMessage[] _showTextMessages;
     private CancellationToken _token;
+    [SerializeField] private AudioClip _rightOnSe;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class ShowItemPrice : MonoBehaviour, IMoveGimmick
             _showTextMessages[0].ShowText().Forget();
             return;     // ItemID 12はライト
         }
+        SEManager.PlaySe(_rightOnSe);
         _itemPriceUsedRight.SetActive(true);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessages[1].ShowText().Forget();

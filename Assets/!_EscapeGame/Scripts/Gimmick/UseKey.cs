@@ -13,6 +13,9 @@ public class UseKey : MonoBehaviour, IMoveGimmick
     [SerializeField] private BoxCollider _collider;
     private ShowTextMessage[] _showTextMessages;
     private CancellationToken _token;
+    [SerializeField] private AudioClip _solveSe;
+    [SerializeField] private AudioClip _openBoxSe;
+    [SerializeField] private AudioClip _closeDoorSe;
 
     void Awake()
     {
@@ -22,6 +25,7 @@ public class UseKey : MonoBehaviour, IMoveGimmick
 
     public void MoveGimmick()
     {
+        if (ShowTextMessage.IsShowText) { return; }     // 連続クリックで音が連続してしまうのを防止
         MoveGimmickAsync().Forget();
     }
     
@@ -32,13 +36,16 @@ public class UseKey : MonoBehaviour, IMoveGimmick
     {
         if (_selectingItem.SelectingItemID.Value != _needItemId)
         {
+            SEManager.PlaySe(_closeDoorSe);
             _showTextMessages[0].ShowText().Forget();
             return;
         }
+        SEManager.PlaySe(_openBoxSe);
         MoveObj();
         _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
         _showTextMessages[1].ShowText().Forget();
+        SEManager.PlaySe(_solveSe);
     }
 
     private void MoveObj()

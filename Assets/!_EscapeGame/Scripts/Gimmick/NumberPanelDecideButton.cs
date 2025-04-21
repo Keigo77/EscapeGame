@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 //ToDo:ギミックを解いたかをbool値で保存．箱が開く音を実装する
 
@@ -22,17 +21,25 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
     private ShowTextMessage _showTextMessage;
     private CancellationToken _token;
     private bool _isCorrected = false;  // すでにこの謎を解いたか
+    [SerializeField] private AudioClip _pushDecideButtonSe;
+    [SerializeField] private AudioClip _solveSe;
+    [SerializeField] private AudioClip _missSe;
 
     private void Awake()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
         _token = this.GetCancellationTokenOnDestroy();
     }
-
+    
     public void MoveGimmick()
     {
-        if (_isCorrected) { return; } // 解いた後なら，処理しない
+        MoveGimmickAsync().Forget();
+    }
 
+    private async UniTask MoveGimmickAsync()
+    {
+        if (_isCorrected) { return; } // 解いた後なら，処理しない
+        SEManager.PlaySe(_pushDecideButtonSe);
         int playerInput = int.Parse(_thousandText.text) * 1000 +
                           int.Parse(_hundredText.text) * 100 +
                           int.Parse(_tenText.text) * 10 +
@@ -42,16 +49,18 @@ public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
             .OnComplete(() => _decideButton.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         if (playerInput == _answer)
         {
-            Correct().Forget();
+            await Correct();
+            SEManager.PlaySe(_solveSe);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
+            _showTextMessage.ShowText().Forget();
         }
+        else { SEManager.PlaySe(_missSe); }
     }
 
     private async UniTask Correct()
     {
         _isCorrected = true;
         _boxCollider.enabled = false;
-        _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
-        _showTextMessage.ShowText().Forget();
+        await _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, -135, 0), 0.5f).AsyncWaitForCompletion();
     }
 }

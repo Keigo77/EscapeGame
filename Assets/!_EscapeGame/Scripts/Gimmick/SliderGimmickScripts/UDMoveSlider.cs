@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UniRx;
-using Unity.VisualScripting;
 using UnityEngine;
-//ToDo:　スライダー動かすごとに音を出す
 
 public class UDMoveSlider : MonoBehaviour, IMoveGimmick
 {
@@ -15,6 +11,7 @@ public class UDMoveSlider : MonoBehaviour, IMoveGimmick
     private Vector3 _beforeMousePos;
     private Vector3 _afterMousePos;
     private CancellationToken _token;
+    [SerializeField] private AudioClip _moveSliderSe;
 
     void Awake()
     {
@@ -45,6 +42,7 @@ public class UDMoveSlider : MonoBehaviour, IMoveGimmick
         if (distance > 0 && Height + 1 < _positions.Length) { Height++; }
         if (distance < 0 && Height - 1 >= 0) { Height--; }
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, _positions[Height], this.transform.localPosition.z);
+        SEManager.PlaySe(_moveSliderSe);
         _beforeMousePos = Input.mousePosition;
     }
 }

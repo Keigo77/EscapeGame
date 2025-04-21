@@ -11,7 +11,7 @@ public class ShowTextMessage : MonoBehaviour, IShowText
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private string[] _textSentences;
     // staticでないと，あるオブジェクトのテキストが出ているときに他のオブジェクトを触ると，テキストが連続で表示されてしまう．
-    public static bool IsShowText;
+    public static bool IsShowText = false;
     private CancellationToken _token;
 
     void Awake()
@@ -40,7 +40,6 @@ public class ShowTextMessage : MonoBehaviour, IShowText
         // IsShowTextがfalseとなると同時にボタンが押されると，テキスト表示後すぐにカメラ移動してしまうため，0.2秒待ってからカメラが動くようにする
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         IsShowText = false;
-        Debug.Log(IsShowText);
     }
     
 }

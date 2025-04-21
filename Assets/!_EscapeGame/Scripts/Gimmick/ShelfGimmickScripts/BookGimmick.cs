@@ -2,7 +2,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // ToDo:本の位置を保存．謎を解いたかbool値で保存
 
@@ -11,7 +10,6 @@ public class BookGimmick : MonoBehaviour
     [SerializeField] private GameObject[] _particles = new GameObject[6];   // どの本を選択したかわかるように，選択中の本にだけパーティクルを表示
     [SerializeField] private GameObject[] _books = new GameObject[6];
     [SerializeField] private GameObject _boxCoverPivot;
-
     [SerializeField] private BoxCollider _boxCoverCollider;
     private readonly SelectBook[] _selectBooks = new SelectBook[6];
     [Header("正しい色の並び順を入力")] 
@@ -20,6 +18,9 @@ public class BookGimmick : MonoBehaviour
     private bool _isSelectingBook = false;
     private int _firstIndex, _secondIndex;
     private bool _isSolved = false; // 謎を解いたか
+    [SerializeField] private AudioClip _putBookSe;
+    [SerializeField] private AudioClip _openBoxSe;
+    [SerializeField] private AudioClip _solveSe;
     
     void Awake()
     {
@@ -65,6 +66,7 @@ public class BookGimmick : MonoBehaviour
         (_particles[firstIndex], _particles[secondIndex])  = (_particles[secondIndex], _particles[firstIndex]);
         (_selectBooks[firstIndex], _selectBooks[secondIndex])  = (_selectBooks[secondIndex], _selectBooks[firstIndex]);
         (_books[_firstIndex].transform.position, _books[_secondIndex].transform.position)  = (_books[secondIndex].transform.position, _books[firstIndex].transform.position);
+        SEManager.PlaySe(_putBookSe);
         Check().Forget();
     }
 
@@ -74,15 +76,17 @@ public class BookGimmick : MonoBehaviour
         {
             if (_selectBooks[i].BookColor != _correctColor[i]) { return; }
         }
-        Correct();
+        SEManager.PlaySe(_openBoxSe);
+        await Correct();
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
         _showTextMessage.ShowText().Forget();
+        SEManager.PlaySe(_solveSe);
     }
 
-    private void Correct()
+    private async UniTask Correct()
     {
         _isSolved = true;
-        _boxCoverPivot.transform.DOLocalRotate(Vector3.zero, 1.0f);
+        await _boxCoverPivot.transform.DOLocalRotate(Vector3.zero, 0.5f).AsyncWaitForCompletion();
         _boxCoverCollider.enabled = false;  // 箱の当たり判定を消去
     }
 

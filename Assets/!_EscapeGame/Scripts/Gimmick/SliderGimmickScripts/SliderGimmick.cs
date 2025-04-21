@@ -1,11 +1,9 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-//ToDO:謎が解けたかbool値で保存．もし解けてたら各スライダーの位置と，ハートボックスの出現．あとスライダー動かす時の音，箱が出る時の音．
+//ToDO:謎が解けたかbool値で保存．もし解けてたら各スライダーの位置と，ハートボックスの出現．
 public class SliderGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int[] _answers = new int[6];
@@ -16,6 +14,10 @@ public class SliderGimmick : MonoBehaviour, IMoveGimmick
     private CancellationToken _token;
     private bool _isCorrected = false;
 
+    [SerializeField] private AudioClip _pushDecideButtonSe;
+    [SerializeField] private AudioClip _solveSe;
+    [SerializeField] private AudioClip _missSe;
+
     void Awake()
     {
         _token = this.GetCancellationTokenOnDestroy();
@@ -24,23 +26,33 @@ public class SliderGimmick : MonoBehaviour, IMoveGimmick
     
     public void MoveGimmick()
     {
+        MoveGimmickAsync().Forget();
+    }
+
+    private async UniTask MoveGimmickAsync()
+    {
         if (_isCorrected) { return; }
+        SEManager.PlaySe(_pushDecideButtonSe);
         _decideButton.transform.DOLocalMove(new Vector3(0, 0, -0.2f), 0.25f)
             .OnComplete(() => _decideButton.transform.DOLocalMove(new Vector3(0, 0, 0), 0.25f));
         
         for (int i = 0; i < _sliders.Length; i++)
         {
-            if (_sliders[i].Height != _answers[i]) { return; }
+            if (_sliders[i].Height != _answers[i])
+            {
+                SEManager.PlaySe(_missSe);
+                return;
+            }
         }
-        Correct().Forget();
+        await Correct();
+        _showTextMessage.ShowText().Forget();
+        SEManager.PlaySe(_solveSe);
     }
 
     private async UniTask Correct()
     {
         _isCorrected = true;
         _heartBox.SetActive(true);
-        _heartBox.transform.DOLocalMoveX(-6.0f, 1.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
-        _showTextMessage.ShowText().Forget();
+        await _heartBox.transform.DOLocalMoveX(-6.0f, 1.0f).AsyncWaitForCompletion();
     }
 }

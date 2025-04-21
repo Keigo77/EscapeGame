@@ -3,10 +3,8 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-
-// ToDo:コイン投入の音．コインの枚数の保存．ロード時にコインの枚数をロードし，枚数分MoveGimickを作動させる
+// ToDo:コインの枚数の保存．ロード時にコインの枚数をロードし，枚数分MoveGimickを作動させる
 public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private SelectingItem _selectingItem;
@@ -17,6 +15,9 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
     private int _coinCounter = 0;
     private ShowTextMessage[] _showTextMessages;
     private CancellationToken _token;
+    [SerializeField] private AudioClip _coinSe;
+    [SerializeField] private AudioClip _boxOpenSe;
+    [SerializeField] private AudioClip _solveSe;
 
     void Awake()
     {
@@ -34,24 +35,29 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
         if (_selectingItem.SelectingItemID.Value != 9 && _selectingItem.SelectingItemID.Value != 13 &&
             _selectingItem.SelectingItemID.Value != 14)
         {
-            if (_coinCounter == 0) { _showTextMessages[3].ShowText().Forget(); }
+            if (_coinCounter == 0) { _showTextMessages[3].ShowText().Forget(); }    // コインを入れる前と後で，考察コメントを変える
             else { _showTextMessages[4].ShowText().Forget(); }
             return;
         }
         _coinCounter++;
+        SEManager.PlaySe(_coinSe);
         MoveMachine().Forget();
     }
     
     private async UniTask MoveMachine()
     {
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: _token); // コインの音を待つ
         switch (_coinCounter)
         {
             case 1:
-                _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 1.0f);
+                SEManager.PlaySe(_boxOpenSe);
+                await _boxCoverPivot.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f).AsyncWaitForCompletion();
+                SEManager.PlaySe(_solveSe);
                 _boxBoxCollider.enabled = false;
                 break;
             case 3:
-                _glassCover.transform.DOMoveY(-3.0f, 1.0f);
+                await _glassCover.transform.DOMoveY(-3.0f, 1.0f).AsyncWaitForCompletion();
+                SEManager.PlaySe(_solveSe);
                 _coinHoleCollider.enabled = false;
                 break;
         }

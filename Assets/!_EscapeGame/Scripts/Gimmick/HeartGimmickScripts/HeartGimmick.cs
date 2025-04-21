@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class HeartGimmick : MonoBehaviour
 {
@@ -19,7 +18,11 @@ public class HeartGimmick : MonoBehaviour
     private float _beforePushPosZ;        // ボタンを押す前の座標
     private float _pushedPosZ;    // ボタンを押した時の座標
     private ShowTextMessage _showTextMessage;
-    private CancellationToken _token; 
+    private CancellationToken _token;
+    [SerializeField] private AudioClip _pushDecideButtonSe;
+    [SerializeField] private AudioClip _openBoxSe;
+    [SerializeField] private AudioClip _solveSe;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -41,6 +44,7 @@ public class HeartGimmick : MonoBehaviour
     public void PointerDownHeartButton(Faces face)
     {
         if (_isSolved) { return; }
+        SEManager.PlaySe(_pushDecideButtonSe);
         _inputs[_index] = face;
         switch (face)
         {
@@ -54,7 +58,7 @@ public class HeartGimmick : MonoBehaviour
                 MoveButton(_angryButton);
                 break;
         }
-        InputCheck();
+        InputCheck().Forget();
     }
 
     private void MoveButton(GameObject button)
@@ -63,23 +67,27 @@ public class HeartGimmick : MonoBehaviour
             .OnComplete(() => button.transform.DOLocalMoveZ(_beforePushPosZ, 0.25f));
     }
     
-    private void InputCheck()
+    private async UniTask InputCheck()
     {
         if (_inputs[_index] == _answers[_index])
         {
-            if (_index == _answers.Length - 1) { Correct().Forget(); }
+            if (_index == _answers.Length - 1)
+            {
+                SEManager.PlaySe(_openBoxSe);
+                await Correct();
+                await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
+                _showTextMessage.ShowText().Forget();
+                SEManager.PlaySe(_solveSe);
+            }
             _index++;
         }
         else { _index = 0; }
-        
     }
 
     private async UniTask Correct()
     {
-        _boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 1.0f);
+        await _boxPivotObj.transform.DORotate(new Vector3(0, 90, 0), 0.5f).AsyncWaitForCompletion();
         _boxCollider.enabled = false;
-        await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
-        _showTextMessage.ShowText().Forget();
         _isSolved = true;
     }
 }

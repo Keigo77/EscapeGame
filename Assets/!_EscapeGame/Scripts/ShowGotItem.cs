@@ -14,8 +14,7 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private SelectingItem _selectingItem;
     private List<ItemData> _gotItemDatas = new();
     [SerializeField] private List<Image> _itemImages = new();
-
-    // UI系統
+#region //UI系統
     [SerializeField] private GameObject _showItemPanel;
     public GameObject ItemPanel => _showItemPanel;
     [SerializeField] private GameObject _showItemPanelButtonObj;
@@ -25,9 +24,14 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private GameObject _gearItemRawImageObj;
     [SerializeField] private GameObject _dontShowUIText;
     [SerializeField] private UIManager _uiManager;
-
+#endregion
     [SerializeField] private ObjectRotate _objectRotate;
     private ObjSetActiveManager _objSetActiveManager;
+    [SerializeField] private AudioClip _itemGetSe;
+    [SerializeField] private AudioClip _noItemClickSe;
+    [SerializeField] private AudioClip _showItemPanelSe;
+    [SerializeField] private AudioClip _deleteItemPanelSe;
+    
 
     void Awake()
     {
@@ -42,6 +46,7 @@ public class ShowGotItem : MonoBehaviour
     /// <param name="itemID">取得したいアイテムのアイテムID</param>
     public void GetItem(int itemID)
     {
+        SEManager.PlaySe(_itemGetSe);
         _gotItemDatas.Add(_itemDatabaseCopy[itemID]);
         UpdateItemList();
         _selectingItem.SelectingItemID.Value = _itemDatabaseCopy[itemID].itemID;
@@ -83,6 +88,7 @@ public class ShowGotItem : MonoBehaviour
     {
         if (_gotItemDatas.Count <= index)
         {
+            SEManager.PlaySe(_noItemClickSe);
             _selectingItem.SelectingItemID.Value = -1;
             return;
         }
@@ -96,6 +102,8 @@ public class ShowGotItem : MonoBehaviour
     {
         _objectRotate.ResetRotate();
         _showItemPanel.SetActive(!_showItemPanel.activeSelf);
+        if (_showItemPanel.activeSelf) { SEManager.PlaySe(_showItemPanelSe); }
+        else { SEManager.PlaySe(_deleteItemPanelSe); }
         if (_showItemPanel.activeSelf)
         {
             _uiManager.DontShowUI();

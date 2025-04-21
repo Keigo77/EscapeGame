@@ -6,17 +6,13 @@ using UnityEngine;
 public class InputArrowButton : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private TextMeshProUGUI _numText;
-
-    private enum Direction
-    {
-        Up,
-        Down
-    }
     [SerializeField] private Direction _direction;
+    [SerializeField] private AudioClip _pushButtonSe;
 
     public void MoveGimmick()
     {
         int nextNum;
+        SEManager.PlaySe(_pushButtonSe);
         this.transform.DOLocalMove(new Vector3(0, -0.2f, 0), 0.25f)
             .OnComplete(() => this.transform.DOLocalMove(new Vector3(0, 0f, 0), 0.25f));
         

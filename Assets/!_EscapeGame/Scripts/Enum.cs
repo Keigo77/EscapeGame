@@ -1,3 +1,9 @@
+public enum Direction
+{
+    Up,
+    Down
+}
+
 public enum MoveDirection
 {
     Up,

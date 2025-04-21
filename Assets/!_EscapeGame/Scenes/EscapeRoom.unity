@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heartGimmick: {fileID: 1518364467}
   _faceType: 1
+  _pushButtonSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!114 &7901914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4753061844274256142, guid: 622d11edb7d67499c84f8c44467b6662, type: 3}
@@ -478,6 +479,9 @@ MonoBehaviour:
   _selectingItem: {fileID: 793003438}
   _purpleHeart: {fileID: 191668454}
   _coin: {fileID: 377459649}
+  _putHeartSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
+  _coinSe: {fileID: 8300000, guid: 34548949893a640528dad71b48c30316, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!65 &84471347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -891,12 +895,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7601709445216874053, guid: 104f625efd4c149249be82242726a687, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cfc0254bc9429486584a1ef89ae4f77c, type: 3}
+  m_Resource: {fileID: 8300000, guid: cfc0254bc9429486584a1ef89ae4f77c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1278,6 +1282,9 @@ MonoBehaviour:
   _boxCoverPivot: {fileID: 1945912896}
   _boxBoxCollider: {fileID: 616238276}
   _glassCover: {fileID: 209900464}
+  _coinSe: {fileID: 8300000, guid: 34548949893a640528dad71b48c30316, type: 3}
+  _boxOpenSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!114 &130313695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,6 +2584,9 @@ MonoBehaviour:
   _selectingItem: {fileID: 793003438}
   _rotateObjPivot: {fileID: 1541097234}
   _collider: {fileID: 225244451}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
+  _openBoxSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _closeDoorSe: {fileID: 8300000, guid: 9121a902b027f427ca0029681dedf74e, type: 3}
 --- !u!114 &225244453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,6 +3283,10 @@ MonoBehaviour:
   _hintPaper: {fileID: 888512241}
   _cameraMoveRecorder: {fileID: 1211455139}
   _moveCamera: {fileID: 1211455141}
+  _buttonTouchSe: {fileID: 8300000, guid: f0ec07643e77b4e29986863982b06224, type: 3}
+  _missSe: {fileID: 8300000, guid: c907a736eaf5d4fb58a4eb57f8331a5e, type: 3}
+  _printSe: {fileID: 8300000, guid: 5139d7d7016df4862bcdc1529b2f38c6, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!224 &252975892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4075,6 +4089,9 @@ MonoBehaviour:
   _tenText: {fileID: 1882470447}
   _oneText: {fileID: 498656851}
   _boxCollider: {fileID: 661181348}
+  _pushDecideButtonSe: {fileID: 8300000, guid: 75bfcf27926c74fa68905f699eda649d, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
+  _missSe: {fileID: 8300000, guid: c907a736eaf5d4fb58a4eb57f8331a5e, type: 3}
 --- !u!65 &328511979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6801,7 +6818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509137037}
   m_Layer: 0
-  m_Name: AudioSinglton
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6894,6 +6911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heartGimmick: {fileID: 1518364467}
   _faceType: 2
+  _pushButtonSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!1 &535173611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ac16fc637834d3d840d04975ccc1eb, type: 3}
@@ -11632,6 +11650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!1001 &779936494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12011,6 +12030,10 @@ MonoBehaviour:
   _dontShowUIText: {fileID: 1551468592}
   _uiManager: {fileID: 739192073}
   _objectRotate: {fileID: 2003401060}
+  _itemGetSe: {fileID: 8300000, guid: 6b35bba3630864e88b5d2eddd55b0ab1, type: 3}
+  _noItemClickSe: {fileID: 8300000, guid: 792c143aa8a2840cfa11a7a0bff06788, type: 3}
+  _showItemPanelSe: {fileID: 8300000, guid: 75bfcf27926c74fa68905f699eda649d, type: 3}
+  _deleteItemPanelSe: {fileID: 8300000, guid: b6e154be23f904ae5b55a88ccfbb2e94, type: 3}
 --- !u!4 &793003437
 Transform:
   m_ObjectHideFlags: 0
@@ -13412,6 +13435,9 @@ MonoBehaviour:
   _purpleTETRIS: {fileID: 2111928298}
   _blueTETRIS: {fileID: 695119592}
   _coinObj: {fileID: 792341193}
+  _coinSe: {fileID: 8300000, guid: 34548949893a640528dad71b48c30316, type: 3}
+  _putTETRISSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!114 &906518454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14793,6 +14819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!65 &1006470006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14990,6 +15017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!65 &1024517403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15181,7 +15209,6 @@ Transform:
   - {fileID: 1759519569}
   - {fileID: 1338996381}
   - {fileID: 138604519}
-  - {fileID: 1143538187}
   - {fileID: 1771790159}
   - {fileID: 649446754}
   - {fileID: 1583781743}
@@ -16468,89 +16495,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 073878322550f4474bd7cedf141418bd, type: 3}
---- !u!1 &1143538186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1143538187}
-  - component: {fileID: 1143538190}
-  - component: {fileID: 1143538189}
-  - component: {fileID: 1143538188}
-  m_Layer: 0
-  m_Name: ShelfDoorGimickManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1143538187
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143538186}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1032909521}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1143538188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143538186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textPanel: {fileID: 1895688903}
-  _text: {fileID: 1146563852}
-  _textSentences:
-  - "\u9EC4\u8272\u3044\u9375\u3092\u4F7F\u3063\u3066\u68DA\u306E\u6249\u304C\u958B\u3044\u305F\uFF01"
---- !u!114 &1143538189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143538186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e6a5b4d18f348db8d35d93d35734f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textPanel: {fileID: 1895688903}
-  _text: {fileID: 1146563852}
-  _textSentences:
-  - "\u9375\u304C\u304B\u304B\u3063\u3066\u3044\u308B\u307F\u305F\u3044\u3060\uFF0E"
---- !u!114 &1143538190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143538186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9f3c3d47abb4d689afa5893941d99f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _needItemId: 1
-  _rotate: {x: 0, y: 90, z: 0}
-  _selectingItem: {fileID: 793003438}
-  _rotateObjPivot: {fileID: 667402671}
-  _collider: {fileID: 1585740929}
 --- !u!1001 &1145127782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17021,6 +16965,9 @@ MonoBehaviour:
   - {fileID: 1467252182}
   _decideButton: {fileID: 1817087382}
   _heartBox: {fileID: 1198313044}
+  _pushDecideButtonSe: {fileID: 8300000, guid: 75bfcf27926c74fa68905f699eda649d, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
+  _missSe: {fileID: 8300000, guid: c907a736eaf5d4fb58a4eb57f8331a5e, type: 3}
 --- !u!65 &1165626587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17180,6 +17127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1178330516}
   - component: {fileID: 1178330517}
+  - component: {fileID: 1178330518}
   m_Layer: 0
   m_Name: SE
   m_TagString: Untagged
@@ -17299,6 +17247,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1178330518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178330515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a3cb3eb406f494398087a22e2442ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1178963548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17951,6 +17911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemPriceUsedRight: {fileID: 1386532856}
   _selectingItem: {fileID: 793003438}
+  _rightOnSe: {fileID: 8300000, guid: bb7e0cac38e4e4e768fa36368754335e, type: 3}
 --- !u!65 &1223194140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18077,6 +18038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!65 &1231335396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21710,6 +21672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!65 &1467252183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22289,6 +22252,9 @@ MonoBehaviour:
   _boxPivotObj: {fileID: 1028270737}
   _boxCollider: {fileID: 888394266}
   _answers: 020000000100000002000000000000000100000000000000000000000200000001000000
+  _pushDecideButtonSe: {fileID: 8300000, guid: 75bfcf27926c74fa68905f699eda649d, type: 3}
+  _openBoxSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!114 &1528095007 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4458997821618930488, guid: 622d11edb7d67499c84f8c44467b6662, type: 3}
@@ -22609,6 +22575,9 @@ MonoBehaviour:
   _tenText: {fileID: 7901914}
   _oneText: {fileID: 691292539}
   _boxCollider: {fileID: 1310306832}
+  _pushDecideButtonSe: {fileID: 8300000, guid: 75bfcf27926c74fa68905f699eda649d, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
+  _missSe: {fileID: 8300000, guid: c907a736eaf5d4fb58a4eb57f8331a5e, type: 3}
 --- !u!65 &1534955924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23394,6 +23363,9 @@ MonoBehaviour:
   _selectingItem: {fileID: 793003438}
   _rotateObjPivot: {fileID: 667402671}
   _collider: {fileID: 1585740929}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
+  _openBoxSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _closeDoorSe: {fileID: 8300000, guid: 9121a902b027f427ca0029681dedf74e, type: 3}
 --- !u!1001 &1589916560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23842,6 +23814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8833b242b9f42b8aca034a4f53798c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSliderSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!65 &1597608526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23933,6 +23906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heartGimmick: {fileID: 1518364467}
   _faceType: 0
+  _pushButtonSe: {fileID: 8300000, guid: fec9bbf75304440dc9714400995e8c3c, type: 3}
 --- !u!1 &1601201348
 GameObject:
   m_ObjectHideFlags: 0
@@ -24600,6 +24574,9 @@ MonoBehaviour:
   _boxCoverPivot: {fileID: 723562556}
   _answers: 010000000000000001000000030000000300000000000000020000000300000001000000
   _boxCollider: {fileID: 2072093650}
+  _openBoxSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _leverSe: {fileID: 8300000, guid: 3b9ee3338e0dd443392e6fd013defa27, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!65 &1668934561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25793,6 +25770,9 @@ MonoBehaviour:
   _boxCoverPivot: {fileID: 1583781742}
   _boxCoverCollider: {fileID: 346143064}
   _correctColor: 050000000400000000000000020000000100000003000000
+  _putBookSe: {fileID: 8300000, guid: 9412db1c728d74b6ea6cc2fc56671db9, type: 3}
+  _openBoxSe: {fileID: 8300000, guid: 7409c0d0d1cd749c0aea6f6e09a591ac, type: 3}
+  _solveSe: {fileID: 8300000, guid: 847b739a43b004d03b0c7718a490f761, type: 3}
 --- !u!114 &1771790161
 MonoBehaviour:
   m_ObjectHideFlags: 0

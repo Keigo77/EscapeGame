@@ -16,6 +16,10 @@ public class PrinterTouchPanel : MonoBehaviour
     private bool _isClear = true;
     private int _panelCount = 0;
     private CancellationToken _token;
+    [SerializeField] private AudioClip _buttonTouchSe;
+    [SerializeField] private AudioClip _missSe;
+    [SerializeField] private AudioClip _printSe;
+    [SerializeField] private AudioClip _solveSe;
     
     void Awake()
     {
@@ -24,6 +28,7 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void MissButtonTouch()
     {
+        SEManager.PlaySe(_buttonTouchSe);
         // UIをクリックするとrayが飛ばず，タッチパネルを拡大していなくても(遠くからでも)ボタンが反応するため，しっかりタッチパネルが見えている状態でないとギミックが動作しないようにする．
         if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
         {
@@ -37,6 +42,7 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void ClearButtonTouch()
     {
+        SEManager.PlaySe(_buttonTouchSe);
         if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
         {
             _moveCamera.MoveIDPosCamera(6);
@@ -48,6 +54,7 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void BadPanelButtonTouch()   // 笑ボタン
     {
+        SEManager.PlaySe(_missSe);
         _lifeManager.TakeDamage();
         _isClear = true;
         _missPanel.SetActive(false);
@@ -67,6 +74,9 @@ public class PrinterTouchPanel : MonoBehaviour
 
     private async UniTask GimmickClear()
     {
+        SEManager.PlaySe(_printSe);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: _token);
+        SEManager.PlaySe(_solveSe);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessage.ShowText().Forget();
         _hintPaper.SetActive(true);
