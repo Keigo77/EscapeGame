@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416ec942c3df246c3873af5b5dfdaf43, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  itemDatas:
+  - itemName: "\u7D2B\u306E\u30D6\u30ED\u30C3\u30AF"
+    itemHalfImage: {fileID: 21300000, guid: 3418123a3e9c546e5a3f7b6c0d900287, type: 3}
+    renderTexture: {fileID: 8400000, guid: 95f86cbc7c8ee4342ad4753a111dd25a, type: 2}
+    itemID: 0
+    itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u7D2B\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
+  - itemName: "\u9EC4\u8272\u3044\u9375"
+    itemHalfImage: {fileID: 21300000, guid: e1dfa76bcd57544dbbc1b4d85a1fd448, type: 3}
+    renderTexture: {fileID: 8400000, guid: b2f13f9eb7ccf49b79ae997936cae763, type: 2}
+    itemID: 1
+    itemExplain: "\u9EC4\u8272\u3044\u9375\u3060\uFF0E"
+  - itemName: "\u77E2\u5370\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 3ba4ac756ebef45d59c38f021b84416c, type: 3}
+    renderTexture: {fileID: 8400000, guid: 00cc340906c304a3899af04bda6efaf1, type: 2}
+    itemID: 2
+    itemExplain: "\u77E2\u5370\u304C\u4E26\u3093\u3067\u3044\u308B\uFF0E\u4F55\u304B\u306E\u6697\u53F7\u3060\u308D\u3046\u304B\uFF0E"
+  - itemName: "\u866B\u773C\u93E1"
+    itemHalfImage: {fileID: 21300000, guid: cdb678e1ea6c2416783960eb4bcbda95, type: 3}
+    renderTexture: {fileID: 8400000, guid: b3434da1d44784052a69466616409d41, type: 2}
+    itemID: 3
+    itemExplain: "\u866B\u773C\u93E1\u3060\uFF0E"
+  - itemName: "\u9854\u304C\u4E26\u3093\u3060\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 3b5516cb81fc045ab9e3ff5260b55805, type: 3}
+    renderTexture: {fileID: 8400000, guid: c5bcc2b9c898b4fa6906fde6760dba25, type: 2}
+    itemID: 4
+    itemExplain: "\u9854\u304C\u305F\u304F\u3055\u3093\u4E26\u3093\u3067\u3044\u308B\uFF0E"
+  - itemName: "\u5358\u8A9E\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 1452ba66e7c1d4f75861042ca16791c0, type: 3}
+    renderTexture: {fileID: 8400000, guid: aadc39bfd125449f6a1b24e5b01f40ab, type: 2}
+    itemID: 5
+    itemExplain: "\u5358\u8A9E\u304C\u4E26\u3093\u3067\u308B\u306A\uFF0E"
+  - itemName: "\u30D4\u30F3\u30AF\u306E\u77E2\u5370\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: ee7b1d0e7ba69435cb392981f16e7d84, type: 3}
+    renderTexture: {fileID: 8400000, guid: 67a6a91e1d33a467f89af00b85d0fd38, type: 2}
+    itemID: 6
+    itemExplain: "\u306A\u3093\u306E\u77E2\u5370\u3060\u308D\u3046\u304B\uFF0E"
+  - itemName: "\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF"
+    itemHalfImage: {fileID: 21300000, guid: dd3ebe26e588b4b91bd0da0269f69b4b, type: 3}
+    renderTexture: {fileID: 8400000, guid: b3206175148c747b7972c7b26bcf2657, type: 2}
+    itemID: 7
+    itemExplain: "\u4F55\u304B\u306E\u30B2\u30FC\u30E0\u3067\u898B\u305F\u9752\u8272\u306E\u30D6\u30ED\u30C3\u30AF\u3060\uFF0E"
+  - itemName: "\u7D2B\u8272\u306E\u9375"
+    itemHalfImage: {fileID: 21300000, guid: 43a869fe664a445b7b22d86bbceb2e73, type: 3}
+    renderTexture: {fileID: 8400000, guid: 43a7c2715a7844fe1a371dcafd64a78c, type: 2}
+    itemID: 8
+    itemExplain: "\u7D2B\u8272\u306E\u9375\u3060\uFF0E"
+  - itemName: "100\u5186\u7389"
+    itemHalfImage: {fileID: 21300000, guid: 60d0e78e53c4a4f4a824e723bdf8625d, type: 3}
+    renderTexture: {fileID: 8400000, guid: c4cd4b884cd54428e9463113d47d16a0, type: 2}
+    itemID: 9
+    itemExplain: "100\u5186\u7389\u3060\uFF0E"
+  - itemName: "\u7D2B\u8272\u306E\u30CF\u30FC\u30C8"
+    itemHalfImage: {fileID: 21300000, guid: cbe9d50ed488243d6b9bcae20c1f1f21, type: 3}
+    renderTexture: {fileID: 8400000, guid: 16ff56220653a475da91ae21e4415a8f, type: 2}
+    itemID: 10
+    itemExplain: "\u30CF\u30FC\u30C8\u306E\u6A21\u578B\u3060\uFF0E"
+  - itemName: "\u8272\u306E\u7D19"
+    itemHalfImage: {fileID: 21300000, guid: 1fb7a2ae281234953b1be6c1d17a25ec, type: 3}
+    renderTexture: {fileID: 8400000, guid: 2b2e470b278ab4eaab4bfab913f569e6, type: 2}
+    itemID: 11
+    itemExplain: "\u3069\u3046\u3044\u3046\u610F\u5473\u3060\u308D\u3046\u304B\uFF0E"
+  - itemName: "\u30E9\u30A4\u30C8"
+    itemHalfImage: {fileID: 21300000, guid: 123090629b8ea41bca51e0a79b22beed, type: 3}
+    renderTexture: {fileID: 8400000, guid: 31b40f0bc74464d218773d200c8aa8a2, type: 2}
+    itemID: 12
+    itemExplain: "\u7279\u6B8A\u306A\u30DA\u30F3\u3067\u66F8\u3044\u305F\u6587\u5B57\u304C\u898B\u3048\u308B\u3088\u3046\u306B\u306A\u308B\u304A\u3082\u3061\u3083\u306E\u30DA\u30F3\u3060\uFF0E"
+  - itemName: "100\u5186\u7389"
+    itemHalfImage: {fileID: 21300000, guid: 60d0e78e53c4a4f4a824e723bdf8625d, type: 3}
+    renderTexture: {fileID: 8400000, guid: c4cd4b884cd54428e9463113d47d16a0, type: 2}
+    itemID: 13
+    itemExplain: "100\u5186\u7389\u3060\uFF0E"
+  - itemName: "100\u5186\u7389"
+    itemHalfImage: {fileID: 21300000, guid: 60d0e78e53c4a4f4a824e723bdf8625d, type: 3}
+    renderTexture: {fileID: 8400000, guid: c4cd4b884cd54428e9463113d47d16a0, type: 2}
+    itemID: 14
+    itemExplain: "100\u5186\u7389\u3060\uFF0E"
