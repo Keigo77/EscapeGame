@@ -34,7 +34,6 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
-    - Assembly-CSharp-firstpass
     - ExcelImporter
     - UniRx
     - UniRx.Examples

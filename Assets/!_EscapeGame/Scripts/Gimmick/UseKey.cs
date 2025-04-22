@@ -53,4 +53,6 @@ public class UseKey : MonoBehaviour, IMoveGimmick
         _rotateObjPivot.transform.DORotate(_rotate, 1.0f);
         _collider.enabled = false;
     }
+
+
 }
