@@ -5284,6 +5284,7 @@ Transform:
   - {fileID: 1032909521}
   - {fileID: 1973421898}
   - {fileID: 1904520234}
+  - {fileID: 709822439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &428883637
@@ -10636,13 +10637,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709822438}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.643814, y: 18.358656, z: -7.130164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.23689, y: 12.712845, z: -3.879745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 777738445}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 428883636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &710960427
 GameObject:
@@ -11942,7 +11943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669196365148881150, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
       propertyPath: _fadeInTime
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33346,4 +33347,3 @@ SceneRoots:
   - {fileID: 754116240}
   - {fileID: 509137037}
   - {fileID: 778444904}
-  - {fileID: 709822439}
