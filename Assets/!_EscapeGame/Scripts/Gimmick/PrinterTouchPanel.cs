@@ -28,13 +28,8 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void MissButtonTouch()
     {
+        if (!IsOperationPanel()) { return; }
         SEManager.PlaySe(_buttonTouchSe);
-        // UIをクリックするとrayが飛ばず，タッチパネルを拡大していなくても(遠くからでも)ボタンが反応するため，しっかりタッチパネルが見えている状態でないとギミックが動作しないようにする．
-        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
-        {
-            _moveCamera.MoveIDPosCamera(6);
-            return;
-        }  
         _isClear = false;
         ShowNextPanel();
         Debug.Log("ミス");
@@ -42,18 +37,15 @@ public class PrinterTouchPanel : MonoBehaviour
 
     public void ClearButtonTouch()
     {
+        if (!IsOperationPanel()) { return; }
         SEManager.PlaySe(_buttonTouchSe);
-        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
-        {
-            _moveCamera.MoveIDPosCamera(6);
-            return;
-        }  
         ShowNextPanel();
         Debug.Log("正解");
     }
 
-    public void BadPanelButtonTouch()   // 笑ボタン
+    public void BadPanelButtonTouch()   // ハズレ笑ボタン
     {
+        if (!IsOperationPanel()) { return; }
         SEManager.PlaySe(_missSe);
         _lifeManager.TakeDamage();
         _isClear = true;
@@ -82,6 +74,20 @@ public class PrinterTouchPanel : MonoBehaviour
         _hintPaper.SetActive(true);
         
         // 少し待ってから(印刷音を出してから)テキスト表示する？
+    }
+
+    /// <summary>
+    /// UIをクリックするとrayが飛ばず，タッチパネルを拡大していなくても(遠くからでも)ボタンが反応するため，
+    /// しっかりタッチパネルが見えている状態でないとギミックが動作しないようにする．
+    /// </summary>
+    private bool IsOperationPanel()
+    {
+        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
+        {
+            _moveCamera.MoveIDPosCamera(5);
+            return false;
+        }  
+        else { return true; }
     }
     
 }

@@ -103,8 +103,8 @@ MonoBehaviour:
     rotZ: 0
   - id: 11
     cameraTitle: "\u30EC\u30D0\u30FC\u30DE\u30B7\u30F3\u306E\u30AE\u30DF\u30C3\u30AF"
-    posX: -11.25
-    posY: 9.87
+    posX: -12.332
+    posY: 9.259
     posZ: -9.51
     rotX: 0
     rotY: -90
