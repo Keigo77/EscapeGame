@@ -10,16 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d349fa4c0b9f9438fbfe081307406db7, type: 3}
-  m_Name: PrologueContents
+  m_Name: ConversationSO
   m_EditorClassIdentifier: 
-  ConversationContentsData:
-  - TakerName: 
+  ConversationDatas:
+  - Speaker: 0
     Text: 
     Se: {fileID: 0}
-    BackImage: {fileID: 0}
-    isUseFade: 0
-  - TakerName: 
-    Text: 
-    Se: {fileID: 0}
-    BackImage: {fileID: 0}
+    NextBackImage: {fileID: 0}
     isUseFade: 0

@@ -3,17 +3,24 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "ConversationContents", menuName = "Scriptable Objects/PrologueContents")]
 
-public class PrologueScriptableObject : ScriptableObject
+public class ConversationSO : ScriptableObject
 {
-    public List<ConversationContents> ConversationContentsData = new ();
+    public List<ConversationData> ConversationDatas = new ();
+}
+
+public enum Speaker
+{
+    Speaker1,
+    Speaker2,
+    Speaker3
 }
 
 [System.Serializable]
-public class ConversationContents
+public class ConversationData
 {
-    public string TakerName;
+    public Speaker Speaker;
     [TextArea] public string Text;
     public AudioClip Se;
-    public Sprite BackImage;
+    public Sprite NextBackImage;
     public bool isUseFade = false;
 }
