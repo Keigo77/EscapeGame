@@ -1,31 +1,47 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShowConversation : MonoBehaviour
 {
-    [SerializeField] private ConversationSO _conversationSo;
-    [SerializeField] private TextMeshProUGUI _speakerText;
+    [SerializeField] private TextAsset _conversationTextFile;
     [SerializeField] private TextMeshProUGUI _conversationText;
-    [SerializeField] private AudioSource _audioSource;
-    private int _index = 0;
-
-    void Update()
+    [SerializeField] private int _maxTextLine;
+    public static float AddTextSpan = 0.05f;     // ページ送りの速度を設置
+    private CancellationToken _token;
+    private string[] _fileTexts;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            UpdateConversationText();
-        }
+        _fileTexts = _conversationTextFile.text.Split(char.Parse("\n"));
+        ShowText().Forget();
     }
 
-    private void UpdateConversationText()
+    private async UniTask ShowText()
     {
-        var data = _conversationSo.ConversationDatas[_index];
-        _speakerText.text = data.Speaker.ToString();
-        _conversationText.text = data.Text;
-        if (data.Se != null)
+        int textsIndex = 0;
+        
+        while (textsIndex < _fileTexts.Length)
         {
-            _audioSource.PlayOneShot(data.Se);
+            for (int j = 0; j < _fileTexts[textsIndex].Length; j++)
+            {
+                _conversationText.text += _fileTexts[textsIndex][j];
+                await UniTask.Delay(TimeSpan.FromSeconds(AddTextSpan), cancellationToken: _token);
+            }
+            _conversationText.text += "\n";
+            // クリックを待つ
+            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: _token);
+            textsIndex++;
+
+            if (_conversationText.textInfo.lineCount > _maxTextLine)
+            {
+                _conversationText.text = "";
+            }
         }
-        _index++;
+        // シーン遷移
     }
 }
