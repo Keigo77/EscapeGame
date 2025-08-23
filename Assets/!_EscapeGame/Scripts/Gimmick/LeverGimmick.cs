@@ -80,7 +80,14 @@ public class LeverGimmick : MonoBehaviour, IMoveGimmick
                 _isCorrected = true;
             }
         }
-        else { _index = 0; }
+        else if (_index == 1 && _choose == MoveDirection.Down)
+        {
+            _index = 1;
+        }
+        else
+        {
+            _index = 0;
+        }
     }
 
     private async UniTask Correct()
