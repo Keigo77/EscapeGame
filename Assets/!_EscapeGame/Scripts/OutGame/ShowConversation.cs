@@ -11,6 +11,7 @@ public class ShowConversation : MonoBehaviour
     [SerializeField] private TextAsset _conversationTextFile;
     [SerializeField] private TextMeshProUGUI _conversationText;
     [SerializeField] SceneTransition _sceneTransition;
+    [SerializeField] private AudioClip _clickSe;
     private const int MAXTEXTLINE = 12;
     private CancellationTokenSource _ctsToken;
     private CancellationToken _token;
@@ -47,6 +48,7 @@ public class ShowConversation : MonoBehaviour
             // クリックを待つ
             ShowTriangles().Forget();
             await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: _token);
+            SEManager.PlaySe(_clickSe);
             _ctsToken.Cancel();
             
             _conversationText.text = _conversationText.text.Replace("▼", "");  // ▼だけ消す
