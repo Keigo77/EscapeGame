@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
     // UI
     [SerializeField] private GameObject _showItemButton;
+    [SerializeField] private GameObject _settingButton;
     [SerializeField] private GameObject _rightButton;
     [SerializeField] private GameObject _leftButton;
     [SerializeField] private GameObject _undoButton;
@@ -35,6 +36,7 @@ public class UIManager : MonoBehaviour
     public void ShowUI()
     {
         _showItemButton.SetActive(true);
+        _settingButton.SetActive(true);
         _text.SetActive(true);
         _cameraMoveRecorder.IsShowUIButton();
         if (_selectingItem.SelectingItemID.Value >= 0) { _gearItemRawImageObj.SetActive(true); } 
@@ -43,6 +45,7 @@ public class UIManager : MonoBehaviour
     public void DontShowUI()
     {
         _showItemButton.SetActive(false);
+        _settingButton.SetActive(false);
         _rightButton.SetActive(false);
         _leftButton.SetActive(false);
         _undoButton.SetActive(false);
