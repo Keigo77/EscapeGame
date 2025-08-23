@@ -26,6 +26,7 @@ public class PrinterTouchPanel : MonoBehaviour
     
     void Awake()
     {
+        IsTrueEnd = false;
         _token = this.GetCancellationTokenOnDestroy();
     }
 

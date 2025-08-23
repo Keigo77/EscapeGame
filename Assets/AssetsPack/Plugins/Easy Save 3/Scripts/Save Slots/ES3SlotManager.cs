@@ -24,6 +24,8 @@ public class ES3SlotManager : MonoBehaviour
     public bool showCreateSlotButton = true;
     [Tooltip("Whether we should automatically create an empty save file when the user creates a new save slot. This will be created using the default settings, so you should set this to false if you are using ES3Settings objects.")]
     public bool autoCreateSaveFile = false;
+    [Tooltip("Whether a save slot should be selected after a user creates it.")]
+    public bool selectSlotAfterCreation = false;
 
     [Space(16)]
 
@@ -34,6 +36,9 @@ public class ES3SlotManager : MonoBehaviour
 
     [Tooltip("An event called after a slot is selected, but before the scene specified by loadSceneAfterSelectSlot is loaded.")]
     public UnityEvent onAfterSelectSlot;
+
+    [Tooltip("An event called after a slot is created by a user, but hasn't been selected.")]
+    public UnityEvent onAfterCreateSlot;
 
     [Space(16)]
 
@@ -87,7 +92,7 @@ public class ES3SlotManager : MonoBehaviour
             // Get the slot name, which is the filename without the extension.
             var slotName = Path.GetFileNameWithoutExtension(file);
             // Get the timestamp so that we can display this to the user and use it to order the slots.
-            var timestamp = ES3.GetTimestamp(GetSlotPath(slotName));
+            var timestamp = ES3.GetTimestamp(GetSlotPath(slotName)).ToLocalTime();
             // Add the data to the slot list.
             slots.Add((Name: slotName, Timestamp: timestamp));
         }
@@ -101,7 +106,7 @@ public class ES3SlotManager : MonoBehaviour
     }
 
     // Instantiates a single save slot with a given slot name and timestamp.
-    public virtual GameObject InstantiateSlot(string slotName, DateTime timestamp)
+    public virtual ES3Slot InstantiateSlot(string slotName, DateTime timestamp)
     {
         // Create an instance of our slot.
         var slot = Instantiate(slotTemplate, slotTemplate.transform.parent);
@@ -122,6 +127,30 @@ public class ES3SlotManager : MonoBehaviour
         else
             es3SelectSlot.timestampLabel.text = $"{timestamp.ToString("yyyy-MM-dd")}\n{timestamp.ToString("HH:mm:ss")}";
 
+        return es3SelectSlot;
+    }
+
+    // Creates a new slot by instantiating it in the UI and creating a save file for it if necessary.
+    public virtual ES3Slot CreateNewSlot(string slotName)
+    {
+        // Get the current timestamp.
+        var creationTimestamp = DateTime.Now;
+        // Create the slot in the UI.
+        var slot = InstantiateSlot(slotName, creationTimestamp);
+        // Move the slot to the top of the list.
+        slot.MoveToTop();
+
+        // Automatically create a file for the save slot if the option is enabled.
+        if (autoCreateSaveFile)
+            ES3.SaveRaw("{}", GetSlotPath(slotName));
+
+        // Select the slot if necessary.
+        if (selectSlotAfterCreation)
+            slot.SelectSlot();
+
+        // Scroll the scroll view to the top of the list.
+        ScrollToTop();
+
         return slot;
     }
 
@@ -139,6 +168,7 @@ public class ES3SlotManager : MonoBehaviour
     {
         foreach (var slot in slots)
             Destroy(slot);
+        slots.Clear();
     }
 
     // Gets the relative file path of the slot with the given slot name.
@@ -146,6 +176,12 @@ public class ES3SlotManager : MonoBehaviour
     {
         // We convert any whitespace characters to underscores at this point to make the file more portable.
         return slotDirectory + Regex.Replace(slotName, @"\s+", "_") + slotExtension;
+    }
+
+    // Scrolls to the top of the list of slots.
+    public void ScrollToTop()
+    {
+        transform.Find("Scroll View").GetComponent<UnityEngine.UI.ScrollRect>().verticalNormalizedPosition = 1f;
     }
     #endregion
 }
@@ -195,7 +231,11 @@ public class ES3SlotMenuItems : MonoBehaviour
 
     static void AddEventSystemToSceneIfNotExists()
     {
+#if UNITY_2022_3_OR_NEWER
         if (UnityEngine.Object.FindFirstObjectByType<EventSystem>() == null)
+#else
+        if (UnityEngine.Object.FindObjectOfType<EventSystem>() == null)
+#endif
         {
             GameObject eventSystemGameObject = new GameObject("EventSystem");
             eventSystemGameObject.AddComponent<EventSystem>();

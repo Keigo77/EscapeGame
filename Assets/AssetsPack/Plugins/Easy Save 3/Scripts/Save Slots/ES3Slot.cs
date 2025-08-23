@@ -74,7 +74,7 @@ public class ES3Slot : MonoBehaviour
                 // Show the dialog.
                 confirmationDialog.SetActive(true);
                 // Register the event for the confirmation button.
-                confirmationDialog.GetComponent<ES3SlotDialog>().confirmButton.onClick.AddListener(DeleteThenSelectSlot);
+                confirmationDialog.GetComponent<ES3SlotDialog>().confirmButton.onClick.AddListener(OverwriteThenSelectSlot);
                 return;
             }
         }
@@ -82,15 +82,8 @@ public class ES3Slot : MonoBehaviour
         SelectSlot();
     }
 
-    // Deletes the existing data for a slot and then selects it.
-    protected virtual void DeleteThenSelectSlot()
-    {
-        DeleteSlot();
-        SelectSlot();
-    }
-
     // Selects a slot and calls post-selection events if applicable.
-    protected virtual void SelectSlot()
+    public virtual void SelectSlot()
     {
         // Hide the confirmation dialog if it's open.
         confirmationDialog?.SetActive(false);
@@ -131,6 +124,16 @@ public class ES3Slot : MonoBehaviour
         deleteButton.gameObject.SetActive(true);
     }
 
+    // Deletes the existing data for a slot and then selects it.
+    protected virtual void OverwriteThenSelectSlot()
+    {
+        DeleteSlot();
+        // Create the new slot.
+        var newSlot = mgr.CreateNewSlot(nameLabel.text);
+        // Select the new slot.
+        newSlot.SelectSlot();
+    }
+
     // Deletes a save slot.
     public virtual void DeleteSlot()
     {
@@ -150,6 +153,12 @@ public class ES3Slot : MonoBehaviour
     {
         // Get the slot path from the manager.
         return mgr.GetSlotPath(nameLabel.text);
+    }
+
+    // Moves this slot to the top of the slots List ScrollView.
+    public void MoveToTop()
+    {
+        transform.SetSiblingIndex(1);
     }
 
 #endregion

@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private float _fadeOutTime = 1.0f;
     [SerializeField] private float _fadeInTime = 1.0f;
-    [SerializeField] private string _sceneName;
+    public string SceneName;
     private Fade _fade;
 
     private void Awake()
@@ -27,7 +28,7 @@ public class SceneTransition : MonoBehaviour
         //フェードを掛けてからシーン遷移する
         _fade.FadeIn(_fadeInTime, () =>
         {
-            SceneManager.LoadScene(_sceneName);
+            SceneManager.LoadScene(SceneName);
         });
     }
 }

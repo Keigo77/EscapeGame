@@ -321,7 +321,7 @@ public abstract class ES3Reader : System.IDisposable
 
             if(type == null)
                 throw new TypeLoadException("Trying to load data of type " + typeof(T) + ", but the type of data contained in file no longer exists. This may be because the type has been removed from your project or renamed.");
-            else if (type != typeof(T))
+            else if (type != typeof(T) && !ES3Reflection.IsAssignableFrom(typeof(T), type))
                 throw new InvalidOperationException("Trying to load data of type " + typeof(T) + ", but data contained in file is type of " + type + ".");
 
 			return type;

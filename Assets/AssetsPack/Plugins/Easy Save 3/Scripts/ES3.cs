@@ -102,7 +102,7 @@ public class ES3
     {
         if (settings.location == Location.Cache)
         {
-            ES3File.GetOrCreateCachedFile(settings).Save(key, value);
+            ES3File.GetOrCreateCachedFile(settings).Save<T>(key, value);
             return;
         }
 
@@ -453,7 +453,17 @@ public class ES3
     public static T Load<T>(string key, ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).Load<T>(key);
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            return cachedFile.Load<T>(key);
+        }
 
         using (var reader = ES3Reader.Create(settings))
         {
@@ -501,7 +511,17 @@ public class ES3
     public static T Load<T>(string key, T defaultValue, ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).Load<T>(key, defaultValue);
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                return defaultValue;
+
+            return cachedFile.Load<T>(key, defaultValue);
+        }
 
         using (var reader = ES3Reader.Create(settings))
         {
@@ -591,7 +611,15 @@ public class ES3
 
         if (settings.location == Location.Cache)
         {
-            ES3File.GetOrCreateCachedFile(settings).LoadInto<T>(key, obj);
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            cachedFile.LoadInto<T>(key, obj);
             return;
         }
 
@@ -655,7 +683,17 @@ public class ES3
     public static byte[] LoadRawBytes(ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).LoadRawBytes();
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            return cachedFile.LoadRawBytes();
+        }
 
         using (var stream = ES3Stream.CreateStream(settings, ES3FileMode.Read))
         {
@@ -1617,8 +1655,6 @@ public class ES3
     }
 
     /// <summary>Loads the default file in persistent storage into the cache.</summary>
-	/// <remarks>A backup is created by copying the file and giving it a .bak extension. 
-	/// If a backup already exists it will be overwritten, so you will need to ensure that the old backup will not be required before calling this method.</remarks>
 	public static void CacheFile()
     {
         CacheFile(new ES3Settings());

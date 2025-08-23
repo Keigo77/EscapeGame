@@ -173,7 +173,7 @@ public class ES3File
         else
             type = value.GetType();
 
-        ES3Type es3Type = ES3TypeMgr.GetOrCreateES3Type(type);
+        ES3Type es3Type = ES3TypeMgr.GetOrCreateES3Type(typeof(T));
 
         cache[key] = new ES3Data(es3Type, ES3.Serialize(value, es3Type, unencryptedSettings));
 
@@ -394,22 +394,35 @@ public class ES3File
     #endregion
 
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-    internal static ES3File GetOrCreateCachedFile(ES3Settings settings)
+    internal static ES3File GetCachedFile(ES3Settings settings)
     {
         ES3File cachedFile;
-        if (!cachedFiles.TryGetValue(settings.path, out cachedFile))
+        cachedFiles.TryGetValue(settings.path, out cachedFile);
+
+        // Settings might refer to the same file, but might have changed.
+        // To account for this, we update the settings of the ES3File each time we access it.
+        if (cachedFile != null)
+            cachedFile.settings = settings;
+
+        return cachedFile;
+    }
+
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    internal static ES3File GetOrCreateCachedFile(ES3Settings settings)
+    {
+        ES3File cachedFile = GetCachedFile(settings);
+
+        if (cachedFile == null)
         {
             cachedFile = new ES3File(settings, false);
             cachedFiles.Add(settings.path, cachedFile);
             cachedFile.syncWithFile = true; // This ensures that the file won't be merged, which would prevent deleted keys from being deleted.
         }
-        // Settings might refer to the same file, but might have changed.
-        // To account for this, we update the settings of the ES3File each time we access it.
-        cachedFile.settings = settings;
+
         return cachedFile;
     }
 
-    internal static void CacheFile(ES3Settings settings)
+    internal static ES3File CacheFile(ES3Settings settings)
     {
         // If we're still using cached settings, set it to the default location.
         if (settings.location == ES3.Location.Cache)
@@ -420,14 +433,18 @@ public class ES3File
         }
 
         if (!ES3.FileExists(settings))
-            return;
+            return null;
 
         // Disable compression and encryption when loading the raw bytes, and the ES3File constructor will expect encrypted/compressed bytes.
         var loadSettings = (ES3Settings)settings.Clone();
         loadSettings.compressionType = ES3.CompressionType.None;
         loadSettings.encryptionType = ES3.EncryptionType.None;
 
-        cachedFiles[settings.path] = new ES3File(ES3.LoadRawBytes(loadSettings), settings);
+        var es3File = new ES3File(ES3.LoadRawBytes(loadSettings), settings);
+        es3File.dirty = false; // Mark the ES3File as not dirty as a newly cached file will never be dirty.
+        cachedFiles[settings.path] = es3File;
+
+        return es3File;
     }
 
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]

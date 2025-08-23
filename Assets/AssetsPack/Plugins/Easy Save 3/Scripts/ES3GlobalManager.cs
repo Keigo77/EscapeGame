@@ -9,12 +9,15 @@ public class ES3GlobalManager : MonoBehaviour
     // Indicates whether an event has indicated that the cache should be stored to file at the end of this frame.
     bool storeCache = false;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Run()
     {
         var gameObject = new GameObject("Easy Save 3 Global Manager");
         gameObject.AddComponent<ES3GlobalManager>();
         DontDestroyOnLoad(gameObject);
+
+        if(ES3Settings.defaultSettings.autoCacheDefaultFile)
+            ES3.CacheFile();
     }
 
     public IEnumerator Start()

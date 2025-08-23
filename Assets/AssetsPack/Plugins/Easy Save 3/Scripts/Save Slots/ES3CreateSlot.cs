@@ -82,27 +82,14 @@ public class ES3CreateSlot : MonoBehaviour
         }
 
         // Create the slot.
-        CreateNewSlot(inputField.text);
+        var slot = mgr.CreateNewSlot(inputField.text);
         // Clear the input field so the value isn't there when we reopen it.
         inputField.text = "";
         // Hide the dialog.
         createDialog.gameObject.SetActive(false);
-    }
 
-
-    // Creates a new slot by instantiating it in the UI and creating a save file for it if necessary.
-    protected virtual void CreateNewSlot(string slotName)
-    {
-        // Get the current timestamp.
-        var creationTimestamp = DateTime.Now;
-        // Create the slot in the UI.
-        var slot = mgr.InstantiateSlot(slotName, creationTimestamp);
-        // Move the slot to the top of the list.
-        slot.transform.SetSiblingIndex(1);
-
-        // Automatically create a file for the save slot if the option is enabled.
-        if (mgr.autoCreateSaveFile)
-            ES3.SaveRaw("{}", mgr.GetSlotPath(slotName));
+        // If we've specified an event to be called after the user creaktes a slot, invoke it.
+        mgr.onAfterCreateSlot?.Invoke();
     }
 }
 

@@ -129,6 +129,12 @@ public class ES3Settings : System.ICloneable
     public bool storeCacheOnApplicationQuit = true;
     public bool storeCacheOnApplicationPause = true;
 
+    // Whether we should automatically cache the default file.
+    public bool autoCacheDefaultFile = true;
+
+    // Whether we should automatically cache the file when we load and it doesn't exist in the cache.
+    public bool autoCacheFileOnLoad = true;
+
     /// <summary>Whether we should check that the data we are loading from a file matches the method we are using to load it.</summary>
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public bool typeChecking = true;
@@ -367,9 +373,11 @@ public class ES3Settings : System.ICloneable
         newSettings.saveChildren = saveChildren;
         newSettings.serializationDepthLimit = serializationDepthLimit;
         newSettings.postprocessRawCachedData = postprocessRawCachedData;
-        newSettings.storeCacheAtEndOfEveryFrame = true;
-        newSettings.storeCacheOnApplicationQuit = true;
-        newSettings.storeCacheOnApplicationPause = true;
+        newSettings.storeCacheAtEndOfEveryFrame = storeCacheAtEndOfEveryFrame;
+        newSettings.storeCacheOnApplicationQuit = storeCacheOnApplicationQuit;
+        newSettings.storeCacheOnApplicationPause = storeCacheOnApplicationPause;
+        newSettings.autoCacheDefaultFile = autoCacheDefaultFile;
+        newSettings.autoCacheFileOnLoad = autoCacheFileOnLoad;
 }
 
     #endregion

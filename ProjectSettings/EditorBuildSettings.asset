@@ -18,16 +18,19 @@ EditorBuildSettings:
     path: Assets/!_EscapeGame/Scenes/PrologueScene2.unity
     guid: 545c481a05aae46168750619e4e71f61
   - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/BeforeGoal.unity
+    guid: 987ac1c4765f84830aba661ca33af2ad
+  - enabled: 1
     path: Assets/!_EscapeGame/Scenes/EscapeScene.unity
     guid: 64fb53b5d16ea46aaab9eaebe5255499
   - enabled: 1
     path: Assets/!_EscapeGame/Scenes/ResultScene.unity
     guid: cdb7b2820469a453baaf97ca71f65fb8
   - enabled: 1
-    path: Assets/!_EscapeGame/Scenes/End1.unity
+    path: Assets/!_EscapeGame/Scenes/End_Normal.unity
     guid: ae720ae14f50b4a439c76ca775bc5b9d
   - enabled: 1
-    path: Assets/!_EscapeGame/Scenes/TrueEnd.unity
+    path: Assets/!_EscapeGame/Scenes/End_True.unity
     guid: b24f53d738472434da56ce26ebf11a3d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

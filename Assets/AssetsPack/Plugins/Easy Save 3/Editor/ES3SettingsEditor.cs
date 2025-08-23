@@ -17,6 +17,12 @@ namespace ES3Editor
 			if (settings.location == ES3.Location.Cache)
 			{
                 EditorGUILayout.BeginVertical(style.area);
+
+                settings.autoCacheDefaultFile = EditorGUILayout.Toggle(new GUIContent("Auto cache default file", "When enabled, the default file as defined at the top of the Settings window will be cached when the application starts."), settings.autoCacheDefaultFile);
+                settings.autoCacheFileOnLoad = EditorGUILayout.Toggle(new GUIContent("Auto cache file on load", "Whether we should automatically cache the file when we attempt to load from it and it doesn't exist in the cache."), settings.autoCacheFileOnLoad);
+
+                EditorGUILayout.Space();
+
                 EditorGUILayout.LabelField("Store cached data:");
 
                 EditorGUILayout.BeginVertical(style.area);
@@ -53,7 +59,8 @@ namespace ES3Editor
                 if (settings.format == ES3.Format.JSON)
                     settings.prettyPrint = EditorGUILayout.Toggle(new GUIContent("Pretty print JSON"), settings.prettyPrint);
 				settings.bufferSize = EditorGUILayout.IntField("Buffer Size", settings.bufferSize);
-				settings.memberReferenceMode = (ES3.ReferenceMode)EditorGUILayout.EnumPopup("Serialise Unity Object fields", settings.memberReferenceMode);
+                settings.referenceMode = (ES3.ReferenceMode)EditorGUILayout.EnumPopup("Serialise Unity Objects", settings.referenceMode);
+                settings.memberReferenceMode = (ES3.ReferenceMode)EditorGUILayout.EnumPopup("Serialise fields of Unity Object", settings.memberReferenceMode);
                 settings.serializationDepthLimit = EditorGUILayout.IntField("Serialisation Depth", settings.serializationDepthLimit);
                 settings.postprocessRawCachedData = EditorGUILayout.Toggle(new GUIContent("Postprocess raw cached data"), settings.postprocessRawCachedData);
 
