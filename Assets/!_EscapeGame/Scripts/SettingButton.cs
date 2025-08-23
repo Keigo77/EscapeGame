@@ -5,6 +5,8 @@ public class SettingButton : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private GameObject _settingPanel;
+    [SerializeField] private AudioClip _showSettingPanelSe;
+    [SerializeField] private AudioClip _deleteSettingPanelSe;
     private Button _settingButton;
 
     void Start()
@@ -16,6 +18,7 @@ public class SettingButton : MonoBehaviour
     {
         if (_settingPanel.activeSelf)
         {
+            SEManager.PlaySe(_deleteSettingPanelSe);
             _uiManager.ShowUI();
             _settingButton.gameObject.SetActive(true);
             _settingPanel.SetActive(false);
@@ -23,6 +26,7 @@ public class SettingButton : MonoBehaviour
         }
         else
         {
+            SEManager.PlaySe(_showSettingPanelSe);
             _uiManager.DontShowUI();
             _settingButton.gameObject.SetActive(true);
             _settingPanel.SetActive(true);

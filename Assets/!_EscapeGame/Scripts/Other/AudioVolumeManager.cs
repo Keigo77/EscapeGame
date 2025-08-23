@@ -10,14 +10,26 @@ public class AudioVolimeManager : MonoBehaviour
     [SerializeField] private Slider _bgmSlider;
     [SerializeField] private Slider _seSlider;
 
-    public void SetBGM()
+    private void Start()
     {
-        _audioMixer.SetFloat("BGM", _bgmSlider.value);
+        //ミキサーのvolumeにスライダーのvolumeを入れてます。
+
+        //BGM
+        _audioMixer.GetFloat("BGM", out float bgmVolume);
+        _bgmSlider.value = bgmVolume;
+        //SE
+        _audioMixer.GetFloat("SE", out float seVolume);
+        _seSlider.value = seVolume;
+    }
+    
+    public void SetBGM(float volume)
+    {
+        _audioMixer.SetFloat("BGM", volume);
     }
 
-    public void SetSe()
+    public void SetSE(float volume)
     {
-        _audioMixer.SetFloat("SE", _seSlider.value);
+        _audioMixer.SetFloat("SE", volume);
     }
 
     public void PlaySe()
