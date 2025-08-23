@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996ea76de613846c3af42626cdf3a622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _conversationTextFile: {fileID: 4900000, guid: c94f11cea1fa04e0097c9300abb9b248, type: 3}
+  _conversationTextFile: {fileID: 4900000, guid: 2b88b61db8cc04d01b3a7b2b660ba4d0, type: 3}
   _conversationText: {fileID: 1265020503}
   _sceneTransition: {fileID: 284095036}
 --- !u!4 &1995426613
