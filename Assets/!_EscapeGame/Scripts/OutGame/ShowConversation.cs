@@ -4,13 +4,14 @@ using Cysharp.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShowConversation : MonoBehaviour
 {
     [SerializeField] private TextAsset _conversationTextFile;
     [SerializeField] private TextMeshProUGUI _conversationText;
-    [SerializeField] private int _maxTextLine;
-    public static float AddTextSpan = 0.05f;     // ページ送りの速度を設置
+    [SerializeField] SceneTransition _sceneTransition;
+    private const int MAXTEXTLINE = 12;
     private CancellationTokenSource _ctsToken;
     private CancellationToken _token;
     private string[] _fileTexts;
@@ -30,7 +31,7 @@ public class ShowConversation : MonoBehaviour
         
         while (textsIndex < _fileTexts.Length)
         {
-            await UniTask.WaitUntil(() => !_ctsToken.IsCancellationRequested, cancellationToken: _token);
+            //await UniTask.WaitUntil(() => !_ctsToken.IsCancellationRequested, cancellationToken: _token);
             for (int j = 0; j < _fileTexts[textsIndex].Length; j++)
             {
                 if (j < _fileTexts[textsIndex].Length && _fileTexts[textsIndex][j] == '\\' &&
@@ -41,7 +42,6 @@ public class ShowConversation : MonoBehaviour
                     continue;
                 }
                 _conversationText.text += _fileTexts[textsIndex][j];
-                await UniTask.Delay(TimeSpan.FromSeconds(AddTextSpan), cancellationToken: _token);
             }
             
             // クリックを待つ
@@ -53,12 +53,10 @@ public class ShowConversation : MonoBehaviour
             _conversationText.text += "\n";
             textsIndex++;
 
-            if (_conversationText.textInfo.lineCount > _maxTextLine)
-            {
-                _conversationText.text = "";
-            }
+            if (_conversationText.textInfo.lineCount > MAXTEXTLINE) { _conversationText.text = ""; }
         }
         // シーン遷移
+        _sceneTransition.SwitchScene();
     }
 
     private async UniTask ShowTriangles()
