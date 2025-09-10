@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-// ToDo:コインの枚数の保存．ロード時にコインの枚数をロードし，枚数分MoveGimickを作動させる
+
 public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private SelectingItem _selectingItem;

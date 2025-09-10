@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-// ToDo:本の位置を保存．謎を解いたかbool値で保存
 
 public class BookGimmick : MonoBehaviour
 {

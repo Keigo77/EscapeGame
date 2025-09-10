@@ -18,9 +18,3 @@ public interface IShowText
     public void ShowExplainText();
 }
 
-public interface ISaveLoad
-{
-    void Save();
-    void Load();
-}
-

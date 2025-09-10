@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-//ToDo:鍵を使う音．開けたかどうかをbool値で保存
+
 public class UseKey : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int _needItemId;

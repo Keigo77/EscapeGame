@@ -3,8 +3,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-//ToDo:レバーギミックを解いたかのbool値の保存
-
 public class LeverGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private GameObject _leverObj;

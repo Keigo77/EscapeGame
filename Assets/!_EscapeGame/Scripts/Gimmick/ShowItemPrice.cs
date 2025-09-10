@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// ToDo:ライトをつけるカチッっていう音
 public class ShowItemPrice : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private GameObject _itemPriceUsedRight;

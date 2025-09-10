@@ -5,8 +5,6 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 
-//ToDo:ギミックを解いたかをbool値で保存．箱が開く音を実装する
-
 public class NumberPanelDecideButton : MonoBehaviour, IMoveGimmick
 {
     [Header("暗号の答えを4桁の数字で入力")]

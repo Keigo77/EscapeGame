@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-//ToDO:謎が解けたかbool値で保存．もし解けてたら各スライダーの位置と，ハートボックスの出現．
 public class SliderGimmick : MonoBehaviour, IMoveGimmick
 {
     [SerializeField] private int[] _answers = new int[6];
