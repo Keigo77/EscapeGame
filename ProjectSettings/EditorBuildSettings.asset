@@ -6,11 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/!_EscapeGame/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/EscapeRoom.unity
+    path: Assets/!_EscapeGame/Scenes/TitleScene.unity
+    guid: 6f20a6a431e944a01979bb16edf073f5
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/PrologueScene1.unity
+    guid: 1fe1024c422074fe4896134fbbe210ce
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/PrologueScene2.unity
+    guid: 545c481a05aae46168750619e4e71f61
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/BeforeGoal.unity
+    guid: 987ac1c4765f84830aba661ca33af2ad
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/EscapeScene.unity
     guid: 64fb53b5d16ea46aaab9eaebe5255499
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/ResultScene.unity
+    guid: cdb7b2820469a453baaf97ca71f65fb8
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/End_Normal.unity
+    guid: ae720ae14f50b4a439c76ca775bc5b9d
+  - enabled: 1
+    path: Assets/!_EscapeGame/Scenes/End_True.unity
+    guid: b24f53d738472434da56ce26ebf11a3d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

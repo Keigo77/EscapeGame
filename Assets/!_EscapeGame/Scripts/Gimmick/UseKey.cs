@@ -1,0 +1,58 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using UnityEngine;
+
+public class UseKey : MonoBehaviour, IMoveGimmick
+{
+    [SerializeField] private int _needItemId;
+    [SerializeField] private Vector3 _rotate;
+    [SerializeField] private SelectingItem _selectingItem;
+    [SerializeField] private GameObject _rotateObjPivot;
+    [SerializeField] private BoxCollider _collider;
+    private ShowTextMessage[] _showTextMessages;
+    private CancellationToken _token;
+    [SerializeField] private AudioClip _solveSe;
+    [SerializeField] private AudioClip _openBoxSe;
+    [SerializeField] private AudioClip _closeDoorSe;
+
+    void Awake()
+    {
+        _token = this.GetCancellationTokenOnDestroy();
+        _showTextMessages = this.GetComponents<ShowTextMessage>();  // [0]に鍵ないとき用メッセ．[1]に鍵あるとき用メッセ．
+    }
+
+    public void MoveGimmick()
+    {
+        if (ShowTextMessage.IsShowText) { return; }     // 連続クリックで音が連続してしまうのを防止
+        MoveGimmickAsync().Forget();
+    }
+    
+    /// <summary>
+    /// 鍵を使われるオブジェクト自体にアタッチ．指定のアイテムを使うと，指定した分回転する．
+    /// </summary>
+    private async UniTask MoveGimmickAsync()
+    {
+        if (_selectingItem.SelectingItemID.Value != _needItemId)
+        {
+            SEManager.PlaySe(_closeDoorSe);
+            _showTextMessages[0].ShowText().Forget();
+            return;
+        }
+        SEManager.PlaySe(_openBoxSe);
+        MoveObj();
+        _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: _token);
+        _showTextMessages[1].ShowText().Forget();
+        SEManager.PlaySe(_solveSe);
+    }
+
+    private void MoveObj()
+    {
+        _rotateObjPivot.transform.DORotate(_rotate, 1.0f);
+        _collider.enabled = false;
+    }
+
+
+}
