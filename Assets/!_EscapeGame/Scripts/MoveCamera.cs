@@ -18,8 +18,7 @@ public class MoveCamera : MonoBehaviour
     {
         _cameraPositionDatabaseCopy = _cameraPositionDatabase.cameraDataSheet;
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[0].posX, _cameraPositionDatabaseCopy[0].posY, _cameraPositionDatabaseCopy[0].posZ);  // 初期位置
@@ -31,8 +30,9 @@ public class MoveCamera : MonoBehaviour
     public void MoveRight()
     {
         if (ShowTextMessage.IsShowText) { return; }
-        _colliderObject[_diretionIndex].SetActive(false);
+        
         _diretionIndex++;
+        OffOtherDirectionCollider();
         if (_diretionIndex >= 4) { _diretionIndex = 0; }
         CameraLRMove();
     }
@@ -40,10 +40,29 @@ public class MoveCamera : MonoBehaviour
     public void MoveLeft()
     {
         if (ShowTextMessage.IsShowText) { return; }
-        _colliderObject[_diretionIndex].SetActive(false);
+        
         _diretionIndex--;
+        OffOtherDirectionCollider();
         if (_diretionIndex <= -1) { _diretionIndex = 3; }
         CameraLRMove();
+    }
+
+    private void OffOtherDirectionCollider()
+    {
+        int i = 0;
+        foreach (var collider in _colliderObject)
+        {
+            if (i == _diretionIndex)
+            {
+                collider.SetActive(true);
+            }
+            else
+            {
+                collider.SetActive(false);
+            }
+
+            i++;
+        }
     }
 
     private void CameraLRMove()
