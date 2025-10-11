@@ -12,6 +12,7 @@ public class MoveCamera : MonoBehaviour
     [SerializeField] private CameraMoveRecorder _cameraMoveRecorder;
     [SerializeField] private int[] _fourCameraDirection;
     [SerializeField] private GameObject[] _colliderObject;
+    [SerializeField] private int _initialCameraPosId = 0;
     private int _diretionIndex = 0;
 
     void Awake()
@@ -21,9 +22,9 @@ public class MoveCamera : MonoBehaviour
     
     void Start()
     {
-        _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[0].posX, _cameraPositionDatabaseCopy[0].posY, _cameraPositionDatabaseCopy[0].posZ);  // 初期位置
+        _mainCamera.position = new Vector3(_cameraPositionDatabaseCopy[_initialCameraPosId].posX, _cameraPositionDatabaseCopy[_initialCameraPosId].posY, _cameraPositionDatabaseCopy[_initialCameraPosId].posZ);  // 初期位置
         _colliderObject[0].SetActive(true);
-        _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[0].rotX, _cameraPositionDatabaseCopy[0].rotY, _cameraPositionDatabaseCopy[0].rotZ));
+        _mainCamera.rotation = Quaternion.Euler(new Vector3(_cameraPositionDatabaseCopy[_initialCameraPosId].rotX, _cameraPositionDatabaseCopy[_initialCameraPosId].rotY, _cameraPositionDatabaseCopy[_initialCameraPosId].rotZ));
         _cameraMoveRecorder.FourInitialPosition();
     }
 
