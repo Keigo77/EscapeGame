@@ -18,6 +18,7 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
     [SerializeField] private AudioClip _coinSe;
     [SerializeField] private AudioClip _boxOpenSe;
     [SerializeField] private AudioClip _solveSe;
+    private bool _isWorking = false;
 
     void Awake()
     {
@@ -31,14 +32,22 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
     /// </summary>
     public void MoveGimmick()
     {
+        if (_isWorking)
+        {
+            return;
+        }
+        _isWorking = true;
+        
         // コインのアイテムIDは9, 13, 14
         if (_selectingItem.SelectingItemID.Value != 9 && _selectingItem.SelectingItemID.Value != 13 &&
             _selectingItem.SelectingItemID.Value != 14)
         {
             if (_coinCounter == 0) { _showTextMessages[3].ShowText().Forget(); }    // コインを入れる前と後で，考察コメントを変える
             else { _showTextMessages[4].ShowText().Forget(); }
+            _isWorking = false;
             return;
         }
+        _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         _coinCounter++;
         SEManager.PlaySe(_coinSe);
         MoveMachine().Forget();
@@ -61,7 +70,6 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
                 _coinHoleCollider.enabled = false;
                 break;
         }
-        _selectingItem.UseItem(_selectingItem.SelectingItemID.Value);
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessages[_coinCounter - 1].ShowText().Forget();
     }

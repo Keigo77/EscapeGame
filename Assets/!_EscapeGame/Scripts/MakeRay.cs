@@ -19,9 +19,9 @@ public class MakeRay : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.CompareTag("Gimick"))
+                if (hit.collider.gameObject.CompareTag("Gimick") && hit.collider.TryGetComponent<IMoveGimmick>(out var  moveGimmick))
                 {
-                    hit.collider.gameObject.GetComponent<IMoveGimmick>().MoveGimmick();
+                    moveGimmick.MoveGimmick();
                 }
                 else if (hit.collider.gameObject.CompareTag("Explain"))
                 {

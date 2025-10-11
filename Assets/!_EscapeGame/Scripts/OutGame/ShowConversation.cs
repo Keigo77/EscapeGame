@@ -12,7 +12,7 @@ public class ShowConversation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _conversationText;
     [SerializeField] SceneTransition _sceneTransition;
     [SerializeField] private AudioClip _clickSe;
-    private const int MAXTEXTLINE = 12;
+    private const int MAXTEXTLINE = 9;
     private CancellationTokenSource _ctsToken;
     private CancellationToken _token;
     private string[] _fileTexts;
