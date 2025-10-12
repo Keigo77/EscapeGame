@@ -17,6 +17,7 @@ public class MoveCamera : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 60;
         _cameraPositionDatabaseCopy = _cameraPositionDatabase.cameraDataSheet;
     }
     
