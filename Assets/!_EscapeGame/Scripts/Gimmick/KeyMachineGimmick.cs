@@ -72,5 +72,6 @@ public class KeyMachineGimmick : MonoBehaviour, IMoveGimmick
         }
         await UniTask.Delay(TimeSpan.FromSeconds(0.2f), cancellationToken: _token);
         _showTextMessages[_coinCounter - 1].ShowText().Forget();
+        _isWorking = false;
     }
 }

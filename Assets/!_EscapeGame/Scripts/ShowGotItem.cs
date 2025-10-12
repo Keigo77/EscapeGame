@@ -22,7 +22,6 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private GameObject _rightButton;
     [SerializeField] private GameObject _leftButton;
     [SerializeField] private GameObject _gearItemRawImageObj;
-    [SerializeField] private GameObject _dontShowUIText;
     [SerializeField] private UIManager _uiManager;
 #endregion
     [SerializeField] private ObjectRotate _objectRotate;
