@@ -13162,7 +13162,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!114 &778389280
 MonoBehaviour:
@@ -13677,7 +13677,6 @@ MonoBehaviour:
   _rightButton: {fileID: 384100963}
   _leftButton: {fileID: 1932136023}
   _gearItemRawImageObj: {fileID: 182168616}
-  _dontShowUIText: {fileID: 0}
   _uiManager: {fileID: 739192073}
   _objectRotate: {fileID: 2003401060}
   _itemGetSe: {fileID: 8300000, guid: 6b35bba3630864e88b5d2eddd55b0ab1, type: 3}
@@ -16711,7 +16710,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!1 &1019129561
 GameObject:
@@ -16909,7 +16908,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!1 &1028270737
 GameObject:
@@ -19824,7 +19823,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!1001 &1231664828
 PrefabInstance:
@@ -23550,7 +23549,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!114 &1468241598 stripped
 MonoBehaviour:
@@ -25586,7 +25585,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3326744, y: 0.12679243, z: 0.12658498}
+  m_Size: {x: 0.6, y: 0.24, z: 0.12658498}
   m_Center: {x: 1.3491064, y: 2.7525413, z: -1.6371433}
 --- !u!1 &1600566265
 GameObject:
