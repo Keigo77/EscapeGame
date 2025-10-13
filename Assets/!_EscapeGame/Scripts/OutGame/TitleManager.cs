@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class TitleManager : MonoBehaviour
 {
     [SerializeField] private GameObject _BeforeGoalButton;
+    [SerializeField] private TextMeshProUGUI _versionText;
     
     void Start()
     {
+        _versionText.text = $"ver{Application.version}";
         if (ES3.KeyExists("HaveGoaled") && ES3.Load<bool>("HaveGoaled"))
         {
             _BeforeGoalButton.SetActive(true);
