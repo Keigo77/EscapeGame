@@ -11559,7 +11559,7 @@ MonoBehaviour:
   _leftButton: {fileID: 1932136023}
   _undoButton: {fileID: 1245945229}
   _gearItemRawImageObj: {fileID: 182168616}
-  _text: {fileID: 0}
+  _text: {fileID: 1551468592}
   _canvas: {fileID: 2027649682}
   _selectingItem: {fileID: 793003438}
   _showGotItem: {fileID: 793003436}
