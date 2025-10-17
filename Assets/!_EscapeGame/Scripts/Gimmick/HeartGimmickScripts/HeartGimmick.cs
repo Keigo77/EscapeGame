@@ -81,7 +81,7 @@ public class HeartGimmick : MonoBehaviour
             }
             _index++;
         }
-        else if (_index == 1 && _inputs[_index] == Faces.Angly)
+        else if (_inputs[_index] == _answers[0])
         {
             _index = 1;
         }
