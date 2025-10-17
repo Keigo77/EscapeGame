@@ -79,13 +79,17 @@ public class HeartGimmick : MonoBehaviour
                 _showTextMessage.ShowText().Forget();
                 SEManager.PlaySe(_solveSe);
             }
+
             _index++;
         }
-        else if (_index == 1 && _inputs[_index] == Faces.Angly)
+        else if (_inputs[_index] == _answers[0])
         {
             _index = 1;
         }
-        else { _index = 0; }
+        else
+        {
+            _index = 0;
+        }
     }
 
     private async UniTask Correct()

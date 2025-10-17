@@ -68,8 +68,7 @@ public class LeverGimmick : MonoBehaviour, IMoveGimmick
 
         if (_answers[_index] == _choose)
         {
-            _index++;
-            if (_index == _answers.Length)
+            if (_index == _answers.Length - 1)
             {
                 SEManager.PlaySe(_openBoxSe);
                 await Correct();
@@ -77,8 +76,10 @@ public class LeverGimmick : MonoBehaviour, IMoveGimmick
                 SEManager.PlaySe(_solveSe);
                 _isCorrected = true;
             }
+            
+            _index++;
         }
-        else if (_index == 1 && _choose == MoveDirection.Down)
+        else if (_choose == _answers[0])
         {
             _index = 1;
         }
