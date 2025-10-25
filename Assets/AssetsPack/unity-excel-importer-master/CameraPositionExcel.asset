@@ -21,6 +21,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -180
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 1
     cameraTitle: "\u8CB7\u3044\u7269\u30AE\u30DF\u30C3\u30AF\u5168\u4F53\u306E\u30AB\u30E1\u30E9"
     posX: 9.13
@@ -29,6 +33,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -180
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 2
     cameraTitle: "\u8CB7\u3044\u7269\u30AB\u30B4\u30AE\u30DF\u30C3\u30AF\u306E\u5024\u6BB5\u5165\u529B\u3092\u3059\u308B"
     posX: 10.28
@@ -37,6 +45,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -180
     rotZ: 0
+    FirstHint: "\u5024\u6BB5\u3092\u5165\u529B\u3059\u308B\u306E\u3060\u308D\u3046\uFF0E\u4E0B\u306B\u3042\u308B\u30AB\u30B4\u306E\u4E2D\u8EAB\u3068\u95A2\u4FC2\u304C\u3042\u308A\u305D\u3046\u3060\u306A\uFF0E"
+    SecondHint: "\u4E0B\u306B\u3042\u308B\u30AB\u30B4\u306E\u4E2D\u8EAB\u306E\u5408\u8A08\u91D1\u984D\u3092\u5165\u529B\u3057\u3066\u307F\u3088\u3046\uFF0E\u5404\u5546\u54C1\u306E\u5024\u6BB5\u306F\uFF0C\u3053\u306E\u90E8\u5C4B\u306E\u3069\u3053\u304B\u306B\u66F8\u3044\u3066\u3042\u308B\u306F\u305A\u3060\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 3
     cameraTitle: "\u30AB\u30B4\u306E\u4E2D\u3092\u9664\u304F"
     posX: 12.87
@@ -45,6 +57,10 @@ MonoBehaviour:
     rotX: 50
     rotY: -180
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 4
     cameraTitle: "\u9752\u3044\u6642\u8A08\u3092\u62E1\u5927"
     posX: -0.3
@@ -53,6 +69,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -180
     rotZ: 0
+    FirstHint: "\u9752\u3044\u5186\u306F\uFF0C\u304D\u3063\u3068\u6642\u8A08\u3092\u8868\u3057\u3066\u3044\u308B\u306E\u3060\u308D\u3046\uFF0E\u3068\u306A\u308B\u3068\uFF0C\u3053\u306E\u7DDA\u306F\u77ED\u91DD\u3060\u308D\u3046\u306A\uFF0E\\n\u9752\u3044\u5186\u306E\u5DE6\u4E0B\u306B\u3082\u4F55\u304B\u898B\u3048\u308B\u306A\uFF0E"
+    SecondHint: "\u866B\u773C\u93E1\u3067\u5DE6\u4E0B\u3092\u62E1\u5927\u3057\u3066\u307F\u3088\u3046\uFF0E\u6642\u8A08\u306E\u5411\u304D\u306B\u3082\u6C17\u3092\u3064\u3051\u3066\uFF0C\u9752\u3044\u5186\u3068\u8D64\u3044\u5186\u3092\u91CD\u306D\u5408\u308F\u305B\u308C\u3070\uFF0C\u3042\u308B\u6642\u523B\u304C\u51FA\u3066\u304F\u308B\u306F\u305A\u3060\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: 3
   - id: 5
     cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC"
     posX: -11.99
@@ -61,6 +81,10 @@ MonoBehaviour:
     rotX: 25
     rotY: -180
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 6
     cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC\u306E\u30BF\u30C3\u30C1\u30D1\u30CD\u30EB\u3092\u64CD\u4F5C"
     posX: -10.93
@@ -69,6 +93,10 @@ MonoBehaviour:
     rotX: 90
     rotY: -180
     rotZ: 0
+    FirstHint: "\u3069\u3053\u304B\u306B\uFF0C\u753B\u9762\u306B\u5199\u3063\u3066\u3044\u308B\u5358\u8A9E\u304C\u66F8\u3044\u3066\u3042\u308B\u7D19\u304C\u306A\u304B\u3063\u305F\u304B\uFF1F\u3042\u3068\u306F\uFF0C\u62BC\u3059\u9806\u756A\u3055\u3048\u308F\u304B\u308C\u3070\u89E3\u3051\u305D\u3046\u3060\uFF0E\u307E\u3060\u4F7F\u3063\u3066\u3044\u306A\u3044\u7D19\u3092\u4F7F\u3048\u3070\uFF0C\u9806\u756A\u304C\u308F\u304B\u308B\u3060\u308D\u3046\uFF0E"
+    SecondHint: "\u5358\u8A9E\u304C\u4E26\u3093\u3060\u7D19\u3068\uFF0C\u77E2\u5370\u306E\u7D19\u3092\u91CD\u306D\u308C\u3070\uFF0C\u3069\u306E\u9806\u756A\u3067\u30DC\u30BF\u30F3\u3092\u62BC\u305B\u3070\u3044\u3044\u304B\u5206\u304B\u308B\u306A\uFF0E\u6C17\u3092\u3064\u3051\u305F\u3044\u306E\u306F\uFF0C\u300C\u604B\u300D\u30DC\u30BF\u30F3\u304C6\u756A\u76EE\u3068\u3044\u3046\u3053\u3068\u3060\uFF0E"
+    ShowFirstHintNeedItemId: 5
+    ShowSecondHintNeedItemId: 6
   - id: 7
     cameraTitle: "\u30D7\u30EA\u30F3\u30BF\u30FC\u306E\u6A2A\u306B\u843D\u3061\u3066\u308B\u866B\u773C\u93E1\u306B\u63A5\u8FD1\u3059\u308B"
     posX: -15.36
@@ -77,6 +105,10 @@ MonoBehaviour:
     rotX: 50
     rotY: -180
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 8
     cameraTitle: "\u8131\u51FA\u30C9\u30A2\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
     posX: -1.24
@@ -85,6 +117,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -90
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 9
     cameraTitle: "\u30AC\u30C1\u30E3\u30DE\u30B7\u30F3\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
     posX: -3.23
@@ -93,6 +129,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 0
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 10
     cameraTitle: "\u30B9\u30E9\u30A4\u30C0\u30FC\u30AE\u30DF\u30C3\u30AF\u65B9\u9762\u306E\u30AB\u30E1\u30E9(4\u65B9\u5411)"
     posX: -1.07
@@ -101,14 +141,22 @@ MonoBehaviour:
     rotX: 0
     rotY: 90
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 11
     cameraTitle: "\u30EC\u30D0\u30FC\u30DE\u30B7\u30F3\u306E\u30AE\u30DF\u30C3\u30AF"
     posX: -12.332
-    posY: 9.259
+    posY: 10.17
     posZ: -9.51
     rotX: 0
     rotY: -90
     rotZ: 0
+    FirstHint: "\u4E0A\u4E0B\u5DE6\u53F3\u306B\u30EC\u30D0\u30FC\u3092\u5012\u3059\u3053\u3068\u304C\u3067\u304D\u308B\uFF0E\u304A\u305D\u3089\u304F\uFF0C\u5012\u3059\u9806\u756A\u304C\u5206\u304B\u308B\u3082\u306E\u304C\u3053\u306E\u90E8\u5C4B\u306B\u3042\u308B\u306E\u3060\u308D\u3046\uFF0E"
+    SecondHint: "\u77E2\u5370\u304C\u3044\u304F\u3064\u3082\u4E26\u3093\u3060\u7D19\u304C\u3042\u3063\u305F\u306F\u305A\u3060\uFF0E\u3053\u306E\u9806\u756A\u306B\u30EC\u30D0\u30FC\u3092\u5012\u3057\u3066\u307F\u3088\u3046\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: 2
   - id: 12
     cameraTitle: "\u6642\u8A08\u306E\u30D2\u30F3\u30C8\u7D19"
     posX: -11.15
@@ -117,6 +165,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -90
     rotZ: 0
+    FirstHint: "\u5225\u306E\u5834\u6240\u306B\uFF0C\u9752\u3044\u5186\u3068\u8D64\u3044\u5186\u304C\u3042\u3063\u305F\u3088\u306A\uFF0E\u305D\u308C\u3089\u3092\u91CD\u306D\u5408\u308F\u305B\u308B\u3063\u3066\u3053\u3068\u304B...\uFF1F\u591C\u306E\u30A2\u30A4\u30B3\u30F3\u304C\u3042\u308B\u304B\u3089\uFF0C\u5165\u529B\u3059\u308B\u306E\u306F\u591C\u304B\u6DF1\u591C\u306E\u6642\u523B\u3060\u306A\uFF0E"
+    SecondHint: "\u9752\u3044\u5186\u306E\u77ED\u91DD\u3068\uFF0C\u8D64\u3044\u5186\u306E\u9577\u91DD\u30671\u3064\u306E\u6642\u523B\u304C\u5206\u304B\u308B\uFF0E\u305D\u308C\u3092\u5165\u529B\u3057\u3066\u307F\u3088\u3046\uFF0E\u8D64\u3044\u5186\u306F\u5DE6\u53F3\u53CD\u8EE2\u3057\u3066\u3044\u308B\u304B\u3089\uFF0C\u9577\u91DD\u304C\u6307\u3059\u6570\u5B57\u3092\u9593\u9055\u3048\u306A\u3044\u3088\u3046\u306B\u3057\u306A\u3044\u3068\u306A\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 13
     cameraTitle: "\u6642\u8A08\u306E\u8B0E\u30BF\u30C3\u30C1\u30D1\u30CD\u30EB\u64CD\u4F5C"
     posX: -11.15
@@ -125,6 +177,10 @@ MonoBehaviour:
     rotX: 0
     rotY: -90
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 14
     cameraTitle: "\u30CF\u30FC\u30C8\u30AE\u30DF\u30C3\u30AF"
     posX: -10.47
@@ -133,6 +189,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 0
     rotZ: 0
+    FirstHint: "\u3053\u306E\u30CF\u30FC\u30C8\u306F\u4F55\u3092\u8868\u3057\u3066\u3044\u308B\u3093\u3060\u308D\u3046\u306A...\u3000\u611F\u60C5\u3068\u304B\u304B\uFF1F"
+    SecondHint: "\u305D\u3046\u3044\u3048\u3070\uFF0C\u9854\u304C\u63CF\u304B\u308C\u305F\u7D19\u304C\u3042\u3063\u305F\u3088\u306A\uFF0E\u6012\u3063\u3066\u3044\u308B\u9854\u306F\uFF0C\u5272\u308C\u3066\u3044\u308B\u30CF\u30FC\u30C8\uFF0E\u7B11\u9854\u304C\uFF0C\u771F\u3063\u30D4\u30F3\u30AF\u306E\u30CF\u30FC\u30C8\u3068\u5BFE\u5FDC\u3057\u3066\u3044\u305D\u3046\u3060\u306A\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: 4
   - id: 15
     cameraTitle: "\u30C6\u30C8\u30EA\u30B9\u30DC\u30FC\u30C9"
     posX: -11.7
@@ -141,6 +201,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 0
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 16
     cameraTitle: "\u30AC\u30C1\u30E3\u30DE\u30B7\u30F3"
     posX: -0.16
@@ -149,6 +213,10 @@ MonoBehaviour:
     rotX: 21.63
     rotY: 0
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 17
     cameraTitle: "\u68DA\u5168\u4F53"
     posX: 3.5
@@ -157,6 +225,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 90
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 18
     cameraTitle: "\u672C\u68DA\u62E1\u5927"
     posX: 10.17
@@ -165,6 +237,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 90
     rotZ: 0
+    FirstHint: "\u672C\u306F\u56FA\u5B9A\u3055\u308C\u3066\u306A\u3044\u304B\u3089\uFF0C\u52D5\u304B\u3059\u3053\u3068\u306F\u3067\u304D\u308B\u306A\uFF0E"
+    SecondHint: "\u3053\u306E\u672C\u306E\u80CC\u8868\u7D19\u3068\u540C\u3058\u8272\u30FB\u30DE\u30FC\u30AF\u304C\u66F8\u304B\u308C\u305F\u7D19\u304C\u3042\u3063\u305F\u3088\u306A\uFF0E\u3053\u306E\u901A\u308A\u306B\u672C\u3092\u4E26\u3073\u66FF\u3048\u3066\u307F\u3088\u3046\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: 11
   - id: 19
     cameraTitle: "\u5024\u6BB5\u8868\u62E1\u5927"
     posX: 12.05
@@ -173,6 +249,10 @@ MonoBehaviour:
     rotX: 0
     rotY: 90
     rotZ: 0
+    FirstHint: 
+    SecondHint: 
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: -100
   - id: 20
     cameraTitle: "\u30B9\u30E9\u30A4\u30C0\u30FC"
     posX: 10.29
@@ -181,3 +261,7 @@ MonoBehaviour:
     rotX: 0
     rotY: 90
     rotZ: 0
+    FirstHint: "\u30B9\u30E9\u30A4\u30C0\u30FC\u306F6\u6BB5\u968E\u307E\u3067\u52D5\u304B\u305B\u308B\u306A\uFF0E\u304B\u3064\uFF0C\u30B9\u30E9\u30A4\u30C0\u30FC\u304C6\u3064\u3042\u308B\uFF0E\u3053\u306E\u90E8\u5C4B\u306E\u4E2D\u306B6\u3064\u4E26\u3093\u3067\u308B\u3082\u306E\u304C\u3042\u308C\u3070\uFF0C\u305D\u308C\u3068\u3053\u306E\u8B0E\u304C\u95A2\u4FC2\u3042\u308A\u305D\u3046\u3060\u306A\uFF0E"
+    SecondHint: "\u68DA\u306E\u4E2D\u306B\u3042\u3063\u305F6\u518A\u306E\u672C\u304C\u95A2\u4FC2\u3057\u3066\u3044\u308B\u3093\u3060\u308D\u3046\u306A\uFF0E\u3042\u308C\u3089\u306E\u672C\u306E\u9AD8\u3055\u3092\u30B9\u30E9\u30A4\u30C0\u30FC\u306B\u5165\u529B\u3057\u3066\u307F\u3088\u3046\uFF0E"
+    ShowFirstHintNeedItemId: -100
+    ShowSecondHintNeedItemId: 5

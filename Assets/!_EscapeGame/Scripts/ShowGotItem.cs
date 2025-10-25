@@ -22,7 +22,6 @@ public class ShowGotItem : MonoBehaviour
     [SerializeField] private GameObject _rightButton;
     [SerializeField] private GameObject _leftButton;
     [SerializeField] private GameObject _gearItemRawImageObj;
-    [SerializeField] private GameObject _dontShowUIText;
     [SerializeField] private UIManager _uiManager;
 #endregion
     [SerializeField] private ObjectRotate _objectRotate;
@@ -115,5 +114,18 @@ public class ShowGotItem : MonoBehaviour
             _uiManager.ShowUI();
             _showItemButton.image.color = new Color(0.41f, 0.45f, 1, 1);
         }
+    }
+
+    public bool GetContainItemId(int itemId)
+    {
+        foreach (var itemData in _gotItemDatas)
+        {
+            if (itemData.itemID == itemId)
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

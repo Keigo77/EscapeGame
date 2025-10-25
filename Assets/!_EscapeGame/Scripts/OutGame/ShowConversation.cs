@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class ShowConversation : MonoBehaviour
@@ -12,7 +13,7 @@ public class ShowConversation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _conversationText;
     [SerializeField] SceneTransition _sceneTransition;
     [SerializeField] private AudioClip _clickSe;
-    private const int MAXTEXTLINE = 12;
+    private const int MAXTEXTLINE = 9;
     private CancellationTokenSource _ctsToken;
     private CancellationToken _token;
     private string[] _fileTexts;
@@ -32,7 +33,6 @@ public class ShowConversation : MonoBehaviour
         
         while (textsIndex < _fileTexts.Length)
         {
-            //await UniTask.WaitUntil(() => !_ctsToken.IsCancellationRequested, cancellationToken: _token);
             for (int j = 0; j < _fileTexts[textsIndex].Length; j++)
             {
                 if (j < _fileTexts[textsIndex].Length && _fileTexts[textsIndex][j] == '\\' &&

@@ -24,6 +24,12 @@ public class ShowTextMessage : MonoBehaviour, IShowText
         ShowText().Forget();
     }
 
+    // ヒント文代入に使用
+    public void SetHintText(string text)
+    {
+        _textSentences[0] = text;
+    }
+
     public async UniTask ShowText()
     {
         if (IsShowText) { return; } // すでに文章を表示しているならリターン
