@@ -11,4 +11,8 @@ public class CameraPositionDatabase
     public float rotX;
     public float rotY;
     public float rotZ;
+    public string FirstHint;
+    public string SecondHint;
+    public int ShowFirstHintNeedItemId;
+    public int ShowSecondHintNeedItemId;    
 }

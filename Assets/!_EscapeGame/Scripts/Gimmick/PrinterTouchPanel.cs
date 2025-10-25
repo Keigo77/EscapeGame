@@ -108,7 +108,7 @@ public class PrinterTouchPanel : MonoBehaviour
     /// </summary>
     private bool IsOperationPanel()
     {
-        if (_cameraMoveRecorder.MovePosisionsHistory.Count < 3)
+        if (_cameraMoveRecorder.CameraIdStack.Count < 3)
         {
             _moveCamera.MoveIDPosCamera(5);
             return false;

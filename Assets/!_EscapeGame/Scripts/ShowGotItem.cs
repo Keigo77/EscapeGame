@@ -115,4 +115,17 @@ public class ShowGotItem : MonoBehaviour
             _showItemButton.image.color = new Color(0.41f, 0.45f, 1, 1);
         }
     }
+
+    public bool GetContainItemId(int itemId)
+    {
+        foreach (var itemData in _gotItemDatas)
+        {
+            if (itemData.itemID == itemId)
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 }
