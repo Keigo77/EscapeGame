@@ -10,6 +10,7 @@ public class ShowHint : MonoBehaviour
     [SerializeField] private CameraPositionExcel _cameraPositionExcel;
     [SerializeField] private ShowGotItem _showGotItem;
     [SerializeField] private TextMeshProUGUI _hintCountText;
+    [SerializeField] private GameObject _hintTutorial;
     private ShowTextMessage _showTextMessage;
     private int _showHintCount = 0;
     private int _beforeCameraId = -100;
@@ -17,6 +18,12 @@ public class ShowHint : MonoBehaviour
     private void Start()
     {
         _showTextMessage = this.GetComponent<ShowTextMessage>();
+        
+        if (!ES3.KeyExists("IsShowedHintTutorial"))
+        {
+            _hintTutorial.SetActive(true);
+            ES3.Save<bool>("IsShowedHintTutorial", true);
+        }
     }
 
     public void HintButtonClicked()
